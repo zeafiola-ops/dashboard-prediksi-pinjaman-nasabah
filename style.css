@@ -1,37 +1,40 @@
-/* =====================================================
-   DASHBOARD PREDIKSI STATUS PINJAMAN NASABAH
-   Theme : Premium Banking Dashboard
-   Author : Muhammad Rizki Maulidin
-===================================================== */
+/*==================================================
+ Dashboard Prediksi Status Pinjaman Nasabah
+ Theme : Modern Banking Dashboard
+ Author : Muhammad Rizki Maulidin
+===================================================*/
 
-/* Import Font */
+/* FONT */
+
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap');
-
-/* =========================
-   GLOBAL
-========================= */
 
 html,
 body,
 [class*="css"]{
-    font-family:'Poppins',sans-serif;
+
+font-family:'Poppins',sans-serif;
+
 }
 
-/* Background */
+/*==================================================
+BACKGROUND
+===================================================*/
 
 .stApp{
 
 background:
 linear-gradient(
 135deg,
-#FFFDF7 0%,
-#FDF6EC 35%,
-#EEF5FF 75%,
+#FFFDF8 0%,
+#FFF8EC 30%,
+#EEF6FF 70%,
 #FFFFFF 100%);
 
 }
 
-/* Header */
+/*==================================================
+HEADER
+===================================================*/
 
 header{
 
@@ -39,31 +42,20 @@ background:transparent;
 
 }
 
-/* Main Container */
-
-.main .block-container{
-
-padding-top:2rem;
-padding-left:2rem;
-padding-right:2rem;
-padding-bottom:2rem;
-
-}
-
-/* =========================
-   SIDEBAR
-========================= */
+/*==================================================
+SIDEBAR
+===================================================*/
 
 section[data-testid="stSidebar"]{
 
 background:
 linear-gradient(
 180deg,
-#0F172A 0%,
-#172554 45%,
-#1E3A8A 100%);
+#4F8EF7 0%,
+#73AEFF 55%,
+#A8D1FF 100%);
 
-border-right:4px solid #D4A017;
+border-right:4px solid #F6C453;
 
 }
 
@@ -71,23 +63,45 @@ section[data-testid="stSidebar"] *{
 
 color:white;
 
+font-weight:500;
+
 }
+
+/* Hover Menu */
 
 section[data-testid="stSidebar"] button{
 
 border-radius:12px;
 
+transition:.3s;
+
 }
 
 section[data-testid="stSidebar"] button:hover{
 
-background:#2563EB;
+background:rgba(255,255,255,.25);
 
 }
 
-/* =========================
-   TITLE
-========================= */
+/*==================================================
+CONTAINER
+===================================================*/
+
+.main .block-container{
+
+padding-top:2rem;
+
+padding-left:2rem;
+
+padding-right:2rem;
+
+padding-bottom:2rem;
+
+}
+
+/*==================================================
+TITLE
+===================================================*/
 
 h1{
 
@@ -95,17 +109,17 @@ font-size:48px;
 
 font-weight:800;
 
-color:#0F172A;
+color:#1E3A8A;
 
 }
 
 h2{
 
-font-size:34px;
+font-size:32px;
 
 font-weight:700;
 
-color:#1D4ED8;
+color:#2563EB;
 
 }
 
@@ -115,7 +129,7 @@ font-size:24px;
 
 font-weight:600;
 
-color:#1E3A8A;
+color:#4F8EF7;
 
 }
 
@@ -123,11 +137,13 @@ p{
 
 font-size:16px;
 
+color:#374151;
+
 }
 
-/* =========================
-   CARD KPI
-========================= */
+/*==================================================
+CARD KPI
+===================================================*/
 
 div[data-testid="metric-container"]{
 
@@ -137,10 +153,10 @@ padding:22px;
 
 border-radius:22px;
 
-border-top:6px solid #D4A017;
+border-left:8px solid #4F8EF7;
 
 box-shadow:
-0 12px 30px rgba(0,0,0,.08);
+0 8px 20px rgba(0,0,0,.08);
 
 transition:.35s;
 
@@ -148,58 +164,35 @@ transition:.35s;
 
 div[data-testid="metric-container"]:hover{
 
-transform:translateY(-8px);
+transform:translateY(-6px);
 
 box-shadow:
-0 18px 35px rgba(0,0,0,.15);
+0 15px 35px rgba(79,142,247,.25);
 
 }
 
-/* =========================
-   BUTTON
-========================= */
+/*==================================================
+PLOT
+===================================================*/
 
-.stButton>button{
+div[data-testid="stPlotlyChart"]{
 
-width:100%;
+background:white;
 
-height:52px;
+padding:18px;
 
-border:none;
+border-radius:22px;
 
-border-radius:15px;
+box-shadow:
+0 8px 20px rgba(0,0,0,.08);
 
-font-weight:600;
-
-color:white;
-
-background:
-linear-gradient(
-90deg,
-#2563EB,
-#1D4ED8);
-
-transition:.3s;
+border:2px solid #FFF1CC;
 
 }
 
-.stButton>button:hover{
-
-background:
-linear-gradient(
-90deg,
-#D4A017,
-#FBBF24);
-
-color:#0F172A;
-
-transform:scale(1.03);
-
-}
-
-/* =========================
-   DATAFRAME
-========================= */
+/*==================================================
+DATAFRAME
+===================================================*/
 
 div[data-testid="stDataFrame"]{
 
@@ -210,53 +203,78 @@ padding:15px;
 border-radius:20px;
 
 box-shadow:
-0 10px 25px rgba(0,0,0,.08);
+0 8px 20px rgba(0,0,0,.08);
 
 }
 
-/* =========================
-   CHART
-========================= */
+/*==================================================
+BUTTON
+===================================================*/
 
-div[data-testid="stPlotlyChart"]{
+.stButton>button{
 
-background:white;
+width:100%;
 
-padding:18px;
+height:50px;
 
-border-radius:20px;
+border:none;
 
-box-shadow:
-0 10px 25px rgba(0,0,0,.08);
+border-radius:15px;
 
-border:1px solid #F3E8C8;
+background:
+linear-gradient(
+90deg,
+#4F8EF7,
+#2563EB);
+
+color:white;
+
+font-size:16px;
+
+font-weight:600;
+
+transition:.3s;
 
 }
 
-/* =========================
-   EXPANDER
-========================= */
+.stButton>button:hover{
+
+background:
+linear-gradient(
+90deg,
+#FFD977,
+#F6C453);
+
+color:#1E3A8A;
+
+transform:scale(1.03);
+
+}
+
+/*==================================================
+EXPANDER
+===================================================*/
 
 details{
 
-background:white;
+background:#FFFFFF;
 
 border-radius:18px;
 
-padding:10px;
+padding:12px;
 
 box-shadow:
 0 8px 18px rgba(0,0,0,.08);
 
 }
 
-/* =========================
-   INPUT
-========================= */
+/*==================================================
+INPUT
+===================================================*/
 
+.stSelectbox,
 .stTextInput,
-.stNumberInput,
-.stSelectbox{
+.stNumberInput{
 
 background:white;
 
@@ -264,21 +282,9 @@ border-radius:15px;
 
 }
 
-/* =========================
-   TABLE
-========================= */
-
-table{
-
-border-radius:18px;
-
-overflow:hidden;
-
-}
-
-/* =========================
-   HORIZONTAL LINE
-========================= */
+/*==================================================
+HR
+===================================================*/
 
 hr{
 
@@ -286,9 +292,9 @@ border:1px solid #E5E7EB;
 
 }
 
-/* =========================
-   SCROLLBAR
-========================= */
+/*==================================================
+SCROLLBAR
+===================================================*/
 
 ::-webkit-scrollbar{
 
@@ -298,7 +304,7 @@ width:10px;
 
 ::-webkit-scrollbar-thumb{
 
-background:#2563EB;
+background:#4F8EF7;
 
 border-radius:20px;
 
@@ -306,15 +312,15 @@ border-radius:20px;
 
 ::-webkit-scrollbar-track{
 
-background:#F5F5F5;
+background:#F8F8F8;
 
 }
 
-/* =========================
-   ANIMATION
-========================= */
+/*==================================================
+ANIMATION
+===================================================*/
 
-@keyframes fadeUp{
+@keyframes fadeIn{
 
 from{
 
@@ -336,6 +342,6 @@ transform:translateY(0px);
 
 .main{
 
-animation:fadeUp .7s ease;
+animation:fadeIn .7s ease;
 
 }
