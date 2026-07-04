@@ -99,3 +99,28 @@ analisis data.
 )
 
 st.markdown("<br>", unsafe_allow_html=True)
+with col1:
+
+    st.markdown(f"""
+<div class="kpi-card">
+
+<div class="kpi-left kpi-blue">
+
+<i class="bi bi-database-fill"></i>
+
+</div>
+
+<div class="kpi-right">
+
+<div class="kpi-title">
+Total Data
+</div>
+
+<div class="kpi-value">
+{len(df):,}
+</div>
+
+</div>
+
+</div>
+""",unsafe_allow_html=True)
