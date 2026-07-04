@@ -300,12 +300,12 @@ with col6:
         "👤 Rata-rata Usia",
         f"{rata_usia:.1f} Tahun"
     )
-    with col7:
+with col7:
     st.metric(
         "💼 Lama Bekerja",
         f"{rata_lama_bekerja:.1f} Tahun"
     )
-    with col8:
+with col8:
     st.metric(
         "📅 Riwayat Kredit",
         f"{rata_riwayat:.1f} Tahun"
