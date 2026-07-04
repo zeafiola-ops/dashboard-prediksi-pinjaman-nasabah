@@ -234,24 +234,24 @@ st.markdown("<br>", unsafe_allow_html=True)
 # VISUALISASI DATA
 # ==========================================================
 
-st.markdown("---")
+st.divider()
 
 st.markdown("""
 <h2 style="
 color:#1E3A8A;
-font-weight:700;
+font-size:34px;
+font-weight:800;
 margin-bottom:5px;
 ">
-
 📊 Visualisasi Data
-</h2>""", unsafe_allow_html=True)
+</h2>
+""", unsafe_allow_html=True)
 st.markdown("""
 <p style="
 color:#64748B;
-font-size:16px;
+font-size:17px;
 margin-top:0px;
 margin-bottom:20px;
-">Visualisasi karakteristik data dan hasil prediksi status pinjaman nasabah menggunakan metode Random Forest.
-
+">Visualisasi karakteristik data dan hasil prediksi status pinjaman nasabah menggunakan algoritma <b>Random Forest</b>.
 </p>
 """, unsafe_allow_html=True)
