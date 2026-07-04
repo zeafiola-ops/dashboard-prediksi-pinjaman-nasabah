@@ -359,7 +359,7 @@ fig_scatter.update_layout(
 
 with col4:
     st.plotly_chart(fig_scatter, use_container_width=True)
-    # ==========================================================
+# ==========================================================
 # PREVIEW DATASET
 # ==========================================================
 
@@ -368,19 +368,43 @@ st.divider()
 st.markdown("""
 <h2 style="
 color:#2F3A4A;
-font-size:30px;
-font-weight:800;
+font-size:32px;
+font-weight:700;
+margin-bottom:0px;
 ">
 📋 Preview Dataset
 </h2>
 """, unsafe_allow_html=True)
 
-st.write(
-    "Menampilkan sebagian data hasil prediksi yang digunakan pada dashboard."
-)
+st.markdown("""
+<p style="
+font-size:17px;
+color:#5F6B7A;
+margin-top:-10px;
+">
+Menampilkan seluruh fitur dataset yang digunakan pada proses analisis
+dan prediksi status pinjaman nasabah.
+</p>
+""", unsafe_allow_html=True)
 
+# Informasi dataset
+col1, col2, col3 = st.columns(3)
+
+with col1:
+    st.info(f"📄 Jumlah Data : **{len(df_filter):,}**")
+
+with col2:
+    st.info(f"📊 Jumlah Fitur : **{df_filter.shape[1]}**")
+
+with col3:
+    st.info(f"📌 Kolom Target : **status_prediksi**")
+
+st.markdown("<br>", unsafe_allow_html=True)
+
+# Preview Dataset
 st.dataframe(
     df_filter,
     use_container_width=True,
-    height=450
+    hide_index=True,
+    height=500
 )
