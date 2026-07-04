@@ -112,7 +112,7 @@ st.markdown("## 📊 Ringkasan Dashboard")
 total_data = len(df)
 
 # Ganti nama kolom jika berbeda
-status_column = "Status Pinjaman"
+status_column = "Status Prediksi"
 
 if status_column in df.columns:
 
