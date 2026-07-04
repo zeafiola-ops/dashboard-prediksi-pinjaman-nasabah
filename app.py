@@ -244,8 +244,7 @@ margin-bottom:5px;
 ">
 
 📊 Visualisasi Data
-</h2>
-""", unsafe_allow_html=True)
+</h2>""", unsafe_allow_html=True)
 st.markdown("""
 <p style="
 color:#64748B;
