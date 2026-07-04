@@ -408,3 +408,14 @@ st.dataframe(
     hide_index=True,
     height=500
 )
+st.markdown("""
+<div class="footer">
+
+<h3>Dashboard Prediksi Status Pinjaman Nasabah</h3>
+
+<p>Menggunakan Metode Random Forest</p>
+
+<p>© 2026 | Sistem Informasi | Business Intelligence</p>
+
+</div>
+""", unsafe_allow_html=True)
