@@ -102,59 +102,84 @@ st.markdown("<br>", unsafe_allow_html=True)
 # ==========================================================
 # BAGIAN 3 - KPI DASHBOARD
 # ==========================================================
+# ==========================================================
+# KPI DASHBOARD
+# ==========================================================
 
 st.markdown("## 📊 Ringkasan Dashboard")
 
-# ==========================
-# Hitung KPI
-# ==========================
+# ==============================
+# Menghitung KPI
+# ==============================
 
 total_data = len(df)
 
-# Ganti nama kolom jika berbeda
-status_column = "Status Prediksi"
+total_lancar = len(df[df["status_prediksi"] == 1])
 
-if status_column in df.columns:
-
-    total_lancar = len(df[df[status_column] == "1"])
-
-    total_tidak_lancar = len(df[df[status_column] == "0"])
-
-else:
-
-    total_lancar = 0
-    total_tidak_lancar = 0
+total_tidak_lancar = len(df[df["status_prediksi"] == 0])
 
 nama_model = "Random Forest"
 
-# ==========================
-# KPI
-# ==========================
+# ==============================
+# Membuat 4 Kolom
+# ==============================
 
 col1, col2, col3, col4 = st.columns(4)
 
+# ==============================
+# KPI 1
+# ==============================
+
 with col1:
+
     st.metric(
-        label="📊 Total Data",
+
+        label="👥 Total Data",
+
         value=f"{total_data:,}"
+
     )
+
+# ==============================
+# KPI 2
+# ==============================
 
 with col2:
+
     st.metric(
+
         label="✅ Status Lancar",
+
         value=f"{total_lancar:,}"
+
     )
+
+# ==============================
+# KPI 3
+# ==============================
 
 with col3:
+
     st.metric(
+
         label="❌ Tidak Lancar",
+
         value=f"{total_tidak_lancar:,}"
+
     )
 
+# ==============================
+# KPI 4
+# ==============================
+
 with col4:
+
     st.metric(
+
         label="🌲 Model",
+
         value=nama_model
+
     )
 
 st.markdown("<br>", unsafe_allow_html=True)
