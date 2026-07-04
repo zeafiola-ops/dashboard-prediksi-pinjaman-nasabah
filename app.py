@@ -300,12 +300,34 @@ fig_pie = px.pie(
 
 fig_pie.update_layout(
     title_x=0.5,
+    height=430,
     paper_bgcolor="rgba(0,0,0,0)",
-    plot_bgcolor="rgba(0,0,0,0)"
+    plot_bgcolor="rgba(0,0,0,0)",
+    legend_title="Status Prediksi"
+)
+
+fig_pie.update_traces(
+    textinfo="percent+label",
+    textfont_size=15,
+    pull=[0.03,0],
+    hovertemplate=
+    "<b>%{label}</b><br>" +
+    "Jumlah : %{value}<br>" +
+    "Persentase : %{percent}<extra></extra>"
 )
 
 with col1:
-    st.plotly_chart(fig_pie, use_container_width=True)
+    st.plotly_chart(
+        fig_pie,
+        use_container_width=True,
+        config={
+            "displaylogo":False
+        }
+    )
+
+    st.caption(
+        "Grafik menunjukkan proporsi status pinjaman nasabah berdasarkan hasil prediksi Random Forest."
+    )
 
 # BAR CHART
 status_count = status.value_counts().reset_index()
@@ -323,16 +345,36 @@ fig_bar = px.bar(
     },
     title="Jumlah Status Prediksi"
 )
-
 fig_bar.update_layout(
     title_x=0.5,
+    height=430,
     paper_bgcolor="rgba(0,0,0,0)",
-    plot_bgcolor="rgba(0,0,0,0)"
+    plot_bgcolor="rgba(0,0,0,0)",
+    xaxis_title="Status Prediksi",
+    yaxis_title="Jumlah Nasabah"
+)
+
+fig_bar.update_traces(
+    textposition="outside",
+    marker_line_color="white",
+    marker_line_width=2,
+    hovertemplate=
+    "<b>%{x}</b><br>" +
+    "Jumlah Nasabah : %{y}<extra></extra>"
 )
 
 with col2:
-    st.plotly_chart(fig_bar, use_container_width=True)
+    st.plotly_chart(
+        fig_bar,
+        use_container_width=True,
+        config={
+            "displaylogo":False
+        }
+    )
 
+    st.caption(
+        "Grafik batang membandingkan jumlah nasabah berdasarkan status pinjaman."
+    )
 # ==========================================================
 # HISTOGRAM & SCATTER
 # ==========================================================
@@ -352,14 +394,31 @@ fig_hist = px.histogram(
 
 fig_hist.update_layout(
     title_x=0.5,
+    height=430,
     paper_bgcolor="rgba(0,0,0,0)",
     plot_bgcolor="rgba(0,0,0,0)",
     xaxis_title="Jumlah Pinjaman",
-    yaxis_title="Jumlah Nasabah"
+    yaxis_title="Frekuensi"
 )
 
+fig_hist.update_traces(
+    opacity=0.9,
+    hovertemplate=
+    "Jumlah Pinjaman : %{x}<br>" +
+    "Frekuensi : %{y}<extra></extra>"
+)
 with col3:
-    st.plotly_chart(fig_hist, use_container_width=True)
+    st.plotly_chart(
+        fig_hist,
+        use_container_width=True,
+        config={
+            "displaylogo":False
+        }
+    )
+
+    st.caption(
+        "Histogram menunjukkan distribusi jumlah pinjaman yang diajukan oleh nasabah."
+    )
     # Scatter Plot
 fig_scatter = px.scatter(
     df_filter,
@@ -375,14 +434,37 @@ fig_scatter = px.scatter(
 
 fig_scatter.update_layout(
     title_x=0.5,
+    height=430,
     paper_bgcolor="rgba(0,0,0,0)",
     plot_bgcolor="rgba(0,0,0,0)",
     xaxis_title="Skor Kredit",
     yaxis_title="Jumlah Pinjaman"
 )
 
+fig_scatter.update_traces(
+    marker=dict(
+        size=10,
+        line=dict(
+            width=1,
+            color="white"
+        )
+    ),
+    hovertemplate=
+    "Skor Kredit : %{x}<br>" +
+    "Jumlah Pinjaman : %{y}<extra></extra>"
+)
 with col4:
-    st.plotly_chart(fig_scatter, use_container_width=True)
+    st.plotly_chart(
+        fig_scatter,
+        use_container_width=True,
+        config={
+            "displaylogo":False
+        }
+    )
+
+    st.caption(
+        "Scatter plot menunjukkan hubungan antara skor kredit dan jumlah pinjaman nasabah."
+    )
 # ==========================================================
 # PREVIEW DATASET
 # ==========================================================
