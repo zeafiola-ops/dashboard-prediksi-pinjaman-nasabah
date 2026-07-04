@@ -255,3 +255,56 @@ margin-bottom:20px;
 ">Visualisasi karakteristik data dan hasil prediksi status pinjaman nasabah menggunakan algoritma <b>Random Forest</b>.
 </p>
 """, unsafe_allow_html=True)
+status = df["status_prediksi"].replace({
+    1: "Lancar",
+    0: "Tidak Lancar"
+})
+
+col1, col2 = st.columns(2)
+
+# PIE CHART
+fig_pie = px.pie(
+    names=status,
+    hole=0.45,
+    title="Persentase Status Prediksi",
+    color=status,
+    color_discrete_map={
+        "Lancar": "#2563EB",
+        "Tidak Lancar": "#EF4444"
+    }
+)
+
+fig_pie.update_layout(
+    title_x=0.5,
+    paper_bgcolor="rgba(0,0,0,0)",
+    plot_bgcolor="rgba(0,0,0,0)"
+)
+
+with col1:
+    st.plotly_chart(fig_pie, use_container_width=True)
+
+# BAR CHART
+status_count = status.value_counts().reset_index()
+status_count.columns = ["Status", "Jumlah"]
+
+fig_bar = px.bar(
+    status_count,
+    x="Status",
+    y="Jumlah",
+    text="Jumlah",
+    color="Status",
+    color_discrete_map={
+        "Lancar": "#2563EB",
+        "Tidak Lancar": "#EF4444"
+    },
+    title="Jumlah Status Prediksi"
+)
+
+fig_bar.update_layout(
+    title_x=0.5,
+    paper_bgcolor="rgba(0,0,0,0)",
+    plot_bgcolor="rgba(0,0,0,0)"
+)
+
+with col2:
+    st.plotly_chart(fig_bar, use_container_width=True)
