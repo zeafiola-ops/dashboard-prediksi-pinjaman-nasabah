@@ -82,9 +82,7 @@ line-height:1.1;
 ">
 
 Selamat Datang
-
 </h1>
-
 <h3 style="
 font-size:30px;
 font-weight:700;
@@ -92,21 +90,16 @@ color:#2563EB;
 margin:8px 0 6px 0;
 line-height:1.2;
 ">
-
 Dashboard Prediksi Status Pinjaman Nasabah
-
 </h3>
-
 <p style="
 font-size:19px;
 color:#64748B;
 margin:0;
 line-height:1.5;
 ">
-
 Analisis Prediksi Status Pinjaman Nasabah<br>
 Menggunakan Metode <b>Random Forest</b>
-
 </p>
 
 </div>
