@@ -70,13 +70,15 @@ with col2:
     st.image(logo, width=170)
 
 st.markdown("""
-<div style="text-align:center; margin-top:-35px;">
+<div style="text-align:center; margin-top:-25px;">
 
 <h1 style="
-color:#1E3A8A;
-font-size:58px;
+font-size:60px;
 font-weight:900;
-margin-bottom:8px;
+color:#1E3A8A;
+margin:0;
+padding:0;
+line-height:1.1;
 ">
 
 Selamat Datang
@@ -84,11 +86,11 @@ Selamat Datang
 </h1>
 
 <h3 style="
-color:#2563EB;
-font-size:28px;
+font-size:30px;
 font-weight:700;
-margin-top:0px;
-margin-bottom:5px;
+color:#2563EB;
+margin:8px 0 6px 0;
+line-height:1.2;
 ">
 
 Dashboard Prediksi Status Pinjaman Nasabah
@@ -98,8 +100,8 @@ Dashboard Prediksi Status Pinjaman Nasabah
 <p style="
 font-size:19px;
 color:#64748B;
-margin-top:0px;
-line-height:1.4;
+margin:0;
+line-height:1.5;
 ">
 
 Analisis Prediksi Status Pinjaman Nasabah<br>
