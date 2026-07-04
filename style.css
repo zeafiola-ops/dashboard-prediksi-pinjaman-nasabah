@@ -1,1 +1,71 @@
+/* =======================================
+   DASHBOARD PREDIKSI STATUS PINJAMAN
+   Theme : Navy Blue Professional
+======================================= */
 
+/* Background */
+.stApp{
+    background:#F8FAFC;
+}
+
+/* Sidebar */
+section[data-testid="stSidebar"]{
+    background:#0F172A;
+}
+
+section[data-testid="stSidebar"] *{
+    color:white;
+}
+
+/* Header */
+header{
+    background:transparent;
+}
+
+/* Card */
+div[data-testid="metric-container"]{
+    background:white;
+    border-radius:18px;
+    padding:18px;
+    box-shadow:0 8px 18px rgba(0,0,0,0.08);
+    border-left:6px solid #2563EB;
+}
+
+/* Tombol */
+.stButton>button{
+    background:#2563EB;
+    color:white;
+    border-radius:10px;
+    border:none;
+    transition:0.3s;
+}
+
+.stButton>button:hover{
+    background:#1D4ED8;
+    transform:scale(1.03);
+}
+
+/* Dataframe */
+div[data-testid="stDataFrame"]{
+    border-radius:15px;
+    overflow:hidden;
+}
+
+/* Judul */
+h1{
+    color:#0F172A;
+    font-weight:800;
+}
+
+h2{
+    color:#2563EB;
+}
+
+h3{
+    color:#1E3A8A;
+}
+
+/* Garis */
+hr{
+    border:1px solid #CBD5E1;
+}
