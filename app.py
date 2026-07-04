@@ -68,40 +68,45 @@ logo = Image.open(LOGO_PATH)
 col1, col2, col3 = st.columns([2,1,2])
 
 with col2:
-    
-    st.image(logo, width=170)
+    st.image(logo, width=180)
+
+# Jarak logo ke judul
+st.markdown("<div style='height:15px'></div>", unsafe_allow_html=True)
 
 st.markdown("""
-<div style="text-align:center; margin-top:-25px;">
+<div style="text-align:center;">
 
 <h1 style="
 font-size:60px;
 font-weight:900;
 color:#1E3A8A;
+line-height:1.0;
 margin:0;
-padding:0;
-line-height:1.1;
 ">
 Selamat Datang
 
 </h1>
+
 <h3 style="
 font-size:30px;
 font-weight:700;
 color:#2563EB;
-margin:8px 0 6px 0;
-line-height:1.2;
+line-height:1.0;
+margin:8px 0px 5px 0px;
 ">
 Dashboard Prediksi Status Pinjaman Nasabah
+
 </h3>
+
 <p style="
 font-size:19px;
 color:#64748B;
+line-height:1.4;
 margin:0;
-line-height:1.5;
 ">
 Analisis Prediksi Status Pinjaman Nasabah<br>
 Menggunakan Metode <b>Random Forest</b>
+
 </p>
 
 </div>
