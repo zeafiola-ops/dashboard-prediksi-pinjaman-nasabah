@@ -99,36 +99,3 @@ analisis data.
 )
 
 st.markdown("<br>", unsafe_allow_html=True)
-col1,col2,col3,col4 = st.columns(4)
-
-with col1:
-    st.metric(
-        "Total Data",
-        f"{len(df):,}"
-    )
-
-with col2:
-    st.metric(
-        "Jumlah Fitur",
-        len(feature_names)
-    )
-
-with col3:
-
-    if model is not None:
-        st.metric(
-            "Model",
-            "Random Forest"
-        )
-    else:
-        st.metric(
-            "Model",
-            "-"
-        )
-
-with col4:
-
-    st.metric(
-        "Status",
-        "Aktif"
-    )
