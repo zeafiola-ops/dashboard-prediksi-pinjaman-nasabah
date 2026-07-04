@@ -69,38 +69,53 @@ col1, col2, col3 = st.columns([2,1,2])
 with col2:
     st.image(logo, width=180)
 
+# Judul
 st.markdown("""
-<h1 style='text-align:center;
+<h1 style="
+text-align:center;
 color:#1E3A8A;
-font-size:52px;
-font-weight:800;'>
+font-size:60px;
+font-weight:800;
+margin-top:-10px;
+margin-bottom:5px;
+">
 
 Selamat Datang
 
 </h1>
 """, unsafe_allow_html=True)
 
+# Sub Judul
 st.markdown("""
-<h3 style='text-align:center;
-color:#2563EB;'>
+<h3 style="
+text-align:center;
+color:#2563EB;
+font-size:30px;
+font-weight:600;
+margin-top:0px;
+margin-bottom:5px;
+">
 
 Dashboard Prediksi Status Pinjaman Nasabah
 
 </h3>
 """, unsafe_allow_html=True)
 
+# Deskripsi Singkat
 st.markdown("""
-<p style='text-align:center;
-font-size:18px;
-color:#64748B;'>
+<p style="
+text-align:center;
+font-size:20px;
+color:#64748B;
+margin-top:0px;
+margin-bottom:20px;
+">
 
 Analisis Prediksi Status Pinjaman Nasabah
-Menggunakan Metode Random Forest
+Menggunakan Metode <b>Random Forest</b>
 
 </p>
 """, unsafe_allow_html=True)
-
-st.markdown("<br>", unsafe_allow_html=True)
 # ==========================================
 # LOAD CSS
 # ==========================================
