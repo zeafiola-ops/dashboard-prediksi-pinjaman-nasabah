@@ -68,5 +68,12 @@ st.image(logo, width=120)
 st.title("Selamat Datang")
 
 st.write("Dashboard Prediksi Status Pinjaman Nasabah")
+# ==========================================
+# LOAD CSS
+# ==========================================
+def load_css():
+    with open("style.css") as f:
+        st.markdown(f"<style>{f.read()}</style>", unsafe_allow_html=True)
 
+load_css()
 st.success("Project berhasil dimuat.")
