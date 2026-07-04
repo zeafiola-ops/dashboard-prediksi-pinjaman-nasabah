@@ -1,6 +1,7 @@
 import streamlit as st
 import pandas as pd
 import joblib
+import plotly.express as px
 from pathlib import Path
 from PIL import Image
 
@@ -228,3 +229,25 @@ with col4:
     )
 
 st.markdown("<br>", unsafe_allow_html=True)
+# ==========================================================
+# BAGIAN 4
+# VISUALISASI DATA
+# ==========================================================
+
+st.markdown("---")
+
+st.markdown("""
+<h2 style='text-align:center;color:#1E3A8A;'>
+
+📊 Visualisasi Data
+
+</h2>
+""", unsafe_allow_html=True)
+
+st.markdown("""
+<p style='text-align:center;color:#64748B;'>
+
+Visualisasi karakteristik data dan hasil prediksi status pinjaman nasabah.
+
+</p>
+""", unsafe_allow_html=True)
