@@ -252,8 +252,7 @@ color:#64748B;
 font-size:16px;
 margin-top:0px;
 margin-bottom:20px;
-">
-Visualisasi karakteristik data dan hasil prediksi status pinjaman nasabah menggunakan metode Random Forest.
+">Visualisasi karakteristik data dan hasil prediksi status pinjaman nasabah menggunakan metode Random Forest.
 
 </p>
 """, unsafe_allow_html=True)
