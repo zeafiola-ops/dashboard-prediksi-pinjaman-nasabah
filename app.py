@@ -309,3 +309,78 @@ fig_bar.update_layout(
 with col2:
     st.plotly_chart(fig_bar, use_container_width=True)
 
+# ==========================================================
+# HISTOGRAM & SCATTER
+# ==========================================================
+
+st.markdown("<br>", unsafe_allow_html=True)
+
+col3, col4 = st.columns(2)
+
+# Histogram Jumlah Pinjaman
+fig_hist = px.histogram(
+    df_filter,
+    x="jumlah_pinjaman",
+    nbins=20,
+    title="Distribusi Jumlah Pinjaman",
+    color_discrete_sequence=["#2563EB"]
+)
+
+fig_hist.update_layout(
+    title_x=0.5,
+    paper_bgcolor="rgba(0,0,0,0)",
+    plot_bgcolor="rgba(0,0,0,0)",
+    xaxis_title="Jumlah Pinjaman",
+    yaxis_title="Jumlah Nasabah"
+)
+
+with col3:
+    st.plotly_chart(fig_hist, use_container_width=True)
+    # Scatter Plot
+fig_scatter = px.scatter(
+    df_filter,
+    x="skor_kredit",
+    y="jumlah_pinjaman",
+    color=status,
+    title="Hubungan Skor Kredit dan Jumlah Pinjaman",
+    color_discrete_map={
+        "Lancar":"#2563EB",
+        "Tidak Lancar":"#EF4444"
+    }
+)
+
+fig_scatter.update_layout(
+    title_x=0.5,
+    paper_bgcolor="rgba(0,0,0,0)",
+    plot_bgcolor="rgba(0,0,0,0)",
+    xaxis_title="Skor Kredit",
+    yaxis_title="Jumlah Pinjaman"
+)
+
+with col4:
+    st.plotly_chart(fig_scatter, use_container_width=True)
+    # ==========================================================
+# PREVIEW DATASET
+# ==========================================================
+
+st.divider()
+
+st.markdown("""
+<h2 style="
+color:#2F3A4A;
+font-size:30px;
+font-weight:800;
+">
+📋 Preview Dataset
+</h2>
+""", unsafe_allow_html=True)
+
+st.write(
+    "Menampilkan sebagian data hasil prediksi yang digunakan pada dashboard."
+)
+
+st.dataframe(
+    df_filter,
+    use_container_width=True,
+    height=450
+)
