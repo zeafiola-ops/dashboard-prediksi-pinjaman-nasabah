@@ -77,44 +77,25 @@ def load_css():
 
 load_css()
 # =====================================================
-# HOME
+# DESKRIPSI DASHBOARD
 # =====================================================
 
+st.markdown("## 📋 Deskripsi Dashboard")
+
+st.markdown(
+"""
+Dashboard Prediksi Status Pinjaman Nasabah merupakan aplikasi visualisasi berbasis
+**Business Intelligence** yang dikembangkan untuk membantu proses analisis data
+pinjaman nasabah menggunakan **metode Random Forest**.
+
+Dashboard ini menyajikan informasi secara interaktif mulai dari ringkasan data,
+visualisasi karakteristik nasabah, evaluasi performa model, hingga fitur prediksi
+status pinjaman berdasarkan data yang dimasukkan oleh pengguna.
+
+Melalui dashboard ini, pengguna dapat memperoleh informasi secara lebih cepat,
+mudah dipahami, dan mendukung proses pengambilan keputusan berdasarkan hasil
+analisis data.
+"""
+)
+
 st.markdown("<br>", unsafe_allow_html=True)
-
-col1, col2, col3 = st.columns([1,2,1])
-
-with col2:
-    st.image(logo, width=180)
-
-st.markdown(
-    """
-    <h1 style='text-align:center;'>
-    Selamat Datang
-    </h1>
-    """,
-    unsafe_allow_html=True
-)
-
-st.markdown(
-    """
-    <h3 style='text-align:center;color:#2563EB;'>
-    Dashboard Prediksi Status Pinjaman Nasabah
-    </h3>
-    """,
-    unsafe_allow_html=True
-)
-
-st.markdown(
-    """
-    <p style='text-align:center;font-size:18px;color:#64748B;'>
-
-    Analisis Prediksi Status Pinjaman Nasabah
-    Menggunakan Metode Random Forest
-
-    </p>
-    """,
-    unsafe_allow_html=True
-)
-
-st.divider()
