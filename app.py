@@ -61,13 +61,46 @@ except:
 logo = Image.open(LOGO_PATH)
 
 # ==========================================
-# HOME SEMENTARA
+# HOME
 # ==========================================
-st.image(logo, width=120)
 
-st.title("Selamat Datang")
+col1, col2, col3 = st.columns([2,1,2])
 
-st.write("Dashboard Prediksi Status Pinjaman Nasabah")
+with col2:
+    st.image(logo, width=180)
+
+st.markdown("""
+<h1 style='text-align:center;
+color:#1E3A8A;
+font-size:52px;
+font-weight:800;'>
+
+Selamat Datang
+
+</h1>
+""", unsafe_allow_html=True)
+
+st.markdown("""
+<h3 style='text-align:center;
+color:#2563EB;'>
+
+Dashboard Prediksi Status Pinjaman Nasabah
+
+</h3>
+""", unsafe_allow_html=True)
+
+st.markdown("""
+<p style='text-align:center;
+font-size:18px;
+color:#64748B;'>
+
+Analisis Prediksi Status Pinjaman Nasabah
+Menggunakan Metode Random Forest
+
+</p>
+""", unsafe_allow_html=True)
+
+st.markdown("<br>", unsafe_allow_html=True)
 # ==========================================
 # LOAD CSS
 # ==========================================
