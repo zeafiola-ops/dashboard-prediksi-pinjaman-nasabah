@@ -116,9 +116,9 @@ status_column = "Status Pinjaman"
 
 if status_column in df.columns:
 
-    total_lancar = len(df[df[status_column] == "Lancar"])
+    total_lancar = len(df[df[status_column] == "1"])
 
-    total_tidak_lancar = len(df[df[status_column] == "Tidak Lancar"])
+    total_tidak_lancar = len(df[df[status_column] == "0"])
 
 else:
 
