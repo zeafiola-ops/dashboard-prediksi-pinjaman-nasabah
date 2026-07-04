@@ -215,17 +215,19 @@ status = df_filter["status_prediksi"].replace({
     1: "Lancar",
     0: "Tidak Lancar"
 })
-# ==========================================
+# ==========================================================
 # PERHITUNGAN KPI
-# ==========================================
+# ==========================================================
 
 total_data = len(df_filter)
 
 total_lancar = (df_filter["status_prediksi"] == 1).sum()
 
+total_tidak_lancar = (df_filter["status_prediksi"] == 0).sum()
+
 rata_pinjaman = df_filter["jumlah_pinjaman"].mean()
 
-rata_skor_kredit = df_filter["skor_kredit"].mean()
+rata_skor = df_filter["skor_kredit"].mean()
 
 rata_usia = df_filter["usia"].mean()
 
