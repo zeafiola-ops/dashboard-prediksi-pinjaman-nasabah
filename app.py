@@ -301,6 +301,7 @@ fig_pie = px.pie(
 fig_pie.update_layout(
     title_x=0.5,
     height=430,
+    transition_duration=500,
     paper_bgcolor="rgba(0,0,0,0)",
     plot_bgcolor="rgba(0,0,0,0)",
     legend_title="Status Prediksi"
@@ -348,6 +349,7 @@ fig_bar = px.bar(
 fig_bar.update_layout(
     title_x=0.5,
     height=430,
+    transition_duration=500,
     paper_bgcolor="rgba(0,0,0,0)",
     plot_bgcolor="rgba(0,0,0,0)",
     xaxis_title="Status Prediksi",
@@ -395,6 +397,7 @@ fig_hist = px.histogram(
 fig_hist.update_layout(
     title_x=0.5,
     height=430,
+    transition_duration=500,
     paper_bgcolor="rgba(0,0,0,0)",
     plot_bgcolor="rgba(0,0,0,0)",
     xaxis_title="Jumlah Pinjaman",
@@ -435,6 +438,7 @@ fig_scatter = px.scatter(
 fig_scatter.update_layout(
     title_x=0.5,
     height=430,
+    transition_duration=500,
     paper_bgcolor="rgba(0,0,0,0)",
     plot_bgcolor="rgba(0,0,0,0)",
     xaxis_title="Skor Kredit",
