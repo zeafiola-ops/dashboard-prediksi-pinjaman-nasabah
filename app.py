@@ -76,4 +76,45 @@ def load_css():
         st.markdown(f"<style>{f.read()}</style>", unsafe_allow_html=True)
 
 load_css()
-st.success("Project berhasil dimuat.")
+# =====================================================
+# HOME
+# =====================================================
+
+st.markdown("<br>", unsafe_allow_html=True)
+
+col1, col2, col3 = st.columns([1,2,1])
+
+with col2:
+    st.image(logo, width=180)
+
+st.markdown(
+    """
+    <h1 style='text-align:center;'>
+    Selamat Datang
+    </h1>
+    """,
+    unsafe_allow_html=True
+)
+
+st.markdown(
+    """
+    <h3 style='text-align:center;color:#2563EB;'>
+    Dashboard Prediksi Status Pinjaman Nasabah
+    </h3>
+    """,
+    unsafe_allow_html=True
+)
+
+st.markdown(
+    """
+    <p style='text-align:center;font-size:18px;color:#64748B;'>
+
+    Analisis Prediksi Status Pinjaman Nasabah
+    Menggunakan Metode Random Forest
+
+    </p>
+    """,
+    unsafe_allow_html=True
+)
+
+st.divider()
