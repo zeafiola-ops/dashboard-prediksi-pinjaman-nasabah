@@ -255,6 +255,13 @@ with col8:
         "📅 Riwayat Kredit",
         f"{rata_riwayat:.1f} Tahun"
     )
+status = df_filter["status_prediksi"].replace({
+    1: "Lancar",
+    0: "Tidak Lancar"
+})
+
+col1, col2 = st.columns(2)
+
 # PIE CHART
 fig_pie = px.pie(
     names=status,
@@ -298,4 +305,7 @@ fig_bar.update_layout(
     paper_bgcolor="rgba(0,0,0,0)",
     plot_bgcolor="rgba(0,0,0,0)"
 )
+
+with col2:
+    st.plotly_chart(fig_bar, use_container_width=True)
 
