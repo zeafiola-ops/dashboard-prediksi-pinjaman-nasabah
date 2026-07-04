@@ -349,18 +349,18 @@ animation:fadeUp .7s ease;
 ====================================== */
 
 .kpi-card{
-    background: linear-gradient(135deg,#1E3A8A,#1D4ED8);
+    background:#EAF3FF;
+    border-left:6px solid #3B82F6;
     border-radius:18px;
     padding:22px;
-    box-shadow:0 8px 20px rgba(30,58,138,.25);
+    box-shadow:0 8px 20px rgba(59,130,246,.15);
     transition:0.3s;
     margin-bottom:15px;
-    color:white;
 }
 
 .kpi-card:hover{
     transform:translateY(-5px);
-    box-shadow:0 15px 30px rgba(30,58,138,.35);
+    box-shadow:0 15px 30px rgba(59,130,246,.25);
 }
 
 .kpi-icon{
@@ -369,16 +369,16 @@ animation:fadeUp .7s ease;
 
 .kpi-title{
     font-size:15px;
-    color:#DBEAFE;
-    margin-top:10px;
+    color:#2563EB;
     font-weight:600;
+    margin-top:10px;
 }
 
 .kpi-value{
     font-size:32px;
     font-weight:800;
+    color:#1E3A8A;
     margin-top:8px;
-    color:white;
 }
 /* ==============================
    PREVIEW DATASET
