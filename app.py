@@ -215,7 +215,17 @@ status = df_filter["status_prediksi"].replace({
     1: "Lancar",
     0: "Tidak Lancar"
 })
+# ==========================================
+# PERHITUNGAN KPI
+# ==========================================
 
+total_data = len(df_filter)
+
+total_lancar = (df_filter["status_prediksi"] == 1).sum()
+
+rata_pinjaman = df_filter["jumlah_pinjaman"].mean()
+
+rata_skor_kredit = df_filter["skor_kredit"].mean()
 col1, col2 = st.columns(2)
 
 # PIE CHART
@@ -265,5 +275,4 @@ fig_bar.update_layout(
 with col2:
     st.plotly_chart(fig_bar, use_container_width=True)
 
-with col4:
-    st.metric("🌲 Model", "Random Forest")
+
