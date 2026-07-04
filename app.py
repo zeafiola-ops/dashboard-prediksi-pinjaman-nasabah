@@ -213,48 +213,72 @@ rata_lama_bekerja = df_filter["lama_bekerja_tahun"].mean()
 rata_riwayat = df_filter["lama_riwayat_kredit_tahun"].mean()
 col1, col2, col3, col4 = st.columns(4)
 with col1:
-    st.metric(
-        "👥 Total Data",
-        f"{total_data:,}"
-    )
+    st.markdown(f"""
+    <div class="kpi-card">
+        <div class="kpi-icon">👥</div>
+        <div class="kpi-title">Total Data</div>
+        <div class="kpi-value">{total_data:,}</div>
+    </div>
+    """, unsafe_allow_html=True)
 with col2:
-    st.metric(
-        "✅ Status Lancar",
-        f"{total_lancar:,}"
-    )
+    st.markdown(f"""
+    <div class="kpi-card">
+        <div class="kpi-icon">✅</div>
+        <div class="kpi-title">Status Lancar</div>
+        <div class="kpi-value">{total_lancar:,}</div>
+    </div>
+    """, unsafe_allow_html=True)
 with col3:
-    st.metric(
-        "❌ Tidak Lancar",
-        f"{total_tidak_lancar:,}"
-    )
+    st.markdown(f"""
+    <div class="kpi-card">
+        <div class="kpi-icon">❌</div>
+        <div class="kpi-title">Status Tidak Lancar</div>
+        <div class="kpi-value">{total_tidak_lancar:,}</div>
+    </div>
+    """, unsafe_allow_html=True)
 with col4:
-    st.metric(
-        "💰 Rata-rata Pinjaman",
-        f"Rp {rata_pinjaman:,.0f}"
-    )
+    st.markdown(f"""
+    <div class="kpi-card">
+        <div class="kpi-icon">💰</div>
+        <div class="kpi-title">Rata-rata Pinjaman</div>
+        <div class="kpi-value">Rp {rata_pinjaman:,.0f}</div>
+    </div>
+    """, unsafe_allow_html=True)
 st.markdown("<br>", unsafe_allow_html=True)
 
 col5, col6, col7, col8 = st.columns(4)
 with col5:
-    st.metric(
-        "⭐ Rata-rata Skor Kredit",
-        f"{rata_skor:.1f}"
-    )
+    st.markdown(f"""
+    <div class="kpi-card">
+        <div class="kpi-icon">⭐</div>
+        <div class="kpi-title">Rata-rata Skor Kredit</div>
+        <div class="kpi-value">{rata_skor:.1f}</div>
+    </div>
+    """, unsafe_allow_html=True)
 with col6:
-    st.metric(
-        "👤 Rata-rata Usia",
-        f"{rata_usia:.1f} Tahun"
-    )
+    st.markdown(f"""
+    <div class="kpi-card">
+        <div class="kpi-icon">👤</div>
+        <div class="kpi-title">Rata-rata Usia</div>
+        <div class="kpi-value">{rata_usia:.1f} Tahun</div>
+    </div>
+    """, unsafe_allow_html=True)
 with col7:
-    st.metric(
-        "💼 Lama Bekerja",
-        f"{rata_lama_bekerja:.1f} Tahun"
-    )
+    st.markdown(f"""
+    <div class="kpi-card">
+        <div class="kpi-icon">💼</div>
+        <div class="kpi-title">Lama Bekerja</div>
+        <div class="kpi-value">{rata_lama_bekerja:.1f} Tahun</div>
+    </div>
+    """, unsafe_allow_html=True)
 with col8:
-    st.metric(
-        "📅 Riwayat Kredit",
-        f"{rata_riwayat:.1f} Tahun"
-    )
+    st.markdown(f"""
+    <div class="kpi-card">
+        <div class="kpi-icon">📅</div>
+        <div class="kpi-title">Riwayat Kredit</div>
+        <div class="kpi-value">{rata_riwayat:.1f} Tahun</div>
+    </div>
+    """, unsafe_allow_html=True)
 status = df_filter["status_prediksi"].replace({
     1: "Lancar",
     0: "Tidak Lancar"
