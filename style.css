@@ -458,12 +458,14 @@ font-weight:700;
 color:#1E3A8A;
 
 }
-st.divider()
+/* ===========================
+   FOOTER
+=========================== */
 
-st.markdown("""
-<div style="text-align:center;color:gray;font-size:15px;">
-Dashboard Prediksi Status Pinjaman Nasabah<br>
-Metode Random Forest<br><br>
-© 2026 | Sistem Informasi | Business Intelligence
-</div>
-""", unsafe_allow_html=True)
+.footer{
+    margin-top:40px;
+    padding:25px;
+    text-align:center;
+    border-top:2px solid #E5E7EB;
+    color:#64748B;
+}
