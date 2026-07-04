@@ -226,6 +226,12 @@ total_lancar = (df_filter["status_prediksi"] == 1).sum()
 rata_pinjaman = df_filter["jumlah_pinjaman"].mean()
 
 rata_skor_kredit = df_filter["skor_kredit"].mean()
+
+rata_usia = df_filter["usia"].mean()
+
+rata_lama_bekerja = df_filter["lama_bekerja_tahun"].mean()
+
+rata_riwayat = df_filter["lama_riwayat_kredit_tahun"].mean()
 col1, col2 = st.columns(2)
 
 # PIE CHART
@@ -286,4 +292,19 @@ with col4:
     st.metric(
         label="⭐ Rata-rata Skor Kredit",
         value=f"{rata_skor_kredit:.1f}"
+    )
+with col6:
+    st.metric(
+        "👤 Rata-rata Usia",
+        f"{rata_usia:.1f} Tahun"
+    )
+    with col7:
+    st.metric(
+        "💼 Lama Bekerja",
+        f"{rata_lama_bekerja:.1f} Tahun"
+    )
+    with col8:
+    st.metric(
+        "📅 Riwayat Kredit",
+        f"{rata_riwayat:.1f} Tahun"
     )
