@@ -238,7 +238,7 @@ st.divider()
 
 st.markdown("""
 <h2 style="
-color:#1E3A8A;
+color:#000000;
 font-size:34px;
 font-weight:800;
 margin-bottom:5px;
