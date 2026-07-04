@@ -243,19 +243,17 @@ font-weight:700;
 margin-bottom:5px;
 ">
 
-📊 Visualisasi Data
-
+("## 📊Visualisasi Data")
 </h2>
 """, unsafe_allow_html=True)
 
 st.markdown("""
 <p style="
 color:#64748B;
-font-size:16px;
+font-size:18px;
 margin-top:0px;
 margin-bottom:20px;
 ">
-
 Visualisasi karakteristik data dan hasil prediksi status pinjaman nasabah menggunakan metode Random Forest.
 
 </p>
