@@ -191,30 +191,7 @@ elif status_filter == "Tidak Lancar":
 
 else:
     df_filter = df.copy()
-# ==========================================================
-# KPI
-# ==========================================================
 
-total_data = len(df_filter)
-
-total_lancar = (df_filter["status_prediksi"] == 1).sum()
-
-total_tidak_lancar = (df_filter["status_prediksi"] == 0).sum()
-
-col1, col2, col3, col4 = st.columns(4)
-
-with col1:
-    st.metric("👥 Total Data", f"{total_data:,}")
-
-with col2:
-    st.metric("✅ Status Lancar", f"{total_lancar:,}")
-
-with col3:
-    st.metric("❌ Tidak Lancar", f"{total_tidak_lancar:,}")
-status = df_filter["status_prediksi"].replace({
-    1: "Lancar",
-    0: "Tidak Lancar"
-})
 # ==========================================================
 # PERHITUNGAN KPI
 # ==========================================================
@@ -234,8 +211,50 @@ rata_usia = df_filter["usia"].mean()
 rata_lama_bekerja = df_filter["lama_bekerja_tahun"].mean()
 
 rata_riwayat = df_filter["lama_riwayat_kredit_tahun"].mean()
-col1, col2 = st.columns(2)
+col1, col2, col3, col4 = st.columns(4)
+with col1:
+    st.metric(
+        "👥 Total Data",
+        f"{total_data:,}"
+    )
+with col2:
+    st.metric(
+        "✅ Status Lancar",
+        f"{total_lancar:,}"
+    )
+with col3:
+    st.metric(
+        "❌ Tidak Lancar",
+        f"{total_tidak_lancar:,}"
+    )
+with col4:
+    st.metric(
+        "💰 Rata-rata Pinjaman",
+        f"Rp {rata_pinjaman:,.0f}"
+    )
+st.markdown("<br>", unsafe_allow_html=True)
 
+col5, col6, col7, col8 = st.columns(4)
+with col5:
+    st.metric(
+        "⭐ Rata-rata Skor Kredit",
+        f"{rata_skor:.1f}"
+    )
+with col6:
+    st.metric(
+        "👤 Rata-rata Usia",
+        f"{rata_usia:.1f} Tahun"
+    )
+with col7:
+    st.metric(
+        "💼 Lama Bekerja",
+        f"{rata_lama_bekerja:.1f} Tahun"
+    )
+with col8:
+    st.metric(
+        "📅 Riwayat Kredit",
+        f"{rata_riwayat:.1f} Tahun"
+    )
 # PIE CHART
 fig_pie = px.pie(
     names=status,
@@ -280,33 +299,3 @@ fig_bar.update_layout(
     plot_bgcolor="rgba(0,0,0,0)"
 )
 
-with col2:
-    st.plotly_chart(fig_bar, use_container_width=True)
-with col3:
-
-    st.metric(
-        label="💰 Rata-rata Pinjaman",
-        value=f"Rp {rata_pinjaman:,.0f}"
-    )
-
-with col4:
-
-    st.metric(
-        label="⭐ Rata-rata Skor Kredit",
-        value=f"{rata_skor_kredit:.1f}"
-    )
-with col6:
-    st.metric(
-        "👤 Rata-rata Usia",
-        f"{rata_usia:.1f} Tahun"
-    )
-with col7:
-    st.metric(
-        "💼 Lama Bekerja",
-        f"{rata_lama_bekerja:.1f} Tahun"
-    )
-with col8:
-    st.metric(
-        "📅 Riwayat Kredit",
-        f"{rata_riwayat:.1f} Tahun"
-    )
