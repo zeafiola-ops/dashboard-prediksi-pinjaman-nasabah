@@ -172,7 +172,46 @@ margin-bottom:20px;
 ">Visualisasi karakteristik data dan hasil prediksi status pinjaman nasabah menggunakan algoritma <b>Random Forest</b>.
 </p>
 """, unsafe_allow_html=True)
-status = df["status_prediksi"].replace({
+# ==========================================================
+# FILTER DASHBOARD
+# ==========================================================
+
+st.markdown("### 🔎 Filter Dashboard")
+
+status_filter = st.selectbox(
+    "Pilih Status Prediksi",
+    ["Semua", "Lancar", "Tidak Lancar"]
+)
+
+if status_filter == "Lancar":
+    df_filter = df[df["status_prediksi"] == 1]
+
+elif status_filter == "Tidak Lancar":
+    df_filter = df[df["status_prediksi"] == 0]
+
+else:
+    df_filter = df.copy()
+# ==========================================================
+# KPI
+# ==========================================================
+
+total_data = len(df_filter)
+
+total_lancar = (df_filter["status_prediksi"] == 1).sum()
+
+total_tidak_lancar = (df_filter["status_prediksi"] == 0).sum()
+
+col1, col2, col3, col4 = st.columns(4)
+
+with col1:
+    st.metric("👥 Total Data", f"{total_data:,}")
+
+with col2:
+    st.metric("✅ Status Lancar", f"{total_lancar:,}")
+
+with col3:
+    st.metric("❌ Tidak Lancar", f"{total_tidak_lancar:,}")
+status = df_filter["status_prediksi"].replace({
     1: "Lancar",
     0: "Tidak Lancar"
 })
@@ -225,45 +264,6 @@ fig_bar.update_layout(
 
 with col2:
     st.plotly_chart(fig_bar, use_container_width=True)
-# ==========================================================
-# FILTER DASHBOARD
-# ==========================================================
-
-st.markdown("### 🔎 Filter Dashboard")
-
-status_filter = st.selectbox(
-    "Pilih Status Prediksi",
-    ["Semua", "Lancar", "Tidak Lancar"]
-)
-
-if status_filter == "Lancar":
-    df_filter = df[df["status_prediksi"] == 1]
-
-elif status_filter == "Tidak Lancar":
-    df_filter = df[df["status_prediksi"] == 0]
-
-else:
-    df_filter = df.copy()
-    # ==========================================================
-# KPI
-# ==========================================================
-
-total_data = len(df_filter)
-
-total_lancar = (df_filter["status_prediksi"] == 1).sum()
-
-total_tidak_lancar = (df_filter["status_prediksi"] == 0).sum()
-
-col1, col2, col3, col4 = st.columns(4)
-
-with col1:
-    st.metric("👥 Total Data", f"{total_data:,}")
-
-with col2:
-    st.metric("✅ Status Lancar", f"{total_lancar:,}")
-
-with col3:
-    st.metric("❌ Tidak Lancar", f"{total_tidak_lancar:,}")
 
 with col4:
     st.metric("🌲 Model", "Random Forest")
