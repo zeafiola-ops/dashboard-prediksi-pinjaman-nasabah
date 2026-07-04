@@ -237,7 +237,11 @@ st.markdown("<br>", unsafe_allow_html=True)
 st.markdown("---")
 
 st.markdown("""
-<h2 style='text-align:center;color:#1E3A8A;'>
+<h2 style="
+color:#1E3A8A;
+font-weight:700;
+margin-bottom:5px;
+">
 
 📊 Visualisasi Data
 
@@ -245,9 +249,14 @@ st.markdown("""
 """, unsafe_allow_html=True)
 
 st.markdown("""
-<p style='text-align:center;color:#64748B;'>
+<p style="
+color:#64748B;
+font-size:16px;
+margin-top:0px;
+margin-bottom:20px;
+">
 
-Visualisasi karakteristik data dan hasil prediksi status pinjaman nasabah.
+Visualisasi karakteristik data dan hasil prediksi status pinjaman nasabah menggunakan metode Random Forest.
 
 </p>
 """, unsafe_allow_html=True)
