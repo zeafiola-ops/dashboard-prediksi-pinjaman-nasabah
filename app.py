@@ -2,6 +2,7 @@ import streamlit as st
 import pandas as pd
 import joblib
 import plotly.express as px
+from streamlit_plotly_events import plotly_events
 from pathlib import Path
 from PIL import Image
 
@@ -281,7 +282,31 @@ fig_pie.update_layout(
 )
 
 with col1:
-    st.plotly_chart(fig_pie, use_container_width=True)
+    selected = plotly_events(
+        fig_pie,
+        click_event=True,
+        hover_event=False,
+        select_event=False
+    )
+    if selected:
+
+    label = selected[0]["label"]
+
+    if label == "Lancar":
+
+        df_filter = df[df["status_prediksi"] == 1]
+
+    elif label == "Tidak Lancar":
+
+        df_filter = df[df["status_prediksi"] == 0]
+
+    else:
+
+        df_filter = df.copy()
+
+else:
+
+    df_filter = df.copy()
 
 # BAR CHART
 status_count = status.value_counts().reset_index()
