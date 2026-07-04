@@ -413,7 +413,20 @@ background:linear-gradient(135deg,#22C55E,#16A34A);
 .kpi-red{
 background:linear-gradient(135deg,#EF4444,#DC2626);
 }
+/* ==============================
+   PREVIEW DATASET
+============================== */
 
+[data-testid="stDataFrame"] {
+    border-radius: 15px;
+    border: 2px solid #D6E4FF;
+    box-shadow: 0 6px 18px rgba(0,0,0,0.08);
+}
+
+/* Jangan sembunyikan scrollbar */
+[data-testid="stDataFrame"] div {
+    overflow: auto !important;
+}
 .kpi-purple{
 background:linear-gradient(135deg,#8B5CF6,#7C3AED);
 }
