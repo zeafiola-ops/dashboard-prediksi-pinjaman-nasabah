@@ -58,6 +58,7 @@ except:
 # ==========================================
 # LOAD LOGO
 # ==========================================
+
 logo = Image.open(LOGO_PATH)
 
 # ==========================================
@@ -67,6 +68,7 @@ logo = Image.open(LOGO_PATH)
 col1, col2, col3 = st.columns([2,1,2])
 
 with col2:
+    
     st.image(logo, width=170)
 
 st.markdown("""
