@@ -99,6 +99,10 @@ analisis data.
 )
 
 st.markdown("<br>", unsafe_allow_html=True)
+st.markdown("""
+<link rel="stylesheet"
+href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+""", unsafe_allow_html=True)
 with col1:
 
     st.markdown(f"""
