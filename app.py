@@ -103,28 +103,113 @@ st.markdown("""
 <link rel="stylesheet"
 href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
 """, unsafe_allow_html=True)
+# ==========================================================
+# KPI DASHBOARD
+# ==========================================================
+
+st.markdown("<br>", unsafe_allow_html=True)
+
+# Menghitung data KPI
+total_data = len(df)
+
+if "Status Pinjaman" in df.columns:
+    total_lancar = len(df[df["Status Pinjaman"] == "Lancar"])
+    total_tidak_lancar = len(df[df["Status Pinjaman"] == "Tidak Lancar"])
+else:
+    total_lancar = 0
+    total_tidak_lancar = 0
+
+# Membuat 4 kolom
+col1, col2, col3, col4 = st.columns(4)
 with col1:
 
     st.markdown(f"""
-<div class="kpi-card">
+    <div class="kpi-card">
 
-<div class="kpi-left kpi-blue">
+        <div class="kpi-left kpi-blue">
+            <i class="bi bi-database-fill"></i>
+        </div>
 
-<i class="bi bi-database-fill"></i>
+        <div class="kpi-right">
 
-</div>
+            <div class="kpi-title">
+                Total Data
+            </div>
 
-<div class="kpi-right">
+            <div class="kpi-value">
+                {total_data:,}
+            </div>
 
-<div class="kpi-title">
-Total Data
-</div>
+        </div>
 
-<div class="kpi-value">
-{len(df):,}
-</div>
+    </div>
+    """, unsafe_allow_html=True)
+    with col2:
 
-</div>
+    st.markdown(f"""
+    <div class="kpi-card">
 
-</div>
-""",unsafe_allow_html=True)
+        <div class="kpi-left kpi-green">
+            <i class="bi bi-check-circle-fill"></i>
+        </div>
+
+        <div class="kpi-right">
+
+            <div class="kpi-title">
+                Status Lancar
+            </div>
+
+            <div class="kpi-value">
+                {total_lancar:,}
+            </div>
+
+        </div>
+
+    </div>
+    """, unsafe_allow_html=True)
+    with col3:
+
+    st.markdown(f"""
+    <div class="kpi-card">
+
+        <div class="kpi-left kpi-red">
+            <i class="bi bi-x-circle-fill"></i>
+        </div>
+
+        <div class="kpi-right">
+
+            <div class="kpi-title">
+                Tidak Lancar
+            </div>
+
+            <div class="kpi-value">
+                {total_tidak_lancar:,}
+            </div>
+
+        </div>
+
+    </div>
+    """, unsafe_allow_html=True)
+    with col4:
+
+    st.markdown("""
+    <div class="kpi-card">
+
+        <div class="kpi-left kpi-purple">
+            <i class="bi bi-diagram-3-fill"></i>
+        </div>
+
+        <div class="kpi-right">
+
+            <div class="kpi-title">
+                Model
+            </div>
+
+            <div class="kpi-value" style="font-size:22px;">
+                Random Forest
+            </div>
+
+        </div>
+
+    </div>
+    """, unsafe_allow_html=True)
