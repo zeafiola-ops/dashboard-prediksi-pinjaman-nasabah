@@ -274,5 +274,16 @@ fig_bar.update_layout(
 
 with col2:
     st.plotly_chart(fig_bar, use_container_width=True)
+with col3:
 
+    st.metric(
+        label="💰 Rata-rata Pinjaman",
+        value=f"Rp {rata_pinjaman:,.0f}"
+    )
 
+with col4:
+
+    st.metric(
+        label="⭐ Rata-rata Skor Kredit",
+        value=f"{rata_skor_kredit:.1f}"
+    )
