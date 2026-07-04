@@ -70,15 +70,13 @@ with col2:
     st.image(logo, width=170)
 
 st.markdown("""
-<div style="text-align:center; margin-top:-10px;">
+<div style="text-align:center; margin-top:-35px;">
 
 <h1 style="
 color:#1E3A8A;
 font-size:58px;
 font-weight:900;
-margin:0;
-padding:0;
-line-height:1.1;
+margin-bottom:8px;
 ">
 
 Selamat Datang
@@ -87,11 +85,10 @@ Selamat Datang
 
 <h3 style="
 color:#2563EB;
-font-size:30px;
+font-size:28px;
 font-weight:700;
-margin-top:10px;
-margin-bottom:8px;
-line-height:1.2;
+margin-top:0px;
+margin-bottom:5px;
 ">
 
 Dashboard Prediksi Status Pinjaman Nasabah
@@ -99,10 +96,10 @@ Dashboard Prediksi Status Pinjaman Nasabah
 </h3>
 
 <p style="
-font-size:20px;
+font-size:19px;
 color:#64748B;
-margin:0;
-line-height:1.5;
+margin-top:0px;
+line-height:1.4;
 ">
 
 Analisis Prediksi Status Pinjaman Nasabah<br>
@@ -112,8 +109,6 @@ Menggunakan Metode <b>Random Forest</b>
 
 </div>
 """, unsafe_allow_html=True)
-
-st.markdown("<br>", unsafe_allow_html=True)
 # ==========================================
 # LOAD CSS
 # ==========================================
