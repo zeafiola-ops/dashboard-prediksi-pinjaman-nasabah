@@ -166,6 +166,28 @@ box-shadow:
 
 div[data-testid="stPlotlyChart"]{
 
+    background:white;
+
+    padding:20px;
+
+    border-radius:22px;
+
+    border:1px solid #DCEBFF;
+
+    box-shadow:0 10px 25px rgba(37,99,235,.10);
+
+    transition:.35s;
+
+}
+
+div[data-testid="stPlotlyChart"]:hover{
+
+    transform:translateY(-5px);
+
+    box-shadow:0 18px 35px rgba(37,99,235,.18);
+
+}
+
 background:white;
 
 padding:20px;
