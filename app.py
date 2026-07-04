@@ -99,3 +99,62 @@ analisis data.
 )
 
 st.markdown("<br>", unsafe_allow_html=True)
+# ==========================================================
+# BAGIAN 3 - KPI DASHBOARD
+# ==========================================================
+
+st.markdown("## 📊 Ringkasan Dashboard")
+
+# ==========================
+# Hitung KPI
+# ==========================
+
+total_data = len(df)
+
+# Ganti nama kolom jika berbeda
+status_column = "Status Pinjaman"
+
+if status_column in df.columns:
+
+    total_lancar = len(df[df[status_column] == "Lancar"])
+
+    total_tidak_lancar = len(df[df[status_column] == "Tidak Lancar"])
+
+else:
+
+    total_lancar = 0
+    total_tidak_lancar = 0
+
+nama_model = "Random Forest"
+
+# ==========================
+# KPI
+# ==========================
+
+col1, col2, col3, col4 = st.columns(4)
+
+with col1:
+    st.metric(
+        label="📊 Total Data",
+        value=f"{total_data:,}"
+    )
+
+with col2:
+    st.metric(
+        label="✅ Status Lancar",
+        value=f"{total_lancar:,}"
+    )
+
+with col3:
+    st.metric(
+        label="❌ Tidak Lancar",
+        value=f"{total_tidak_lancar:,}"
+    )
+
+with col4:
+    st.metric(
+        label="🌲 Model",
+        value=nama_model
+    )
+
+st.markdown("<br>", unsafe_allow_html=True)
