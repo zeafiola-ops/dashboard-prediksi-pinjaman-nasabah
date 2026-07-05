@@ -874,6 +874,13 @@ feature_df = pd.read_csv(
     BASE_DIR / "data" / "feature_importance.csv"
 
 )
+st.write("=== CEK FEATURE IMPORTANCE ===")
+
+st.write(feature_df.head())
+
+st.write(feature_df.columns)
+
+st.write(feature_df.dtypes)
 
 feature_df = feature_df.sort_values(
 
