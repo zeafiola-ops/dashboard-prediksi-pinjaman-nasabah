@@ -700,125 +700,119 @@ with col4:
         <div class="kpi-value">{keyakinan:.2f}%</div>
     </div>
     """, unsafe_allow_html=True)
-    # ======================================================
-    # PROGRESS BAR
-    # ======================================================
+# ======================================================
+# PROGRESS BAR
+# ======================================================
 
-    st.subheader("📈 Tingkat Keyakinan Model")
+st.subheader("📈 Tingkat Keyakinan Model")
 
-    if prediction == 1:
+if prediction == 1:
 
-        st.progress(float(prob_lancar))
+    st.progress(float(prob_lancar))
 
-        st.caption(
+    st.caption(
             f"Model memiliki keyakinan sebesar {prob_lancar*100:.2f}% bahwa status pinjaman adalah **Lancar**."
-        )
-
-    else:
-
-        st.progress(float(prob_tidak_lancar))
-
-        st.caption(
-            f"Model memiliki keyakinan sebesar {prob_tidak_lancar*100:.2f}% bahwa status pinjaman adalah **Tidak Lancar**."
-        )
-
-    st.divider()
-
-    # ======================================================
-    # GAUGE CHART
-    # ======================================================
-
-    nilai = prob_lancar if prediction == 1 else prob_tidak_lancar
-
-    fig_gauge = go.Figure(go.Indicator(
-
-        mode="gauge+number",
-
-        value=nilai*100,
-
-        number={'suffix': "%"},
-
-        title={'text': "Tingkat Keyakinan Model"},
-
-        gauge={
-
-            'axis': {'range': [0,100]},
-
-            'bar': {'color': "#1E88E5"},
-
-            'steps': [
-
-                {'range':[0,50],'color':'#FFCDD2'},
-
-                {'range':[50,75],'color':'#FFE082'},
-
-                {'range':[75,100],'color':'#C8E6C9'}
-
-            ]
-
-        }
-
-    ))
-
-    fig_gauge.update_layout(height=350)
-
-    st.plotly_chart(
-        fig_gauge,
-        use_container_width=True
     )
 
-    st.divider()
+else:
 
-    # ======================================================
-    # BAR CHART
-    # ======================================================
+    st.progress(float(prob_tidak_lancar))
 
-    chart_df = pd.DataFrame({
+    st.caption(
+        f"Model memiliki keyakinan sebesar {prob_tidak_lancar*100:.2f}% bahwa status pinjaman adalah **Tidak Lancar**."
+    )
 
-        "Status":[
-            "Lancar",
-            "Tidak Lancar"
-        ],
+st.divider()
 
-        "Probabilitas":[
-            prob_lancar,
-            prob_tidak_lancar
+# ======================================================
+# GAUGE CHART
+# ======================================================
+
+nilai = prob_lancar if prediction == 1 else prob_tidak_lancar
+
+fig_gauge = go.Figure(go.Indicator(
+
+    mode="gauge+number",
+
+    value=nilai*100,
+
+    number={'suffix': "%"},
+
+    title={'text': "Tingkat Keyakinan Model"},
+
+    gauge={
+
+        'axis': {'range': [0,100]},
+
+        'bar': {'color': "#1E88E5"},
+
+        'steps': [
+
+            {'range':[0,50],'color':'#FFCDD2'},
+
+            {'range':[50,75],'color':'#FFE082'},
+
+            {'range':[75,100],'color':'#C8E6C9'}
+
         ]
 
-    })
+    }
 
-    fig = px.bar(
+))
 
-        chart_df,
+fig_gauge.update_layout(height=350)
 
-        x="Status",
+st.plotly_chart(
+    fig_gauge,
+    use_container_width=True
+)
+st.divider()
 
-        y="Probabilitas",
+    
+# ======================================================
+# BAR CHART
+# ======================================================
+chart_df = pd.DataFrame({
+    "Status":[
+        "Lancar",
+        "Tidak Lancar"
+    ],
+    "Probabilitas":[
+        prob_lancar,
+        prob_tidak_lancar
+    ]
+})
+fig = px.bar(
+    chart_df,
+    
+    x="Status",
+    
+    y="Probabilitas",
 
-        color="Status",
+    color="Status",
 
-        text_auto=".2%",
+    text_auto=".2%",
 
-        title="Perbandingan Probabilitas Prediksi"
+    title="Perbandingan Probabilitas Prediksi"
 
-    )
+)
 
-    fig.update_layout(
+fig.update_layout(
 
-        template="plotly_white",
+    template="plotly_white",
 
-        height=450,
+    height=450,
 
-        title_x=0.5,
+    title_x=0.5,
 
-        showlegend=False
+    showlegend=False
 
-    )
+)
 
-    st.plotly_chart(
-        fig,
-        use_container_width=True
-    )
+st.plotly_chart(
+    fig,
+    use_container_width=True
+)
 # ==========================================================
 # BAGIAN 6
 # RINGKASAN DATA
