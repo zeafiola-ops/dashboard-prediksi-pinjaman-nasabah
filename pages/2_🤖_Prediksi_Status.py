@@ -662,7 +662,7 @@ Probabilitas prediksi sebesar **{prob_lancar*100:.2f}%** menunjukkan bahwa calon
 
 """)
 
-   else:
+else:
 
     st.error(f"""
 
