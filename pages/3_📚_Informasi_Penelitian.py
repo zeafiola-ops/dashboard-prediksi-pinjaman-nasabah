@@ -69,10 +69,17 @@ section[data-testid="stSidebar"] *{
 ========================= */
 
 .title{
-    font-size:42px;
-    font-weight:700;
-    color:#1746B5;
-    text-align:center;
+
+font-size:48px;
+
+font-weight:700;
+
+color:#1848B8;
+
+text-align:center;
+
+margin-bottom:10px;
+
 }
 
 /* =========================
@@ -80,11 +87,16 @@ section[data-testid="stSidebar"] *{
 ========================= */
 
 .subtitle{
-    font-size:18px;
-    text-align:center;
-    color:#666666;
-}
 
+font-size:22px;
+
+text-align:center;
+
+color:#4B5563;
+
+line-height:1.8;
+
+}
 /* =========================
    Footer
 ========================= */
@@ -102,31 +114,31 @@ section[data-testid="stSidebar"] *{
 </style>
 """, unsafe_allow_html=True)
 # ======================================================
-# HEADER
+# HEADER INFORMASI PENELITIAN
 # ======================================================
 
-col1, col2, col3 = st.columns([1,3,1])
+LOGO_DARMAJAYA = BASE_DIR / "assets" / "logo_darmajaya.png"
+
+col1, col2, col3 = st.columns([1.2, 2.5, 1.2])
 
 with col1:
-    st.image(str(LOGO_PATH), width=150)
+    st.image(str(LOGO_PATH), width=180)
 
 with col2:
 
     st.markdown("""
-    <div class='title'>
-    📚 Informasi Penelitian
+    <div class="title">
+        📚 Informasi Penelitian
     </div>
 
-    <div class='subtitle'>
-    Prediksi Status Pinjaman Nasabah<br>
-    Menggunakan Metode Random Forest
+    <div class="subtitle">
+        <b>Prediksi Status Pinjaman Nasabah</b><br>
+        Menggunakan Metode Random Forest
     </div>
     """, unsafe_allow_html=True)
 
 with col3:
-    st.image(
-        "https://upload.wikimedia.org/wikipedia/id/8/86/Logo_IIB_Darmajaya.png",
-        width=120
-    )
+    st.image(str(LOGO_DARMAJAYA), width=170)
 
+st.markdown("<br>", unsafe_allow_html=True)
 st.divider()
