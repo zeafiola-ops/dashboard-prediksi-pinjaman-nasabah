@@ -196,7 +196,67 @@ box-shadow:0px 5px 18px rgba(0,0,0,.08);
 border-left:6px solid #2E7DFF;
 
 }
+/* ============================= */
+/* KPI CARD */
+/* ============================= */
 
+.kpi-card{
+
+background:white;
+
+padding:22px;
+
+border-radius:18px;
+
+text-align:center;
+
+box-shadow:0px 6px 18px rgba(0,0,0,.08);
+
+border-left:6px solid #2E7DFF;
+
+transition:0.3s;
+
+margin-bottom:20px;
+
+}
+
+.kpi-card:hover{
+
+transform:translateY(-4px);
+
+box-shadow:0px 10px 24px rgba(0,0,0,.15);
+
+}
+
+.kpi-icon{
+
+font-size:36px;
+
+margin-bottom:8px;
+
+}
+
+.kpi-title{
+
+font-size:16px;
+
+color:#666;
+
+}
+
+.kpi-value{
+
+font-size:28px;
+
+font-weight:bold;
+
+color:#1848A5;
+
+margin-top:10px;
+
+}
+
+</style>
 </style>
 
 """, unsafe_allow_html=True)
