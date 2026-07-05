@@ -78,16 +78,11 @@ st.markdown("""
 <div class="home-header">
 
 <h1 style="text-align:center;">
-
 📈 Evaluasi Model Random Forest
-
 </h1>
-
 <p style="text-align:center;">
-
 Halaman ini menampilkan hasil evaluasi model Random Forest
 yang digunakan untuk memprediksi status pinjaman nasabah.
-
 </p>
 
 </div>
