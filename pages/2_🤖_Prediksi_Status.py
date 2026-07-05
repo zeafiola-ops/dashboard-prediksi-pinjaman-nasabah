@@ -990,38 +990,40 @@ risiko kredit.
 # FOOTER
 # ==========================================================
 
-st.markdown("""
+# ==========================================================
+# FOOTER
+# ==========================================================
 
-<div style="
+st.markdown(
+    """
+    <hr style="margin-top:50px;">
 
-text-align:center;
+    <div style="
+        text-align:center;
+        padding:25px;
+        color:#666666;
+        font-size:15px;
+        line-height:1.8;
+    ">
 
-padding:20px;
+        <h4 style="color:#1E4DB7;">
+            📊 Dashboard Prediksi Status Pinjaman Nasabah
+        </h4>
 
-color:gray;
+        <p>
+            Prediksi Status Pinjaman Menggunakan Metode <b>Random Forest</b>
+        </p>
 
-font-size:15px;
+        <p>
+            Program Studi Sistem Informasi • Business Intelligence
+        </p>
 
-">
+        <p>
+            © 2026
+        </p>
 
-Dashboard Prediksi Status Pinjaman Nasabah
+    </div>
 
-<br>
-
-Metode Random Forest
-
-<br>
-
-Program Studi Sistem Informasi
-
-<br>
-
-Business Intelligence
-
-<br><br>
-
-© 2026
-
-</div>
-
-""", unsafe_allow_html=True)
+    """,
+    unsafe_allow_html=True
+)
