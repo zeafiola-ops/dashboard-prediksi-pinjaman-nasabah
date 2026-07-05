@@ -6,6 +6,7 @@ import streamlit as st
 import pandas as pd
 import numpy as np
 import joblib
+
 import plotly.express as px
 import plotly.graph_objects as go
 
@@ -25,9 +26,9 @@ st.set_page_config(
 # LOAD CSS
 # ==========================================================
 
-with open("style.css") as f:
+with open("style.css") as css:
     st.markdown(
-        f"<style>{f.read()}</style>",
+        f"<style>{css.read()}</style>",
         unsafe_allow_html=True
     )
 
@@ -49,6 +50,7 @@ FEATURE_PATH = BASE_DIR / "data" / "feature_names.pkl"
 
 @st.cache_resource
 def load_model():
+
     return joblib.load(MODEL_PATH)
 
 model = load_model()
@@ -72,50 +74,51 @@ with st.sidebar:
 
     st.image(str(LOGO_PATH), use_container_width=True)
 
-    st.markdown(
-        """
-        <div style="text-align:center;">
-        <h2>Dashboard Prediksi</h2>
-        <p>Status Pinjaman Nasabah</p>
-        </div>
-        """,
-        unsafe_allow_html=True
-    )
+    st.markdown("""
+    <div style="text-align:center;">
+
+    <h2 style="color:white;">
+    Dashboard Prediksi
+    </h2>
+
+    <p style="color:white;">
+    Status Pinjaman Nasabah
+    </p>
+
+    </div>
+    """, unsafe_allow_html=True)
 
     st.markdown("---")
 
-    st.markdown(
-        """
-        <div style="
-        background:linear-gradient(135deg,#1E88E5,#1565C0);
-        padding:18px;
-        border-radius:15px;
-        color:white;
-        ">
+    st.markdown("""
+    <div style="
+    background:linear-gradient(135deg,#1976D2,#0D47A1);
+    padding:18px;
+    border-radius:15px;
+    color:white;
+    ">
 
-        <h4>🤖 Tentang Prediksi</h4>
+    <h4>🤖 Tentang Prediksi</h4>
 
-        <p>
+    <p>
 
-        Halaman ini digunakan
-        untuk melakukan prediksi
-        status pinjaman nasabah
-        menggunakan model
-        <b>Random Forest</b>.
+    Halaman ini digunakan
+    untuk memprediksi
+    status pinjaman nasabah
+    menggunakan metode
+    <b>Random Forest</b>.
 
-        </p>
+    </p>
 
-        <hr>
+    <hr>
 
-        ✅ Akurat <br>
-        ⚡ Cepat <br>
-        💻 Mudah Digunakan
+    ✔ Prediksi Cepat<br>
+    ✔ Akurat<br>
+    ✔ Mudah Digunakan
 
-        </div>
+    </div>
 
-        """,
-        unsafe_allow_html=True
-    )
+    """, unsafe_allow_html=True)
 
     st.markdown("<br>", unsafe_allow_html=True)
 
@@ -127,23 +130,28 @@ with st.sidebar:
 
 st.markdown("""
 
-<h1 style='text-align:center;color:#174EA6;'>
+<h1 style="text-align:center;
+color:#174EA6;">
+
 🤖 Prediksi Status Pinjaman Nasabah
+
 </h1>
-<p style='text-align:center;
+
+<p style="text-align:center;
 font-size:18px;
-color:#555;'>
-<b>Halaman ini digunakan untuk memprediksi status pinjaman nasabah berdasarkan 
-data yang dimasukkan menggunakan model Random Forest.
-</b> 
+color:#555;">
+
+Masukkan informasi calon nasabah pada formulir berikut
+untuk memperoleh hasil prediksi status pinjaman
+menggunakan metode <b>Random Forest</b>.
+
 </p>
 
 """, unsafe_allow_html=True)
 
 st.divider()
-st.divider()
 # ==========================================================
-# FORM INPUT DATA NASABAH
+# FORM INPUT NASABAH
 # ==========================================================
 
 st.markdown("""
@@ -152,105 +160,114 @@ st.markdown("""
 <h3>📝 Form Input Data Nasabah</h3>
 
 <p>
-Silakan lengkapi data calon nasabah pada formulir berikut untuk memperoleh hasil prediksi status pinjaman.
+Silakan lengkapi data calon nasabah pada formulir berikut
+untuk memperoleh hasil prediksi status pinjaman.
 </p>
 
 </div>
 """, unsafe_allow_html=True)
 
-left, right = st.columns(2)
+col1, col2 = st.columns(2)
 
 # ==========================================================
-# INPUT KOLOM KIRI
+# KOLOM KIRI
 # ==========================================================
 
-with left:
+with col1:
+
+    st.subheader("👤 Informasi Pribadi")
 
     usia = st.number_input(
-        "👤 Usia",
+        "Usia",
         min_value=18,
         max_value=100,
         value=30
     )
 
     lama_bekerja = st.number_input(
-        "💼 Lama Bekerja (Tahun)",
-        min_value=0.0,
-        value=5.0
+        "Lama Bekerja (Tahun)",
+        min_value=0,
+        value=5
     )
 
     pendapatan = st.number_input(
-        "💰 Pendapatan Tahunan",
+        "Pendapatan Tahunan (Rp)",
         min_value=0,
         value=50000000,
         step=1000000
     )
 
     skor_kredit = st.number_input(
-        "📊 Skor Kredit",
+        "Skor Kredit",
         min_value=300,
         max_value=900,
         value=650
     )
 
     lama_riwayat = st.number_input(
-        "📅 Lama Riwayat Kredit (Tahun)",
-        min_value=0.0,
-        value=5.0
+        "Lama Riwayat Kredit (Tahun)",
+        min_value=0,
+        value=5
     )
 
     aset_tabungan = st.number_input(
-        "🏦 Aset Tabungan",
+        "Aset Tabungan (Rp)",
         min_value=0,
         value=10000000,
-        step=500000
+        step=1000000
     )
 
     hutang = st.number_input(
-        "💳 Hutang Saat Ini",
+        "Total Hutang (Rp)",
         min_value=0,
         value=5000000,
         step=500000
     )
 
 # ==========================================================
-# INPUT KOLOM KANAN
+# KOLOM KANAN
 # ==========================================================
 
-with right:
+with col2:
+
+    st.subheader("🏦 Informasi Pinjaman")
 
     gagal_bayar = st.selectbox(
-        "❌ Pernah Gagal Bayar",
-        ["Tidak", "Ya"]
+        "Pernah Gagal Bayar",
+        [
+            "Tidak",
+            "Ya"
+        ]
     )
 
     tunggakan = st.number_input(
-        "📌 Tunggakan 2 Tahun Terakhir",
+        "Jumlah Tunggakan",
         min_value=0,
         value=0
     )
 
     catatan_negatif = st.number_input(
-        "📄 Jumlah Catatan Negatif",
+        "Catatan Negatif",
         min_value=0,
         value=0
     )
 
     jumlah_pinjaman = st.number_input(
-        "💵 Jumlah Pinjaman",
+        "Jumlah Pinjaman (Rp)",
         min_value=0,
         value=10000000,
         step=1000000
     )
 
     suku_bunga = st.number_input(
-        "📈 Suku Bunga (%)",
+        "Suku Bunga (%)",
         min_value=0.0,
-        value=10.0
+        value=10.0,
+        step=0.1
     )
 
     status_pekerjaan = st.selectbox(
-        "💼 Status Pekerjaan",
+        "Status Pekerjaan",
         [
             "Pegawai",
             "Mahasiswa",
@@ -259,7 +276,7 @@ with right:
     )
 
     tipe_produk = st.selectbox(
-        "🏦 Tipe Produk",
+        "Tipe Produk",
         [
             "Kredit Baru",
             "Kredit Berjalan",
@@ -268,7 +285,7 @@ with right:
     )
 
     tujuan = st.selectbox(
-        "🎯 Tujuan Pinjaman",
+        "Tujuan Pinjaman",
         [
             "Kendaraan",
             "Konsolidasi Hutang",
@@ -281,7 +298,8 @@ with right:
 
 st.divider()
 # ==========================================================
-# BAGIAN 3 - PROSES PREDIKSI
+# BAGIAN 3
+# PROSES PREDIKSI
 # ==========================================================
 
 st.markdown("""
@@ -290,117 +308,154 @@ st.markdown("""
 <h3>🤖 Proses Prediksi</h3>
 
 <p>
-Klik tombol di bawah untuk melakukan prediksi status pinjaman berdasarkan data yang telah diinput.
+Klik tombol di bawah untuk melakukan prediksi status pinjaman
+berdasarkan data yang telah dimasukkan.
 </p>
 
 </div>
 """, unsafe_allow_html=True)
 
-if st.button("🔍 Prediksi Status Pinjaman", use_container_width=True):
+prediksi = st.button(
+    "🔍 Prediksi Status Pinjaman",
+    use_container_width=True
+)
 
-    # ----------------------------------------
-    # Data awal
-    # ----------------------------------------
+if prediksi:
 
-    input_data = {feature: 0 for feature in feature_names}
+    # ============================================
+    # Membuat dictionary seluruh feature = 0
+    # ============================================
 
-    # ----------------------------------------
-    # Fitur numerik
-    # ----------------------------------------
+    input_data = {}
 
-    input_data["usia"] = usia
-    input_data["lama_bekerja_tahun"] = lama_bekerja
-    input_data["pendapatan_tahunan"] = pendapatan
-    input_data["skor_kredit"] = skor_kredit
-    input_data["lama_riwayat_kredit_tahun"] = lama_riwayat
-    input_data["aset_tabungan"] = aset_tabungan
-    input_data["hutang_saat_ini"] = hutang
-    input_data["gagal_bayar_tercatat"] = 1 if gagal_bayar == "Ya" else 0
-    input_data["tunggakan_2thn_terakhir"] = tunggakan
-    input_data["catatan_negatif"] = catatan_negatif
-    input_data["jumlah_pinjaman"] = jumlah_pinjaman
-    input_data["suku_bunga"] = suku_bunga
+    for feature in feature_names:
+        input_data[feature] = 0
 
-    # ----------------------------------------
-    # Rasio
-    # ----------------------------------------
+    # ============================================
+    # FEATURE NUMERIK
+    # ============================================
+
+    if "usia" in input_data:
+        input_data["usia"] = usia
+
+    if "lama_bekerja_tahun" in input_data:
+        input_data["lama_bekerja_tahun"] = lama_bekerja
+
+    if "pendapatan_tahunan" in input_data:
+        input_data["pendapatan_tahunan"] = pendapatan
+
+    if "skor_kredit" in input_data:
+        input_data["skor_kredit"] = skor_kredit
+
+    if "lama_riwayat_kredit_tahun" in input_data:
+        input_data["lama_riwayat_kredit_tahun"] = lama_riwayat
+
+    if "aset_tabungan" in input_data:
+        input_data["aset_tabungan"] = aset_tabungan
+
+    if "hutang_saat_ini" in input_data:
+        input_data["hutang_saat_ini"] = hutang
+
+    if "tunggakan_2thn_terakhir" in input_data:
+        input_data["tunggakan_2thn_terakhir"] = tunggakan
+
+    if "catatan_negatif" in input_data:
+        input_data["catatan_negatif"] = catatan_negatif
+
+    if "jumlah_pinjaman" in input_data:
+        input_data["jumlah_pinjaman"] = jumlah_pinjaman
+
+    if "suku_bunga" in input_data:
+        input_data["suku_bunga"] = suku_bunga
+
+    # ============================================
+    # GAGAL BAYAR
+    # ============================================
+
+    if "gagal_bayar_tercatat" in input_data:
+
+        input_data["gagal_bayar_tercatat"] = 1 if gagal_bayar == "Ya" else 0
+
+    # ============================================
+    # RASIO
+    # ============================================
 
     if pendapatan > 0:
 
-        input_data["rasio_hutang_terhadap_pendapatan"] = hutang / pendapatan
+        if "rasio_hutang_terhadap_pendapatan" in input_data:
 
-        input_data["rasio_pinjaman_terhadap_pendapatan"] = jumlah_pinjaman / pendapatan
+            input_data["rasio_hutang_terhadap_pendapatan"] = (
+                hutang / pendapatan
+            )
 
-        input_data["rasio_pembayaran_terhadap_pendapatan"] = (
-            jumlah_pinjaman * (suku_bunga / 100)
-        ) / pendapatan
+        if "rasio_pinjaman_terhadap_pendapatan" in input_data:
 
-    # ----------------------------------------
-    # One Hot Encoding
-    # ----------------------------------------
+            input_data["rasio_pinjaman_terhadap_pendapatan"] = (
+                jumlah_pinjaman / pendapatan
+            )
 
-    if status_pekerjaan == "Mahasiswa":
-        input_data["status_pekerjaan_Mahasiswa"] = 1
+        if "rasio_pembayaran_terhadap_pendapatan" in input_data:
 
-    elif status_pekerjaan == "Wiraswasta":
-        input_data["status_pekerjaan_Wiraswasta"] = 1
+            input_data["rasio_pembayaran_terhadap_pendapatan"] = (
+                (jumlah_pinjaman * (suku_bunga / 100)) / pendapatan
+            )
 
-    # Pegawai = baseline
+    # ============================================
+    # ONE HOT ENCODING
+    # ============================================
 
-    if tipe_produk == "Kredit Berjalan":
-        input_data["tipe_produk_Kredit Berjalan"] = 1
+    nama = f"status_pekerjaan_{status_pekerjaan}"
 
-    elif tipe_produk == "Pinjaman Pribadi":
-        input_data["tipe_produk_Pinjaman Pribadi"] = 1
+    if nama in input_data:
+        input_data[nama] = 1
 
-    # Kredit Baru = baseline
+    nama = f"tipe_produk_{tipe_produk}"
 
-    if tujuan == "Konsolidasi Hutang":
-        input_data["tujuan_pinjaman_Konsolidasi Hutang"] = 1
+    if nama in input_data:
+        input_data[nama] = 1
 
-    elif tujuan == "Medis":
-        input_data["tujuan_pinjaman_Medis"] = 1
+    nama = f"tujuan_pinjaman_{tujuan}"
 
-    elif tujuan == "Pendidikan":
-        input_data["tujuan_pinjaman_Pendidikan"] = 1
+    if nama in input_data:
+        input_data[nama] = 1
 
-    elif tujuan == "Pribadi":
-        input_data["tujuan_pinjaman_Pribadi"] = 1
+    # ============================================
+    # DATAFRAME
+    # ============================================
 
-    elif tujuan == "Renovasi Rumah":
-        input_data["tujuan_pinjaman_Renovasi Rumah"] = 1
+    input_df = pd.DataFrame(
+        [input_data]
+    )
 
-    # Kendaraan = baseline
+    input_df = input_df.reindex(
+        columns=feature_names,
+        fill_value=0
+    )
 
-    # ----------------------------------------
-    # DataFrame
-    # ----------------------------------------
+    # ============================================
+    # PREDIKSI
+    # ============================================
 
-    input_df = pd.DataFrame([input_data])
+    try:
 
-    input_df = input_df[feature_names]
-try:
+        prediction = model.predict(input_df)[0]
 
-    prediction = model.predict(input_df)[0]
+        probability = model.predict_proba(input_df)[0]
 
-    probability = model.predict_proba(input_df)[0]
+        st.session_state["prediction"] = prediction
 
-    prob_tidak_lancar = probability[0]
+        st.session_state["prob_lancar"] = probability[1]
 
-    prob_lancar = probability[1]
+        st.session_state["prob_tidak_lancar"] = probability[0]
 
-    st.session_state["prediction"] = prediction
+        st.success("✅ Prediksi berhasil dilakukan.")
 
-    st.session_state["prob_lancar"] = prob_lancar
+    except Exception as e:
 
-    st.session_state["prob_tidak_lancar"] = prob_tidak_lancar
-
-
-except Exception as e:
-
-    st.error(e)
-# ==========================================================
-# BAGIAN 4 - HASIL PREDIKSI
+        st.error(f"Terjadi kesalahan saat prediksi : {e}")
+        # ==========================================================
+# BAGIAN 4
+# HASIL PREDIKSI
 # ==========================================================
 
 if "prediction" in st.session_state:
@@ -409,85 +464,107 @@ if "prediction" in st.session_state:
     prob_lancar = st.session_state["prob_lancar"]
     prob_tidak_lancar = st.session_state["prob_tidak_lancar"]
 
+    st.divider()
+
     st.markdown("""
     <div class="section-card">
 
-    <h3>📊 Hasil Prediksi</h3>
-
-    <p>
-    Hasil prediksi status pinjaman berdasarkan
-    data yang telah dimasukkan.
-    </p>
+    <h2 style="text-align:center;color:#174EA6;">
+    📊 Hasil Prediksi Status Pinjaman
+    </h2>
 
     </div>
     """, unsafe_allow_html=True)
 
-    # =============================================
+    # ==========================================
     # CARD HASIL
-    # =============================================
+    # ==========================================
 
-    if prediction == 1:
-
-        st.success("🟢 Status Prediksi : LANCAR")
-
-    else:
-
-        st.error("🔴 Status Prediksi : TIDAK LANCAR")
-
-    st.markdown("### 🎯 Tingkat Keyakinan Model")
-
-    if prediction == 1:
-        st.progress(float(prob_lancar))
-        st.caption(f"Probabilitas Lancar : {prob_lancar:.2%}")
-    else:
-        st.progress(float(prob_tidak_lancar))
-        st.caption(f"Probabilitas Tidak Lancar : {prob_tidak_lancar:.2%}")
-
-    st.divider()
-
-    # =============================================
-    # KPI
-    # =============================================
-
-    col1, col2 = st.columns(2)
+    col1, col2, col3 = st.columns(3)
 
     with col1:
 
-        st.metric(
-            "🟢 Probabilitas Lancar",
-            f"{prob_lancar:.2%}"
-        )
+        if prediction == 1:
+
+            st.success("## 🟢 LANCAR")
+
+        else:
+
+            st.error("## 🔴 TIDAK LANCAR")
 
     with col2:
 
         st.metric(
-            "🔴 Probabilitas Tidak Lancar",
-            f"{prob_tidak_lancar:.2%}"
+
+            "Probabilitas Lancar",
+
+            f"{prob_lancar*100:.2f}%"
+
+        )
+
+    with col3:
+
+        st.metric(
+
+            "Probabilitas Tidak Lancar",
+
+            f"{prob_tidak_lancar*100:.2f}%"
+
         )
 
     st.divider()
 
-    # =============================================
-    # BAR CHART
-    # =============================================
+    # ==========================================
+    # PROGRESS BAR
+    # ==========================================
 
-    df_prob = pd.DataFrame({
+    st.subheader("📈 Tingkat Keyakinan Model")
+
+    if prediction == 1:
+
+        st.progress(float(prob_lancar))
+
+        st.caption(
+            f"Model yakin sebesar {prob_lancar*100:.2f}% bahwa pinjaman akan Lancar."
+        )
+
+    else:
+
+        st.progress(float(prob_tidak_lancar))
+
+        st.caption(
+            f"Model yakin sebesar {prob_tidak_lancar*100:.2f}% bahwa pinjaman Tidak Lancar."
+        )
+
+    st.divider()
+
+    # ==========================================
+    # BAR CHART
+    # ==========================================
+
+    chart_df = pd.DataFrame({
 
         "Status":[
+
             "Lancar",
+
             "Tidak Lancar"
+
         ],
 
         "Probabilitas":[
+
             prob_lancar,
+
             prob_tidak_lancar
+
         ]
 
     })
 
     fig = px.bar(
 
-        df_prob,
+        chart_df,
 
         x="Status",
 
@@ -512,17 +589,22 @@ if "prediction" in st.session_state:
     )
 
     st.plotly_chart(
+
         fig,
+
         use_container_width=True
+
     )
 
-    # =============================================
+    st.divider()
+
+    # ==========================================
     # GAUGE CHART
-    # =============================================
+    # ==========================================
 
     nilai = prob_lancar if prediction == 1 else prob_tidak_lancar
 
-    fig2 = go.Figure(
+    gauge = go.Figure(
 
         go.Indicator(
 
@@ -546,18 +628,25 @@ if "prediction" in st.session_state:
 
     )
 
-    fig2.update_layout(height=400)
+    gauge.update_layout(
+
+        height=420
+
+    )
 
     st.plotly_chart(
-        fig2,
+
+        gauge,
+
         use_container_width=True
+
     )
 
     st.divider()
 
-    # =============================================
+    # ==========================================
     # INTERPRETASI
-    # =============================================
+    # ==========================================
 
     st.markdown("""
     <div class="section-card">
@@ -565,19 +654,15 @@ if "prediction" in st.session_state:
     <h3>📝 Interpretasi Hasil</h3>
 
     </div>
-
     """, unsafe_allow_html=True)
 
     if prediction == 1:
 
         st.success(f"""
 
-Model Random Forest memprediksi bahwa calon
-nasabah memiliki **status pinjaman Lancar**
-dengan probabilitas **{prob_lancar:.2%}**.
+Model Random Forest memprediksi bahwa calon nasabah memiliki **status pinjaman Lancar**.
 
-Hal ini menunjukkan bahwa profil nasabah
-memiliki tingkat risiko gagal bayar yang rendah.
+Probabilitas prediksi sebesar **{prob_lancar*100:.2f}%** menunjukkan bahwa calon nasabah memiliki tingkat risiko gagal bayar yang rendah.
 
 """)
 
@@ -585,11 +670,8 @@ memiliki tingkat risiko gagal bayar yang rendah.
 
         st.error(f"""
 
-Model Random Forest memprediksi bahwa calon
-nasabah memiliki **status pinjaman Tidak Lancar**
-dengan probabilitas **{prob_tidak_lancar:.2%}**.
+Model Random Forest memprediksi bahwa calon nasabah memiliki **status pinjaman Tidak Lancar**.
 
-Hal ini menunjukkan bahwa profil nasabah
-memiliki tingkat risiko gagal bayar yang tinggi.
+Probabilitas prediksi sebesar **{prob_tidak_lancar*100:.2f}%** menunjukkan bahwa calon nasabah memiliki tingkat risiko gagal bayar yang lebih tinggi.
 
 """)
