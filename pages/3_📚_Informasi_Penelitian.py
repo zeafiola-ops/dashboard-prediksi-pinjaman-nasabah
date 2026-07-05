@@ -285,9 +285,7 @@ text-align:center;
 color:#1848A5;
 font-size:32px;
 ">
-
 👤 Profil Penelitian
-
 </h2>
 <hr>
 
