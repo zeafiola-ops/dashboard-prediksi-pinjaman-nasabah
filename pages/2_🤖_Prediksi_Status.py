@@ -646,47 +646,6 @@ if "prediction" in st.session_state:
     prob_tidak_lancar = st.session_state["prob_tidak_lancar"]
 st.divider()
 
-st.markdown("""
-<h2 style="color:#1848A5;">
-📊 Ringkasan Hasil Prediksi
-</h2>
-""", unsafe_allow_html=True)
-
-confidence = max(prob_lancar, prob_tidak_lancar) * 100
-status = "🟢 Lancar" if prediction == 1 else "🔴 Tidak Lancar"
-
-col1, col2, col3, col4 = st.columns(4)
-
-with col1:
-    st.markdown("### 📌")
-    st.metric(
-        label="Status Prediksi",
-        value=status
-    )
-
-with col2:
-    st.markdown("### 📈")
-    st.metric(
-        label="Probabilitas Lancar",
-        value=f"{prob_lancar*100:.2f}%"
-    )
-
-with col3:
-    st.markdown("### ⚠️")
-    st.metric(
-        label="Probabilitas Tidak Lancar",
-        value=f"{prob_tidak_lancar*100:.2f}%"
-    )
-
-with col4:
-    st.markdown("### 🧠")
-    st.metric(
-        label="Tingkat Keyakinan",
-        value=f"{confidence:.2f}%"
-    )
-
-st.divider()
-
     st.markdown("""
     <div class="card">
 
