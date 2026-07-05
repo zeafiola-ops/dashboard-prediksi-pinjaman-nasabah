@@ -410,6 +410,72 @@ line-height:1.7;
 color:#444;
 
 }
+/* ==========================================
+KESIMPULAN
+========================================== */
+
+.conclusion-card{
+
+background:white;
+
+padding:30px;
+
+border-radius:20px;
+
+box-shadow:0px 6px 18px rgba(0,0,0,.08);
+
+margin-bottom:25px;
+
+}
+
+.conclusion-title{
+
+font-size:32px;
+
+font-weight:bold;
+
+color:#1848A5;
+
+text-align:center;
+
+margin-bottom:20px;
+
+}
+
+.conclusion-text{
+
+font-size:17px;
+
+line-height:2;
+
+text-align:justify;
+
+color:#444;
+
+}
+/* ==========================================
+FOOTER
+========================================== */
+
+.footer{
+
+margin-top:40px;
+
+padding:25px;
+
+text-align:center;
+
+background:#1848A5;
+
+color:white;
+
+border-radius:20px;
+
+font-size:16px;
+
+line-height:1.8;
+
+}
 </style>
 """, unsafe_allow_html=True)
 # ==========================================================
@@ -906,3 +972,62 @@ Mengimplementasikan model ke dalam dashboard interaktif berbasis Streamlit sehin
 """, unsafe_allow_html=True)
 
 st.divider()
+# ==========================================================
+# KESIMPULAN
+# ==========================================================
+
+st.markdown("""
+
+<div class="conclusion-card">
+
+<div class="conclusion-title">
+
+📌 Kesimpulan
+
+</div>
+
+<div class="conclusion-text">
+
+Penelitian ini berhasil membangun model prediksi status pinjaman
+nasabah menggunakan metode <b>Random Forest</b>. Model yang
+dibangun mampu mengklasifikasikan status pinjaman menjadi dua
+kategori, yaitu <b>Lancar (1)</b> dan <b>Tidak Lancar (0)</b>,
+berdasarkan karakteristik data pinjaman.
+
+Dashboard yang dikembangkan dengan <b>Streamlit</b> memberikan
+visualisasi hasil prediksi dan evaluasi model secara interaktif,
+sehingga memudahkan pengguna dalam memahami hasil analisis
+serta mendukung proses pengambilan keputusan.
+
+</div>
+
+</div>
+
+""", unsafe_allow_html=True)
+
+st.divider()
+# ==========================================================
+# FOOTER
+# ==========================================================
+
+st.markdown("""
+
+<div class="footer">
+
+<b>Dashboard Prediksi Status Pinjaman Nasabah</b>
+
+<br><br>
+
+© 2026 Muhammad Rizki Maulidin
+
+<br>
+
+Program Studi Sistem Informasi
+
+<br>
+
+Institut Informatika dan Bisnis Darmajaya
+
+</div>
+
+""", unsafe_allow_html=True)
