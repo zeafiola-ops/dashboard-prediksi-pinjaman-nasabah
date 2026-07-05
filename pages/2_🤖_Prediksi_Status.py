@@ -36,7 +36,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 
 MODEL_PATH = BASE_DIR / "model" / "random_forest_model (1).pkl"
 
-FEATURE_PATH = BASE_DIR / "model" / "feature_names.pkl"
+FEATURE_PATH = BASE_DIR / "data" / "feature_names.pkl"
 
 LOGO_PATH = BASE_DIR / "assets" / "logo.png"
 
