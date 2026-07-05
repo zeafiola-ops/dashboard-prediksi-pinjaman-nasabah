@@ -278,7 +278,7 @@ font-size:15px;
 
 with st.sidebar:
 
-    st.image(str(Logo_npg), use_container_width=True)
+   st.image(str(LOGO_PATH), use_container_width=True)
 
     st.markdown("""
     <div style='text-align:center;'>
