@@ -14,13 +14,9 @@ from pathlib import Path
 # ==========================================================
 
 st.set_page_config(
-
     page_title="Prediksi Status Pinjaman",
-
     page_icon="🤖",
-
     layout="wide"
-
 )
 
 # ==========================================================
@@ -28,15 +24,10 @@ st.set_page_config(
 # ==========================================================
 
 def load_css():
-
     with open("style.css") as f:
-
         st.markdown(
-
             f"<style>{f.read()}</style>",
-
             unsafe_allow_html=True
-
         )
 
 load_css()
@@ -47,7 +38,7 @@ load_css()
 
 BASE_DIR = Path(__file__).parent.parent
 
-MODEL_PATH = BASE_DIR / "model" / "random_forest_model.pkl"
+MODEL_PATH = BASE_DIR / "model" / "random_forest_model (1).pkl"
 
 FEATURE_PATH = BASE_DIR / "data" / "feature_names.pkl"
 
@@ -57,58 +48,36 @@ FEATURE_PATH = BASE_DIR / "data" / "feature_names.pkl"
 
 @st.cache_resource
 def load_model():
-
-    return joblib.load(MODEL_PATH)
+    model = joblib.load(MODEL_PATH)
+    return model
 
 model = load_model()
 
 # ==========================================================
-# LOAD FEATURE
+# LOAD FEATURE NAMES
 # ==========================================================
 
 @st.cache_resource
-def load_feature():
+def load_feature_names():
+    feature_names = joblib.load(FEATURE_PATH)
+    return feature_names
 
-    return joblib.load(FEATURE_PATH)
-
-feature_names = load_feature()
+feature_names = load_feature_names()
 
 # ==========================================================
 # HEADER
 # ==========================================================
 
 st.markdown("""
-
-<h1 style="
-
-text-align:center;
-
-color:#174EA6;
-
-font-weight:700;
-
-">
-
+<h1 style="text-align:center;color:#174EA6;font-weight:bold;">
 🤖 Prediksi Status Pinjaman Nasabah
-
 </h1>
 
-<p style="
-
-text-align:center;
-
-font-size:17px;
-
-color:gray;
-
-">
-
-Masukkan data calon nasabah untuk memperoleh
+<p style="text-align:center;color:gray;font-size:17px;">
+Masukkan informasi calon nasabah untuk memperoleh
 hasil prediksi status pinjaman menggunakan
-metode <b>Random Forest</b>.
-
+<b>Random Forest</b>.
 </p>
-
 """, unsafe_allow_html=True)
 
 st.divider()
