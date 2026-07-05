@@ -414,7 +414,6 @@ dengan tingkat akurasi yang tinggi sehingga
 layak digunakan sebagai model prediksi.
 """)
 st.divider()
-col1,col2,col3=st.columns(3)
 
 st.markdown("## 📌 Statistik Singkat")
 
