@@ -418,7 +418,18 @@ layak digunakan sebagai model prediksi.
 """)
 st.divider()
 
-st.markdown("## 📌 Statistik Singkat")
+st.markdown("""
+<div class="section-card">
+
+<h3>📊 Informasi Model</h3>
+
+<p>
+Ringkasan informasi mengenai dataset dan model
+Random Forest yang digunakan pada penelitian.
+</p>
+
+</div>
+""", unsafe_allow_html=True)
 
 col1, col2, col3, col4 = st.columns(4)
 
