@@ -129,6 +129,65 @@ DESCRIPTION
     color:#666666;
 
 }
+/* ==========================================
+IDENTITAS CARD
+========================================== */
+
+.info-card{
+
+background:white;
+
+padding:25px;
+
+border-radius:18px;
+
+text-align:center;
+
+box-shadow:0px 6px 18px rgba(0,0,0,.08);
+
+transition:0.3s;
+
+border-top:6px solid #1E4DB7;
+
+height:180px;
+
+}
+
+.info-card:hover{
+
+transform:translateY(-5px);
+
+}
+
+.info-icon{
+
+font-size:38px;
+
+margin-bottom:10px;
+
+}
+
+.info-title{
+
+font-size:17px;
+
+font-weight:600;
+
+color:#666;
+
+}
+
+.info-value{
+
+font-size:22px;
+
+font-weight:bold;
+
+color:#1848A5;
+
+margin-top:10px;
+
+}
 
 </style>
 """, unsafe_allow_html=True)
