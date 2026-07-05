@@ -641,14 +641,22 @@ st.dataframe(
 # =============================================
 # INTERPRETASI
 # =============================================
-st.markdown("""
+st.dataframe(
+    ringkasan,
+    use_container_width=True,
+    hide_index=True
+)
 
+# =============================================
+# INTERPRETASI
+# =============================================
+
+st.markdown("""
 <div class="section-card">
 
 <h3>📝 Interpretasi Hasil</h3>
 
 </div>
-
 """, unsafe_allow_html=True)
     if prediction == 1:
 
