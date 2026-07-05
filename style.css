@@ -495,3 +495,38 @@ color:#666;
 font-size:15px;
 
 }
+/*============================================*/
+/* CARD */
+/*============================================*/
+
+.block-container{
+
+padding-top:2rem;
+
+}
+
+.section-card{
+
+background:white;
+
+padding:18px;
+
+border-radius:15px;
+
+box-shadow:0 6px 15px rgba(0,0,0,.08);
+
+margin-bottom:15px;
+
+border-left:6px solid #2F80ED;
+
+transition:.3s;
+
+}
+
+.section-card:hover{
+
+transform:translateY(-4px);
+
+box-shadow:0 10px 20px rgba(0,0,0,.12);
+
+}
