@@ -200,3 +200,90 @@ border-left:6px solid #2E7DFF;
 </style>
 
 """, unsafe_allow_html=True)
+# ==========================================================
+# SIDEBAR
+# ==========================================================
+
+with st.sidebar:
+
+    st.image(str(LOGO_PATH), use_container_width=True)
+
+    st.markdown("""
+    <div style="text-align:center;">
+
+    <h2 style="margin-bottom:0;">
+    Dashboard Prediksi
+    </h2>
+
+    <p style="font-size:16px;">
+    Status Pinjaman Nasabah
+    </p>
+
+    </div>
+    """, unsafe_allow_html=True)
+
+    st.divider()
+
+    st.markdown("""
+### 📌 Informasi Model
+
+- **Metode :** Random Forest
+- **Target :** Status Pinjaman
+- **Kelas :** 2
+- **1 = Lancar**
+- **0 = Tidak Lancar**
+
+""")
+
+# ==========================================================
+# HEADER
+# ==========================================================
+
+st.markdown("""
+
+<div class="title">
+
+🧠 Prediksi Status Pinjaman Nasabah
+
+</div>
+
+<div class="subtitle">
+
+Masukkan data calon nasabah untuk memperoleh hasil prediksi
+status pinjaman menggunakan model <b>Random Forest</b>.
+
+</div>
+
+""", unsafe_allow_html=True)
+
+st.divider()
+
+# ==========================================================
+# CARD INFORMASI
+# ==========================================================
+
+st.markdown("""
+
+<div class="card">
+
+<h2 style="color:#1848A5;">
+
+📋 Informasi Prediksi
+
+</h2>
+
+<p style="font-size:17px; line-height:1.8;">
+
+Halaman ini digunakan untuk memprediksi status pinjaman nasabah
+berdasarkan karakteristik calon peminjam menggunakan model
+<b>Random Forest</b>.
+
+Silakan isi seluruh data calon nasabah pada formulir yang tersedia,
+kemudian klik tombol <b>Prediksi Status Pinjaman</b> untuk melihat
+hasil prediksi beserta tingkat probabilitasnya.
+
+</p>
+
+</div>
+
+""", unsafe_allow_html=True)
