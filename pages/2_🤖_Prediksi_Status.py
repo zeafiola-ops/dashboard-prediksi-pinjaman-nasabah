@@ -255,35 +255,147 @@ status pinjaman menggunakan model <b>Random Forest</b>.
 </div>
 
 """, unsafe_allow_html=True)
+st.markdown("""
 
+<style>
+
+.kpi{
+
+background:white;
+
+padding:25px;
+
+border-radius:18px;
+
+box-shadow:0px 8px 20px rgba(0,0,0,.10);
+
+border-left:7px solid #1E88E5;
+
+text-align:center;
+
+transition:.3s;
+
+height:180px;
+
+}
+
+.kpi:hover{
+
+transform:translateY(-8px);
+
+box-shadow:0px 18px 35px rgba(0,0,0,.18);
+
+}
+
+.icon{
+
+font-size:45px;
+
+}
+
+.judul{
+
+font-size:18px;
+
+color:gray;
+
+}
+
+.nilai{
+
+font-size:34px;
+
+font-weight:bold;
+
+color:#1848A5;
+
+}
+
+</style>
+
+""",unsafe_allow_html=True)
 st.divider()
-col1, col2, col3, col4 = st.columns(4)
+col1,col2,col3,col4=st.columns(4)
 
 with col1:
-    st.metric(
-        "📊 Jumlah Fitur",
-        len(feature_names)
-    )
+
+    st.markdown("""
+
+<div class="kpi">
+
+<div class="icon">📊</div>
+
+<div class="judul">
+Jumlah Fitur
+</div>
+
+<div class="nilai">
+20
+</div>
+
+</div>
+
+""",unsafe_allow_html=True)
 
 with col2:
-    st.metric(
-        "🌳 Model",
-        "Random Forest"
-    )
+
+    st.markdown("""
+
+<div class="kpi">
+
+<div class="icon">🌳</div>
+
+<div class="judul">
+Metode
+</div>
+
+<div class="nilai">
+RF
+</div>
+
+</div>
+
+""",unsafe_allow_html=True)
 
 with col3:
-    st.metric(
-        "🎯 Target",
-        "Status"
-    )
+
+    st.markdown("""
+
+<div class="kpi">
+
+<div class="icon">🎯</div>
+
+<div class="judul">
+Target
+</div>
+
+<div class="nilai">
+2 Class
+</div>
+
+</div>
+
+""",unsafe_allow_html=True)
 
 with col4:
-    st.metric(
-        "📁 Kelas",
-        "2"
-    )
 
-st.divider()
+    st.markdown("""
+
+<div class="kpi">
+
+<div class="icon">📁</div>
+
+<div class="judul">
+Dataset
+</div>
+
+<div class="nilai">
+50K
+</div>
+
+</div>
+
+""",unsafe_allow_html=True)
 # ==========================================================
 # CARD INFORMASI
 # ==========================================================
