@@ -177,7 +177,7 @@ with col1:
 
     st.image(
         str(LOGO_DASHBOARD),
-        width=130
+        width=110
     )
 
 with col2:
@@ -208,7 +208,7 @@ with col3:
 
     st.image(
         str(LOGO_DARMAJAYA),
-        width=160
+        width=200
     )
 
 st.markdown("</div>", unsafe_allow_html=True)
