@@ -369,3 +369,34 @@ with k3:
     )
 
 st.divider()
+# ==========================================================
+# TUJUAN DAN MANFAAT PENELITIAN
+# ==========================================================
+
+st.markdown("""
+<div class="card">
+
+<h2 style="
+text-align:center;
+color:#1848A5;
+font-size:32px;
+">
+
+🎯 Tujuan dan Manfaat Penelitian
+
+</h2>
+
+<p style="
+text-align:center;
+color:#666;
+font-size:17px;
+">
+
+Penelitian ini bertujuan untuk membangun model prediksi status
+pinjaman nasabah menggunakan metode Random Forest serta
+menyajikan hasil analisis dalam bentuk dashboard interaktif.
+
+</p>
+
+</div>
+""", unsafe_allow_html=True)
