@@ -257,7 +257,33 @@ status pinjaman menggunakan model <b>Random Forest</b>.
 """, unsafe_allow_html=True)
 
 st.divider()
+col1, col2, col3, col4 = st.columns(4)
 
+with col1:
+    st.metric(
+        "📊 Jumlah Fitur",
+        len(feature_names)
+    )
+
+with col2:
+    st.metric(
+        "🌳 Model",
+        "Random Forest"
+    )
+
+with col3:
+    st.metric(
+        "🎯 Target",
+        "Status"
+    )
+
+with col4:
+    st.metric(
+        "📁 Kelas",
+        "2"
+    )
+
+st.divider()
 # ==========================================================
 # CARD INFORMASI
 # ==========================================================
