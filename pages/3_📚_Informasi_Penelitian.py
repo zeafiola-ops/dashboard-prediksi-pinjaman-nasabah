@@ -188,7 +188,57 @@ color:#1848A5;
 margin-top:10px;
 
 }
+/* ==========================================
+TUJUAN & MANFAAT
+========================================== */
 
+.content-card{
+
+background:white;
+
+padding:28px;
+
+border-radius:20px;
+
+box-shadow:0px 6px 18px rgba(0,0,0,.08);
+
+height:100%;
+
+transition:.3s;
+
+}
+
+.content-card:hover{
+
+transform:translateY(-5px);
+
+}
+
+.content-title{
+
+font-size:24px;
+
+font-weight:bold;
+
+color:#1848A5;
+
+margin-bottom:15px;
+
+text-align:center;
+
+}
+
+.content-text{
+
+font-size:17px;
+
+line-height:1.9;
+
+text-align:justify;
+
+color:#444;
+
+}
 </style>
 """, unsafe_allow_html=True)
 
@@ -400,3 +450,66 @@ menyajikan hasil analisis dalam bentuk dashboard interaktif.
 
 </div>
 """, unsafe_allow_html=True)
+kiri, kanan = st.columns(2)
+
+with kiri:
+
+    st.markdown("""
+<div class="content-card">
+
+<div class="content-title">
+
+🎯 Tujuan Penelitian
+
+</div>
+
+<div class="content-text">
+
+<ul>
+
+<li>Membangun model prediksi status pinjaman nasabah menggunakan metode <b>Random Forest</b>.</li>
+
+<li>Menghasilkan prediksi yang dapat membantu proses pengambilan keputusan.</li>
+
+<li>Menyediakan dashboard interaktif sebagai media visualisasi hasil prediksi.</li>
+
+<li>Memberikan informasi prediksi secara cepat, mudah dipahami, dan informatif.</li>
+
+</ul>
+
+</div>
+
+</div>
+""", unsafe_allow_html=True)
+
+with kanan:
+
+    st.markdown("""
+<div class="content-card">
+
+<div class="content-title">
+
+💡 Manfaat Penelitian
+
+</div>
+
+<div class="content-text">
+
+<ul>
+
+<li>Membantu lembaga keuangan dalam mengidentifikasi potensi kelayakan pinjaman.</li>
+
+<li>Meningkatkan efisiensi proses analisis data pinjaman.</li>
+
+<li>Menyediakan media visualisasi berbasis dashboard untuk mendukung pengambilan keputusan.</li>
+
+<li>Menjadi referensi penelitian selanjutnya pada bidang Business Intelligence dan Machine Learning.</li>
+
+</ul>
+
+</div>
+
+</div>
+""", unsafe_allow_html=True)
+
+st.divider()
