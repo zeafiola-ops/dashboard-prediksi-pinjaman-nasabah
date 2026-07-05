@@ -132,15 +132,11 @@ st.markdown("""
 
 <h1 style="text-align:center;
 color:#174EA6;">
-
 🤖 Prediksi Status Pinjaman Nasabah
-
 </h1>
-
 <p style="text-align:center;
 font-size:18px;
 color:#555;">
-
 Masukkan informasi calon nasabah pada formulir berikut
 untuk memperoleh hasil prediksi status pinjaman
 menggunakan metode <b>Random Forest</b>.
@@ -675,3 +671,17 @@ Model Random Forest memprediksi bahwa calon nasabah memiliki **status pinjaman T
 Probabilitas prediksi sebesar **{prob_tidak_lancar*100:.2f}%** menunjukkan bahwa calon nasabah memiliki tingkat risiko gagal bayar yang lebih tinggi.
 
 """)
+
+# ==========================================================
+# BAGIAN 5
+# RINGKASAN DATA & DOWNLOAD
+# ==========================================================
+
+if "prediction" in st.session_state:
+
+    st.divider()
+
+    st.markdown("""
+    <div class="section-card">
+
+    <h2 style="text-align:center;color:#
