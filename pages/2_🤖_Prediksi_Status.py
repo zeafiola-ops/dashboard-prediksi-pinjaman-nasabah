@@ -449,7 +449,7 @@ if prediksi:
     except Exception as e:
 
         st.error(f"Terjadi kesalahan saat prediksi : {e}")
-        # ==========================================================
+    # ==========================================================
 # BAGIAN 4
 # HASIL PREDIKSI
 # ==========================================================
@@ -671,6 +671,3 @@ Model Random Forest memprediksi bahwa calon nasabah memiliki **status pinjaman T
 Probabilitas prediksi sebesar **{prob_tidak_lancar*100:.2f}%** menunjukkan bahwa calon nasabah memiliki tingkat risiko gagal bayar yang lebih tinggi.
 
 """)
-
-
-    <h2 style="text-align:center;color:#
