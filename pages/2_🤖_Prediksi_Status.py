@@ -661,8 +661,7 @@ Model Random Forest memprediksi bahwa calon nasabah memiliki **status pinjaman L
 Probabilitas prediksi sebesar **{prob_lancar*100:.2f}%** menunjukkan bahwa calon nasabah memiliki tingkat risiko gagal bayar yang rendah.
 
 """)
-    
-    else:
+else:
 
     st.error(f"""
 
