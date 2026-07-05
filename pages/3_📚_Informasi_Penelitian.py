@@ -280,201 +280,151 @@ st.divider()
 st.markdown("""
 <div class="card">
 
-<h2 style="
-color:#1848A5;
-text-align:center;
-font-size:32px;
-margin-bottom:15px;
-">
+<h2 style="text-align:center;color:#1848A5;">
 👤 Identitas Penelitian
 </h2>
 
-<p style="
-text-align:center;
-font-size:18px;
-color:#666;
-margin-bottom:15px;
-">
-Informasi umum mengenai penelitian yang dilakukan.
-</p>
-
-</div>
-""", unsafe_allow_html=True)
-col1,col2,col3,col4 = st.columns(4)
-
-with col1:
-
-    st.markdown("""
-<div class="info-card">
-
-<div class="info-icon">
-👤
-</div>
-
-<div class="info-title">
-
-Peneliti
-
-</div>
-<div class="info-value">
-M.Rizki Maulidin
-</div>
 </div>
 """, unsafe_allow_html=True)
 
-with col2:
+c1,c2,c3 = st.columns(3)
 
-    st.markdown("""
-<div class="info-card">
+with c1:
+    st.metric(
+        "Nama Peneliti",
+        "Muhammad Rizki Maulidin"
+    )
 
-<div class="info-icon">
-🆔
-</div>
+with c2:
+    st.metric(
+        "NPM",
+        "2211050009"
+    )
 
-<div class="info-title">
-
-NPM
-
-</div>
-
-<div class="info-value">
-
-2211050009
-
-</div>
-
-</div>
-""", unsafe_allow_html=True)
-
-with col3:
-
-    st.markdown("""
-<div class="info-card">
-
-<div class="info-icon">
-🎓
-</div>
-
-<div class="info-title">
-
-Program Studi
-
-</div>
-
-<div class="info-value">
-
-Sistem Informasi
-
-</div>
-
-</div>
-""", unsafe_allow_html=True)
-
-with col4:
-
-    st.markdown("""
-<div class="info-card">
-
-<div class="info-icon">
-🏫
-</div>
-
-<div class="info-title">
-
-Universitas
-
-</div>
-
-<div class="info-value">
-
-IIB Darmajaya
-
-</div>
-
-</div>
-""", unsafe_allow_html=True)
-
-
+with c3:
+    st.metric(
+        "Program Studi",
+        "Sistem Informasi"
+    )
 
 st.write("")
 
-col5,col6,col7 = st.columns(3)
+c4,c5,c6 = st.columns(3)
 
-with col5:
+with c4:
+    st.metric(
+        "Judul Skripsi",
+        "Prediksi Status Pinjaman Nasabah"
+    )
 
-    st.markdown("""
-<div class="info-card">
+with c5:
+    st.metric(
+        "Metode",
+        "Random Forest"
+    )
 
-<div class="info-icon">
-📊
-</div>
+with c6:
+    st.metric(
+        "Tahun Penelitian",
+        "2026"
+    )
 
-<div class="info-title">
+st.divider()
+# ==========================================================
+# IDENTITAS PENELITIAN
+# ==========================================================
 
-Metode
+st.markdown("""
+<div class="card">
 
-</div>
-
-<div class="info-value">
-
-Random Forest
-
-</div>
-
-</div>
-""", unsafe_allow_html=True)
-
-with col6:
-
-    st.markdown("""
-<div class="info-card">
-
-<div class="info-icon">
-📂
-</div>
-
-<div class="info-title">
-
-Dataset
-
-</div>
-
-<div class="info-value">
-
-klik Sumber Data
-
-</div>
-
-</div>
-st.link_button(
-    "🌐 Buka Dataset Kaggle",
-    "https://www.kaggle.com/datasets/ardava/dataset-klasifikasi-status-pinjaman",
-    use_container_width=True
-)
-""", unsafe_allow_html=True)
-
-with col7:
-
-    st.markdown("""
-<div class="info-card">
-
-<div class="info-icon">
-📅
-</div>
-
-<div class="info-title">
-
-Tahun
-
-</div>
-
-<div class="info-value">
-
-2026
-
-</div>
+<h2 style="text-align:center;color:#1848A5;">
+👤 Identitas Penelitian
+</h2>
 
 </div>
 """, unsafe_allow_html=True)
+
+c1,c2,c3 = st.columns(3)
+
+with c1:
+    st.metric(
+        "Nama Peneliti",
+        "Muhammad Rizki Maulidin"
+    )
+
+with c2:
+    st.metric(
+        "NPM",
+        "2211050009"
+    )
+
+with c3:
+    st.metric(
+        "Program Studi",
+        "Sistem Informasi"
+    )
+
+st.write("")
+
+c4,c5,c6 = st.columns(3)
+
+with c4:
+    st.metric(
+        "Judul Skripsi",
+        "Prediksi Status Pinjaman Nasabah"
+    )
+
+with c5:
+    st.metric(
+        "Metode",
+        "Random Forest"
+    )
+
+with c6:
+    st.metric(
+        "Tahun Penelitian",
+        "2026"
+    )
+
+st.divider()
+st.subheader("🌐 Informasi Pendukung")
+
+k1,k2,k3 = st.columns(3)
+
+with k1:
+
+    st.link_button(
+
+        "📂 Dataset Kaggle",
+
+        "https://www.kaggle.com/datasets/ardava/dataset-klasifikasi-status-pinjaman",
+
+        use_container_width=True
+
+    )
+
+with k2:
+
+    st.link_button(
+
+        "🏫 Website Darmajaya",
+
+        "https://www.darmajaya.ac.id",
+
+        use_container_width=True
+
+    )
+
+with k3:
+
+    st.link_button(
+
+        "🌲 Random Forest",
+
+        "https://scikit-learn.org/stable/modules/generated/sklearn.ensemble.RandomForestClassifier.html",
+
+        use_container_width=True
+
+    )
 
 st.divider()
