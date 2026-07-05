@@ -126,20 +126,14 @@ with st.sidebar:
 st.markdown("""
 
 <h1 style='text-align:center;color:#174EA6;'>
-
 🤖 Prediksi Status Pinjaman Nasabah
-
 </h1>
-
 <p style='text-align:center;
 font-size:18px;
 color:#555;'>
-
-Masukkan informasi calon nasabah
-untuk memperoleh hasil prediksi
-status pinjaman menggunakan
+Halaman ini digunakan untuk memprediksi status pinjaman nasabah berdasarkan 
+data yang dimasukkan menggunakan model Random Forest.
 <b>Random Forest</b>.
-
 </p>
 
 """, unsafe_allow_html=True)
