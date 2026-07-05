@@ -672,16 +672,5 @@ Probabilitas prediksi sebesar **{prob_tidak_lancar*100:.2f}%** menunjukkan bahwa
 
 """)
 
-# ==========================================================
-# BAGIAN 5
-# RINGKASAN DATA & DOWNLOAD
-# ==========================================================
-
-if "prediction" in st.session_state:
-
-    st.divider()
-
-    st.markdown("""
-    <div class="section-card">
 
     <h2 style="text-align:center;color:#
