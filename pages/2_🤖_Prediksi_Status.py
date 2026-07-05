@@ -6,6 +6,7 @@ import streamlit as st
 import pandas as pd
 import numpy as np
 import joblib
+from datetime import datetime
 import plotly.express as px
 import plotly.graph_objects as go
 from pathlib import Path
@@ -396,6 +397,18 @@ if st.button("🔍 Prediksi Status Pinjaman", use_container_width=True):
     st.session_state["prediction"] = prediction
     st.session_state["prob_lancar"] = prob_lancar
     st.session_state["prob_tidak_lancar"] = prob_tidak_lancar
+
+# ===========================================
+# WAKTU PREDIKSI
+# ===========================================
+
+waktu = datetime.now().strftime("%d-%m-%Y %H:%M:%S")
+
+st.info(f"""
+🕒 **Waktu Prediksi**
+
+{waktu}
+""")
 # ==========================================================
 # BAGIAN 4 - HASIL PREDIKSI
 # ==========================================================
@@ -463,7 +476,33 @@ if "prediction" in st.session_state:
         )
 
     st.divider()
+    
+st.divider()
 
+st.markdown("## 📌 Informasi Model")
+
+c1, c2, c3 = st.columns(3)
+
+with c1:
+
+    st.metric(
+        "Jumlah Fitur",
+        len(feature_names)
+    )
+
+with c2:
+
+    st.metric(
+        "Jumlah Kelas",
+        "2"
+    )
+
+with c3:
+
+    st.metric(
+        "Metode",
+        "Random Forest"
+    )
     # =============================================
     # BAR CHART
     # =============================================
@@ -551,7 +590,47 @@ if "prediction" in st.session_state:
     )
 
     st.divider()
+st.divider()
 
+st.markdown("## 📋 Ringkasan Data Input")
+
+ringkasan = pd.DataFrame({
+
+    "Variabel":[
+        "Usia",
+        "Lama Bekerja",
+        "Pendapatan",
+        "Skor Kredit",
+        "Lama Riwayat Kredit",
+        "Aset Tabungan",
+        "Total Hutang",
+        "Status Pekerjaan",
+        "Jumlah Pinjaman",
+        "Suku Bunga",
+        "Tujuan Pinjaman"
+    ],
+
+    "Nilai":[
+        usia,
+        lama_bekerja,
+        f"Rp {pendapatan:,}",
+        skor_kredit,
+        lama_riwayat,
+        f"Rp {aset_tabungan:,}",
+        f"Rp {hutang:,}",
+        status_pekerjaan,
+        f"Rp {jumlah_pinjaman:,}",
+        f"{suku_bunga} %",
+        tujuan
+    ]
+
+})
+
+st.dataframe(
+    ringkasan,
+    use_container_width=True,
+    hide_index=True
+)
     # =============================================
     # INTERPRETASI
     # =============================================
@@ -590,3 +669,107 @@ Hal ini menunjukkan bahwa profil nasabah
 memiliki tingkat risiko gagal bayar yang tinggi.
 
 """)
+
+st.divider()
+
+st.markdown("## 💡 Rekomendasi")
+
+if prediction == 1:
+
+    st.success("""
+
+Nasabah memiliki peluang tinggi memperoleh
+persetujuan pinjaman.
+
+Rekomendasi:
+
+• Pertahankan riwayat pembayaran.
+
+• Hindari keterlambatan cicilan.
+
+• Jaga rasio hutang tetap rendah.
+
+""")
+
+else:
+
+    st.warning("""
+
+Risiko gagal bayar relatif tinggi.
+
+Rekomendasi:
+
+• Tingkatkan skor kredit.
+
+• Kurangi total hutang.
+
+• Perbaiki riwayat pembayaran.
+
+• Ajukan kembali setelah kondisi keuangan membaik.
+
+""")
+
+st.divider()
+
+hasil = pd.DataFrame({
+
+    "Status Prediksi":[
+        "Lancar" if prediction == 1 else "Tidak Lancar"
+    ],
+
+    "Probabilitas Lancar":[
+        round(prob_lancar*100,2)
+    ],
+
+    "Probabilitas Tidak Lancar":[
+        round(prob_tidak_lancar*100,2)
+    ],
+
+    "Tanggal Prediksi":[
+        waktu
+    ]
+
+})
+
+csv = hasil.to_csv(index=False).encode("utf-8")
+
+st.download_button(
+
+    "📥 Download Hasil Prediksi",
+
+    csv,
+
+    "hasil_prediksi.csv",
+
+    "text/csv",
+
+    use_container_width=True
+
+)
+st.divider()
+
+st.markdown("""
+
+<div style="
+
+text-align:center;
+
+color:gray;
+
+padding:15px;
+
+">
+
+Dashboard Prediksi Status Pinjaman Nasabah
+
+<br>
+
+Metode Random Forest
+
+<br>
+
+© 2026 Sistem Informasi - Business Intelligence
+
+</div>
+
+""", unsafe_allow_html=True)
