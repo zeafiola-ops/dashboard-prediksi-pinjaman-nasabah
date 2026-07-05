@@ -654,15 +654,17 @@ if "prediction" in st.session_state:
 
     if prediction == 1:
 
-        st.success(f"""
-
+    st.success(f"""
 Model Random Forest memprediksi bahwa calon nasabah memiliki **status pinjaman Lancar**.
 
 Probabilitas prediksi sebesar **{prob_lancar*100:.2f}%** menunjukkan bahwa calon nasabah memiliki tingkat risiko gagal bayar yang rendah.
-
 """)
+
 else:
-    st.error(f"""Model Random Forest memprediksi bahwa calon nasabah memiliki **status pinjaman Tidak Lancar**.
+
+    st.error(f"""
+Model Random Forest memprediksi bahwa calon nasabah memiliki **status pinjaman Tidak Lancar**.
+
 Probabilitas prediksi sebesar **{prob_tidak_lancar*100:.2f}%** menunjukkan bahwa calon nasabah memiliki tingkat risiko gagal bayar yang lebih tinggi.
 """)
 # ==========================================================
@@ -779,4 +781,3 @@ Dikembangkan menggunakan Streamlit & Random Forest
 
 </div>
 """, unsafe_allow_html=True)
-    """, unsafe_allow_html=True)
