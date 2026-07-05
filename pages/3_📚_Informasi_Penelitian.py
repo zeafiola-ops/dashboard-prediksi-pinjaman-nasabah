@@ -1012,22 +1012,21 @@ st.divider()
 
 st.markdown("""
 
-<div class="footer">
+<div style="text-align:center;">
 
-<b>Dashboard Prediksi Status Pinjaman Nasabah</b>
-
-<br><br>
-
-© 2026 Muhammad Rizki Maulidin
-
-<br>
-
-Program Studi Sistem Informasi
-
-<br>
-
-Institut Informatika dan Bisnis Darmajaya
-
+<h3 style="color:#1E4DB7;">
+📚 Informasi Penelitian
+</h3>
+<p>
+Prediksi Status Pinjaman Nasabah Menggunakan Metode
+<b>Random Forest</b>
+</p>
+<p>
+Program Studi Sistem Informasi • Business Intelligence
+</p>
+<p>
+© 2026 
+</p>
 </div>
 
 """, unsafe_allow_html=True)
