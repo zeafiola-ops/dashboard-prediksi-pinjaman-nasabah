@@ -458,3 +458,40 @@ color:#1E3A8A;
     border-top:2px solid #E5E7EB;
     color:#64748B;
 }
+/* ======================================== */
+/* CARD SECTION */
+/* ======================================== */
+
+.section-card{
+
+background:white;
+
+padding:18px;
+
+border-radius:15px;
+
+box-shadow:0px 4px 12px rgba(0,0,0,.08);
+
+margin-bottom:15px;
+
+border-left:6px solid #2F80ED;
+
+}
+
+.section-card h3{
+
+margin:0;
+
+color:#174EA6;
+
+}
+
+.section-card p{
+
+margin-top:8px;
+
+color:#666;
+
+font-size:15px;
+
+}
