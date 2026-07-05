@@ -286,19 +286,16 @@ text-align:center;
 font-size:32px;
 margin-bottom:15px;
 ">
-
 👤 Identitas Penelitian
-
 </h2>
 
 <p style="
 text-align:center;
 font-size:18px;
 color:#666;
+margin-bottom:15px;
 ">
-
 Informasi umum mengenai penelitian yang dilakukan.
-
 </p>
 
 </div>
