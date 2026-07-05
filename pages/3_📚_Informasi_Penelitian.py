@@ -398,6 +398,8 @@ IIB Darmajaya
 </div>
 """, unsafe_allow_html=True)
 
+
+
 st.write("")
 
 col5,col6,col7 = st.columns(3)
