@@ -530,3 +530,38 @@ transform:translateY(-4px);
 box-shadow:0 10px 20px rgba(0,0,0,.12);
 
 }
+/*========================================*/
+/* SIDEBAR CARD */
+/*========================================*/
+
+.sidebar-card{
+
+background:linear-gradient(135deg,#1E88E5,#1565C0);
+
+padding:18px;
+
+border-radius:18px;
+
+color:white;
+
+box-shadow:0 6px 20px rgba(0,0,0,.15);
+
+margin-top:15px;
+
+}
+
+.sidebar-card h4{
+
+color:white;
+
+}
+
+.sidebar-card p{
+
+font-size:14px;
+
+color:white;
+
+line-height:1.6;
+
+}
