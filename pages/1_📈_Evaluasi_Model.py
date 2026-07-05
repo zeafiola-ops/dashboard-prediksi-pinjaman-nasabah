@@ -296,3 +296,75 @@ Semakin tinggi nilai importance,
 semakin besar pengaruh fitur terhadap
 prediksi status pinjaman menggunakan Random Forest.
 """)
+st.divider()
+# ======================================================
+# CLASSIFICATION REPORT
+# ======================================================
+
+st.markdown("## 📋 Classification Report")
+
+st.write(
+    """
+    Tabel berikut menunjukkan hasil evaluasi model
+    berdasarkan nilai Precision, Recall, F1-Score,
+    dan Support.
+    """
+)
+
+st.dataframe(
+    report,
+    use_container_width=True,
+    hide_index=False
+)
+
+st.info("""
+**Interpretasi**
+
+• Precision menunjukkan ketepatan model dalam memprediksi kelas.
+
+• Recall menunjukkan kemampuan model menemukan seluruh data pada kelas tertentu.
+
+• F1-Score merupakan rata-rata harmonis antara Precision dan Recall.
+
+• Support menunjukkan jumlah data pada masing-masing kelas.
+""")
+st.divider()
+# ======================================================
+# KESIMPULAN
+# ======================================================
+
+st.markdown("## 📝 Kesimpulan Evaluasi")
+
+st.success(f"""
+
+Model **Random Forest** berhasil memperoleh performa yang baik
+dengan nilai:
+
+- Accuracy : **{accuracy:.2%}**
+- Precision : **{precision:.2%}**
+- Recall : **{recall:.2%}**
+- F1 Score : **{f1:.2%}**
+
+Hasil ini menunjukkan bahwa model mampu
+mengklasifikasikan status pinjaman nasabah
+dengan tingkat akurasi yang tinggi sehingga
+layak digunakan sebagai model prediksi.
+""")
+st.divider()
+# ======================================================
+# FOOTER
+# ======================================================
+
+st.markdown("""
+<hr>
+
+<div style='text-align:center;color:gray;'>
+
+Dashboard Prediksi Status Pinjaman Nasabah
+
+© 2026 | Sistem Informasi - Business Intelligence
+
+Dikembangkan menggunakan Streamlit & Random Forest
+
+</div>
+""", unsafe_allow_html=True)
