@@ -898,7 +898,16 @@ fig = px.bar(
     title="10 Fitur Paling Berpengaruh"
 
 )
+fig.update_layout(
+    template="plotly_white",
+    height=500,
+    yaxis={"categoryorder": "total ascending"}
+)
 
+st.plotly_chart(
+    fig,
+    use_container_width=True
+)
 # ==========================================================
 # BAGIAN 6
 # RINGKASAN DATA
