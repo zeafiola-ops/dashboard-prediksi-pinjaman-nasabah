@@ -380,10 +380,6 @@ if st.button("🔍 Prediksi Status Pinjaman", use_container_width=True):
 
     input_df = input_df[feature_names]
 
-   # ----------------------------------------
-# Prediksi
-# ----------------------------------------
-
 try:
 
     prediction = model.predict(input_df)[0]
