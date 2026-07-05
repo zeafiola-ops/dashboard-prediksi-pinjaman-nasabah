@@ -715,31 +715,20 @@ yaitu <b>Lancar (1)</b> dan <b>Tidak Lancar (0)</b>, berdasarkan
 karakteristik data pinjaman yang dimiliki.
 
 </div>
-
 <div class="advantages">
-
 <b>Alasan menggunakan Random Forest :</b>
-
 <br><br>
-
 ✅ Memiliki tingkat akurasi yang tinggi.
-
 <br>
-
 ✅ Mengurangi risiko overfitting.
 
 <br>
-
 ✅ Mampu mengolah dataset berukuran besar.
 
 <br>
-
 ✅ Dapat mengetahui tingkat kepentingan setiap fitur (Feature Importance).
-
 <br>
-
 ✅ Cocok digunakan untuk permasalahan klasifikasi.
-
 </div>
 
 </div>
