@@ -669,5 +669,125 @@ Probabilitas prediksi sebesar **{prob_lancar*100:.2f}%** menunjukkan bahwa calon
 Model Random Forest memprediksi bahwa calon nasabah memiliki **status pinjaman Tidak Lancar**.
 
 Probabilitas prediksi sebesar **{prob_tidak_lancar*100:.2f}%** menunjukkan bahwa calon nasabah memiliki tingkat risiko gagal bayar yang lebih tinggi.
+# ==========================================================
+# RINGKASAN DATA INPUT
+# ==========================================================
 
+st.markdown("""
+<div class="section-card">
+
+<h3>📋 Ringkasan Data Input</h3>
+
+</div>
+""", unsafe_allow_html=True)
+
+ringkasan = pd.DataFrame({
+
+    "Variabel":[
+        "Usia",
+        "Lama Bekerja",
+        "Pendapatan Tahunan",
+        "Skor Kredit",
+        "Lama Riwayat Kredit",
+        "Aset Tabungan",
+        "Total Hutang",
+        "Pernah Gagal Bayar",
+        "Jumlah Tunggakan",
+        "Catatan Negatif",
+        "Jumlah Pinjaman",
+        "Suku Bunga",
+        "Status Pekerjaan",
+        "Tipe Produk",
+        "Tujuan Pinjaman"
+    ],
+
+    "Nilai":[
+        usia,
+        lama_bekerja,
+        pendapatan,
+        skor_kredit,
+        lama_riwayat,
+        aset_tabungan,
+        hutang,
+        gagal_bayar,
+        tunggakan,
+        catatan_negatif,
+        jumlah_pinjaman,
+        suku_bunga,
+        status_pekerjaan,
+        tipe_produk,
+        tujuan
+    ]
+
+})
+
+st.dataframe(
+    ringkasan,
+    use_container_width=True,
+    hide_index=True
+)
 """)
+# ==========================================================
+# DOWNLOAD HASIL
+# ==========================================================
+
+status = "Lancar" if prediction == 1 else "Tidak Lancar"
+
+hasil = pd.DataFrame({
+
+    "Status Prediksi":[status],
+
+    "Probabilitas Lancar":[round(prob_lancar*100,2)],
+
+    "Probabilitas Tidak Lancar":[round(prob_tidak_lancar*100,2)]
+
+})
+
+csv = hasil.to_csv(index=False).encode("utf-8")
+
+st.download_button(
+
+    "📥 Download Hasil Prediksi",
+
+    data=csv,
+
+    file_name="hasil_prediksi.csv",
+
+    mime="text/csv",
+
+    use_container_width=True
+
+)
+# ==========================================================
+# FOOTER
+# ==========================================================
+
+st.divider()
+
+st.markdown("""
+
+<div style="
+
+text-align:center;
+
+padding:20px;
+
+color:gray;
+
+font-size:15px;
+
+">
+
+Dashboard Prediksi Status Pinjaman Nasabah
+
+<br>
+
+Metode Random Forest
+
+<br><br>
+
+© 2026 Business Intelligence Dashboard
+
+</div>
+
+""", unsafe_allow_html=True)
