@@ -644,7 +644,7 @@ if "prediction" in st.session_state:
     prediction = st.session_state["prediction"]
     prob_lancar = st.session_state["prob_lancar"]
     prob_tidak_lancar = st.session_state["prob_tidak_lancar"]
-st.divider()
+    st.divider()
 
     st.markdown("""
     <div class="card">
