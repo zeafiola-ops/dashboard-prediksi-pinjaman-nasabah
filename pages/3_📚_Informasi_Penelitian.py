@@ -239,6 +239,49 @@ text-align:justify;
 color:#444;
 
 }
+/* ==========================================
+DATASET PENELITIAN
+========================================== */
+
+.dataset-card{
+
+background:white;
+
+padding:30px;
+
+border-radius:20px;
+
+box-shadow:0px 6px 18px rgba(0,0,0,.08);
+
+margin-bottom:25px;
+
+}
+
+.dataset-title{
+
+font-size:32px;
+
+font-weight:bold;
+
+color:#1848A5;
+
+text-align:center;
+
+margin-bottom:15px;
+
+}
+
+.dataset-text{
+
+font-size:17px;
+
+line-height:1.9;
+
+text-align:justify;
+
+color:#444;
+
+}
 </style>
 """, unsafe_allow_html=True)
 
@@ -511,5 +554,76 @@ with kanan:
 
 </div>
 """, unsafe_allow_html=True)
+
+st.divider()
+# ==========================================================
+# DATASET PENELITIAN
+# ==========================================================
+
+st.markdown("""
+<div class="dataset-card">
+
+<div class="dataset-title">
+
+📂 Dataset Penelitian
+
+</div>
+
+<div class="dataset-text">
+
+Dataset yang digunakan dalam penelitian ini merupakan
+<b>Dataset Klasifikasi Status Pinjaman</b> yang diperoleh dari
+platform <b>Kaggle</b>. Dataset ini digunakan sebagai sumber
+data utama untuk membangun model prediksi status pinjaman
+nasabah menggunakan metode <b>Random Forest</b>.
+
+</div>
+
+</div>
+
+""", unsafe_allow_html=True)
+col1,col2,col3,col4 = st.columns(4)
+
+with col1:
+    st.metric(
+        "📊 Jumlah Data",
+        "50.000"
+    )
+
+with col2:
+    st.metric(
+        "📑 Jumlah Fitur",
+        "20"
+    )
+
+with col3:
+    st.metric(
+        "🎯 Target",
+        "Status Pinjaman"
+    )
+
+with col4:
+    st.metric(
+        "📈 Kelas",
+        "2"
+    )
+    st.info("""
+
+🟢 **Kelas Target**
+
+**1 = Lancar**
+
+**0 = Tidak Lancar**
+
+""")
+    st.link_button(
+
+    "🌐 Buka Dataset Kaggle",
+
+    "https://www.kaggle.com/datasets/ardava/dataset-klasifikasi-status-pinjaman",
+
+    use_container_width=True
+
+)
 
 st.divider()
