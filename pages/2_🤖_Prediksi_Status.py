@@ -31,6 +31,66 @@ def load_css():
         )
 
 load_css()
+# ==========================================================
+# SIDEBAR
+# ==========================================================
+
+with st.sidebar:
+
+    st.image(
+        "assets/logo_dashboard.png",
+        use_container_width=True
+    )
+
+    st.markdown("""
+    <div style="text-align:center;">
+
+    <h2 style="color:white;margin-bottom:0px;">
+    Dashboard Prediksi
+    </h2>
+
+    <p style="color:#D6E4FF;font-size:15px;">
+    Status Pinjaman Nasabah
+    </p>
+
+    </div>
+    """, unsafe_allow_html=True)
+
+    st.markdown("---")
+
+    st.markdown("""
+    <div style="
+        background:linear-gradient(135deg,#1E88E5,#1565C0);
+        padding:18px;
+        border-radius:15px;
+        color:white;
+    ">
+
+    <h4>🤖 Tentang Prediksi</h4>
+
+    <p style="font-size:14px;">
+
+    Halaman ini digunakan
+    untuk melakukan prediksi
+    status pinjaman nasabah
+    menggunakan model
+    <b>Random Forest</b>.
+
+    </p>
+
+    <hr>
+
+    ✅ Akurat<br>
+    ⚡ Cepat<br>
+    💻 Mudah Digunakan
+
+    </div>
+
+    """, unsafe_allow_html=True)
+
+    st.markdown("<br>", unsafe_allow_html=True)
+
+    st.caption("© 2026 Dashboard Prediksi")
 
 # ==========================================================
 # PATH PROJECT
