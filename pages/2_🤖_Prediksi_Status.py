@@ -278,3 +278,119 @@ with right:
     )
 
 st.divider()
+# ==========================================================
+# BAGIAN 3 - PROSES PREDIKSI
+# ==========================================================
+
+st.markdown("""
+<div class="section-card">
+
+<h3>🤖 Proses Prediksi</h3>
+
+<p>
+Klik tombol di bawah untuk melakukan prediksi status pinjaman berdasarkan data yang telah diinput.
+</p>
+
+</div>
+""", unsafe_allow_html=True)
+
+if st.button("🔍 Prediksi Status Pinjaman", use_container_width=True):
+
+    # ----------------------------------------
+    # Data awal
+    # ----------------------------------------
+
+    input_data = {feature: 0 for feature in feature_names}
+
+    # ----------------------------------------
+    # Fitur numerik
+    # ----------------------------------------
+
+    input_data["usia"] = usia
+    input_data["lama_bekerja_tahun"] = lama_bekerja
+    input_data["pendapatan_tahunan"] = pendapatan
+    input_data["skor_kredit"] = skor_kredit
+    input_data["lama_riwayat_kredit_tahun"] = lama_riwayat
+    input_data["aset_tabungan"] = aset_tabungan
+    input_data["hutang_saat_ini"] = hutang
+    input_data["gagal_bayar_tercatat"] = 1 if gagal_bayar == "Ya" else 0
+    input_data["tunggakan_2thn_terakhir"] = tunggakan
+    input_data["catatan_negatif"] = catatan_negatif
+    input_data["jumlah_pinjaman"] = jumlah_pinjaman
+    input_data["suku_bunga"] = suku_bunga
+
+    # ----------------------------------------
+    # Rasio
+    # ----------------------------------------
+
+    if pendapatan > 0:
+
+        input_data["rasio_hutang_terhadap_pendapatan"] = hutang / pendapatan
+
+        input_data["rasio_pinjaman_terhadap_pendapatan"] = jumlah_pinjaman / pendapatan
+
+        input_data["rasio_pembayaran_terhadap_pendapatan"] = (
+            jumlah_pinjaman * (suku_bunga / 100)
+        ) / pendapatan
+
+    # ----------------------------------------
+    # One Hot Encoding
+    # ----------------------------------------
+
+    if status_pekerjaan == "Mahasiswa":
+        input_data["status_pekerjaan_Mahasiswa"] = 1
+
+    elif status_pekerjaan == "Wiraswasta":
+        input_data["status_pekerjaan_Wiraswasta"] = 1
+
+    # Pegawai = baseline
+
+    if tipe_produk == "Kredit Berjalan":
+        input_data["tipe_produk_Kredit Berjalan"] = 1
+
+    elif tipe_produk == "Pinjaman Pribadi":
+        input_data["tipe_produk_Pinjaman Pribadi"] = 1
+
+    # Kredit Baru = baseline
+
+    if tujuan == "Konsolidasi Hutang":
+        input_data["tujuan_pinjaman_Konsolidasi Hutang"] = 1
+
+    elif tujuan == "Medis":
+        input_data["tujuan_pinjaman_Medis"] = 1
+
+    elif tujuan == "Pendidikan":
+        input_data["tujuan_pinjaman_Pendidikan"] = 1
+
+    elif tujuan == "Pribadi":
+        input_data["tujuan_pinjaman_Pribadi"] = 1
+
+    elif tujuan == "Renovasi Rumah":
+        input_data["tujuan_pinjaman_Renovasi Rumah"] = 1
+
+    # Kendaraan = baseline
+
+    # ----------------------------------------
+    # DataFrame
+    # ----------------------------------------
+
+    input_df = pd.DataFrame([input_data])
+
+    input_df = input_df[feature_names]
+
+    # ----------------------------------------
+    # Prediksi
+    # ----------------------------------------
+
+    prediction = model.predict(input_df)[0]
+
+    probability = model.predict_proba(input_df)[0]
+
+    prob_tidak_lancar = probability[0]
+
+    prob_lancar = probability[1]
+
+    # Simpan ke session_state
+    st.session_state["prediction"] = prediction
+    st.session_state["prob_lancar"] = prob_lancar
+    st.session_state["prob_tidak_lancar"] = prob_tidak_lancar
