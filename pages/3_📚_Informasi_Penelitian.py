@@ -214,3 +214,33 @@ with col3:
 st.markdown("</div>", unsafe_allow_html=True)
 
 st.divider()
+# ==========================================================
+# IDENTITAS PENELITIAN
+# ==========================================================
+
+st.markdown("""
+<div class="card">
+
+<h2 style="
+color:#1848A5;
+text-align:center;
+font-size:32px;
+margin-bottom:15px;
+">
+
+👤 Identitas Penelitian
+
+</h2>
+
+<p style="
+text-align:center;
+font-size:18px;
+color:#666;
+">
+
+Informasi umum mengenai penelitian yang dilakukan.
+
+</p>
+
+</div>
+""", unsafe_allow_html=True)
