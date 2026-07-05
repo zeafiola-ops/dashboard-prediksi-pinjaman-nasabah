@@ -274,117 +274,61 @@ st.markdown("</div>", unsafe_allow_html=True)
 
 st.divider()
 # ==========================================================
-# IDENTITAS PENELITIAN
+# INFORMASI PENELITIAN
 # ==========================================================
 
 st.markdown("""
 <div class="card">
 
-<h2 style="text-align:center;color:#1848A5;">
-👤 Identitas Penelitian
+<h2 style="
+text-align:center;
+color:#1848A5;
+font-size:32px;
+">
+
+📚 Informasi Penelitian
+
 </h2>
 
-</div>
-""", unsafe_allow_html=True)
+<hr>
 
-c1,c2,c3 = st.columns(3)
+<table style="width:100%;font-size:18px;line-height:2.2;">
 
-with c1:
-    st.metric(
-        "Nama Peneliti",
-        "Muhammad Rizki Maulidin"
-    )
+<tr>
+<td width="240"><b>Nama Peneliti</b></td>
+<td>: Muhammad Rizki Maulidin</td>
+</tr>
 
-with c2:
-    st.metric(
-        "NPM",
-        "2211050009"
-    )
+<tr>
+<td><b>NPM</b></td>
+<td>: 2211050009</td>
+</tr>
 
-with c3:
-    st.metric(
-        "Program Studi",
-        "Sistem Informasi"
-    )
+<tr>
+<td><b>Program Studi</b></td>
+<td>: Sistem Informasi</td>
+</tr>
 
-st.write("")
+<tr>
+<td><b>Judul Skripsi</b></td>
+<td>: Prediksi Status Pinjaman Nasabah Menggunakan Metode Random Forest</td>
+</tr>
 
-c4,c5,c6 = st.columns(3)
+<tr>
+<td><b>Metode</b></td>
+<td>: Random Forest</td>
+</tr>
 
-with c4:
-    st.metric(
-        "Judul Skripsi",
-        "Prediksi Status Pinjaman Nasabah"
-    )
+<tr>
+<td><b>Tahun Penelitian</b></td>
+<td>: 2026</td>
+</tr>
 
-with c5:
-    st.metric(
-        "Metode",
-        "Random Forest"
-    )
-
-with c6:
-    st.metric(
-        "Tahun Penelitian",
-        "2026"
-    )
-
-st.divider()
-# ==========================================================
-# IDENTITAS PENELITIAN
-# ==========================================================
-
-st.markdown("""
-<div class="card">
-
-<h2 style="text-align:center;color:#1848A5;">
-👤 Identitas Penelitian
-</h2>
+</table>
 
 </div>
+
 """, unsafe_allow_html=True)
-
-c1,c2,c3 = st.columns(3)
-
-with c1:
-    st.metric(
-        "Nama Peneliti",
-        "Muhammad Rizki Maulidin"
-    )
-
-with c2:
-    st.metric(
-        "NPM",
-        "2211050009"
-    )
-
-with c3:
-    st.metric(
-        "Program Studi",
-        "Sistem Informasi"
-    )
-
-st.write("")
-
-c4,c5,c6 = st.columns(3)
-
-with c4:
-    st.metric(
-        "Judul Skripsi",
-        "Prediksi Status Pinjaman Nasabah"
-    )
-
-with c5:
-    st.metric(
-        "Metode",
-        "Random Forest"
-    )
-
-with c6:
-    st.metric(
-        "Tahun Penelitian",
-        "2026"
-    )
 
 st.divider()
 st.subheader("🌐 Informasi Pendukung")
