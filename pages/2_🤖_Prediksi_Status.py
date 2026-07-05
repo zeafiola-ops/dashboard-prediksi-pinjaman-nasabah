@@ -383,18 +383,13 @@ if st.button("🔍 Prediksi Status Pinjaman", use_container_width=True):
     # ----------------------------------------
     # Prediksi
     # ----------------------------------------
-try:
+prediction = model.predict(input_df)[0]
 
-st.write(input_df.columns.tolist())
-    prediction = model.predict(input_df)[0]
+probability = model.predict_proba(input_df)[0]
 
-    probability = model.predict_proba(input_df)[0]
+prob_tidak_lancar = probability[0]
 
-    prob_tidak_lancar = probability[0]
-
-    prob_lancar = probability[1]
-
-    st.success("✅ Prediksi berhasil")
+prob_lancar = probability[1]
 
     st.write(input_df)
 
