@@ -379,8 +379,8 @@ if st.button("🔍 Prediksi Status Pinjaman", use_container_width=True):
     input_df = pd.DataFrame([input_data])
 
     input_df = input_df[feature_names]
-
-try:
+    
+    try:
 
     prediction = model.predict(input_df)[0]
 
