@@ -896,7 +896,7 @@ fig = px.bar(
 
     x="Importance",
 
-    y="Feature",
+    y="Fitur"
 
     orientation="h",
 
