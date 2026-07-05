@@ -404,7 +404,6 @@ except Exception as e:
 
     st.error(f"Terjadi kesalahan saat prediksi: {e}")
 
-    st.write(input_df)
 
 except Exception as e:
 
