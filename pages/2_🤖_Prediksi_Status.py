@@ -6,6 +6,8 @@ import streamlit as st
 import pandas as pd
 import numpy as np
 import joblib
+import plotly.express as px
+import plotly.graph_objects as go
 
 from pathlib import Path
 
@@ -394,3 +396,197 @@ if st.button("🔍 Prediksi Status Pinjaman", use_container_width=True):
     st.session_state["prediction"] = prediction
     st.session_state["prob_lancar"] = prob_lancar
     st.session_state["prob_tidak_lancar"] = prob_tidak_lancar
+# ==========================================================
+# BAGIAN 4 - HASIL PREDIKSI
+# ==========================================================
+
+if "prediction" in st.session_state:
+
+    prediction = st.session_state["prediction"]
+    prob_lancar = st.session_state["prob_lancar"]
+    prob_tidak_lancar = st.session_state["prob_tidak_lancar"]
+
+    st.markdown("""
+    <div class="section-card">
+
+    <h3>📊 Hasil Prediksi</h3>
+
+    <p>
+    Hasil prediksi status pinjaman berdasarkan
+    data yang telah dimasukkan.
+    </p>
+
+    </div>
+    """, unsafe_allow_html=True)
+
+    # =============================================
+    # CARD HASIL
+    # =============================================
+
+    if prediction == 1:
+
+        st.success("🟢 Status Prediksi : LANCAR")
+
+    else:
+
+        st.error("🔴 Status Prediksi : TIDAK LANCAR")
+
+    st.markdown("### 🎯 Tingkat Keyakinan Model")
+
+    if prediction == 1:
+        st.progress(float(prob_lancar))
+        st.caption(f"Probabilitas Lancar : {prob_lancar:.2%}")
+    else:
+        st.progress(float(prob_tidak_lancar))
+        st.caption(f"Probabilitas Tidak Lancar : {prob_tidak_lancar:.2%}")
+
+    st.divider()
+
+    # =============================================
+    # KPI
+    # =============================================
+
+    col1, col2 = st.columns(2)
+
+    with col1:
+
+        st.metric(
+            "🟢 Probabilitas Lancar",
+            f"{prob_lancar:.2%}"
+        )
+
+    with col2:
+
+        st.metric(
+            "🔴 Probabilitas Tidak Lancar",
+            f"{prob_tidak_lancar:.2%}"
+        )
+
+    st.divider()
+
+    # =============================================
+    # BAR CHART
+    # =============================================
+
+    df_prob = pd.DataFrame({
+
+        "Status":[
+            "Lancar",
+            "Tidak Lancar"
+        ],
+
+        "Probabilitas":[
+            prob_lancar,
+            prob_tidak_lancar
+        ]
+
+    })
+
+    fig = px.bar(
+
+        df_prob,
+
+        x="Status",
+
+        y="Probabilitas",
+
+        text_auto=".2%",
+
+        color="Status",
+
+        title="Perbandingan Probabilitas Prediksi"
+
+    )
+
+    fig.update_layout(
+
+        template="plotly_white",
+
+        height=450,
+
+        title_x=0.5
+
+    )
+
+    st.plotly_chart(
+        fig,
+        use_container_width=True
+    )
+
+    # =============================================
+    # GAUGE CHART
+    # =============================================
+
+    nilai = prob_lancar if prediction == 1 else prob_tidak_lancar
+
+    fig2 = go.Figure(
+
+        go.Indicator(
+
+            mode="gauge+number",
+
+            value=nilai*100,
+
+            number={"suffix":"%"},
+
+            title={"text":"Tingkat Keyakinan Model"},
+
+            gauge={
+
+                "axis":{"range":[0,100]},
+
+                "bar":{"color":"royalblue"}
+
+            }
+
+        )
+
+    )
+
+    fig2.update_layout(height=400)
+
+    st.plotly_chart(
+        fig2,
+        use_container_width=True
+    )
+
+    st.divider()
+
+    # =============================================
+    # INTERPRETASI
+    # =============================================
+
+    st.markdown("""
+    <div class="section-card">
+
+    <h3>📝 Interpretasi Hasil</h3>
+
+    </div>
+
+    """, unsafe_allow_html=True)
+
+    if prediction == 1:
+
+        st.success(f"""
+
+Model Random Forest memprediksi bahwa calon
+nasabah memiliki **status pinjaman Lancar**
+dengan probabilitas **{prob_lancar:.2%}**.
+
+Hal ini menunjukkan bahwa profil nasabah
+memiliki tingkat risiko gagal bayar yang rendah.
+
+""")
+
+    else:
+
+        st.error(f"""
+
+Model Random Forest memprediksi bahwa calon
+nasabah memiliki **status pinjaman Tidak Lancar**
+dengan probabilitas **{prob_tidak_lancar:.2%}**.
+
+Hal ini menunjukkan bahwa profil nasabah
+memiliki tingkat risiko gagal bayar yang tinggi.
+
+""")
