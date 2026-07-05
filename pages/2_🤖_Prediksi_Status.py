@@ -380,16 +380,29 @@ if st.button("🔍 Prediksi Status Pinjaman", use_container_width=True):
 
     input_df = input_df[feature_names]
 
-    # ----------------------------------------
-    # Prediksi
-    # ----------------------------------------
-prediction = model.predict(input_df)[0]
+   # ----------------------------------------
+# Prediksi
+# ----------------------------------------
 
-probability = model.predict_proba(input_df)[0]
+try:
 
-prob_tidak_lancar = probability[0]
+    prediction = model.predict(input_df)[0]
 
-prob_lancar = probability[1]
+    probability = model.predict_proba(input_df)[0]
+
+    prob_tidak_lancar = probability[0]
+
+    prob_lancar = probability[1]
+
+    st.session_state["prediction"] = prediction
+
+    st.session_state["prob_lancar"] = prob_lancar
+
+    st.session_state["prob_tidak_lancar"] = prob_tidak_lancar
+
+except Exception as e:
+
+    st.error(f"Terjadi kesalahan saat prediksi: {e}")
 
     st.write(input_df)
 
