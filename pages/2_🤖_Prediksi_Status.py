@@ -271,9 +271,7 @@ st.markdown("""
 📋 Informasi Prediksi
 
 </h2>
-
 <p style="font-size:17px; line-height:1.8;">
-
 Halaman ini digunakan untuk memprediksi status pinjaman nasabah
 berdasarkan karakteristik calon peminjam menggunakan model
 <b>Random Forest</b>.
