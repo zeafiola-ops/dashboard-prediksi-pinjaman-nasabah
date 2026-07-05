@@ -226,6 +226,11 @@ F1 Score
 """, unsafe_allow_html=True)
 
 st.markdown("<br>", unsafe_allow_html=True)
+st.markdown("### 🎯 Tingkat Akurasi Model")
+
+st.progress(float(accuracy))
+
+st.caption(f"Akurasi Model : {accuracy:.2%}")
 # ======================================================
 # VISUALISASI EVALUASI MODEL
 # ======================================================
