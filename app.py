@@ -4,7 +4,7 @@ import joblib
 import plotly.express as px
 from pathlib import Path
 from PIL import Image
-
+st.title("🏠 Home")
 # ==========================================
 # KONFIGURASI HALAMAN
 # ==========================================
