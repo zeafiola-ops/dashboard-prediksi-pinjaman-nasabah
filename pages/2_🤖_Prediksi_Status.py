@@ -519,7 +519,6 @@ prediksi = st.button(
 
 if prediksi:
 
-    with st.spinner("🔄 Sedang melakukan prediksi..."): 
         
     # ==========================================
     # Membuat dictionary seluruh feature = 0
