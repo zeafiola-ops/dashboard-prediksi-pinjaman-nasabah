@@ -454,3 +454,125 @@ prediksi = st.button(
     "🔍 Prediksi Status Pinjaman",
     use_container_width=True
 )
+# ==========================================================
+# BAGIAN 4
+# PROSES PREDIKSI
+# ==========================================================
+
+if prediksi:
+
+    # ==========================================
+    # Membuat dictionary seluruh feature = 0
+    # ==========================================
+
+    input_data = {feature: 0 for feature in feature_names}
+
+    # ==========================================
+    # FEATURE NUMERIK
+    # ==========================================
+
+    numeric_features = {
+        "usia": usia,
+        "lama_bekerja_tahun": lama_bekerja,
+        "pendapatan_tahunan": pendapatan,
+        "skor_kredit": skor_kredit,
+        "lama_riwayat_kredit_tahun": lama_riwayat,
+        "aset_tabungan": aset_tabungan,
+        "hutang_saat_ini": hutang,
+        "tunggakan_2thn_terakhir": tunggakan,
+        "catatan_negatif": catatan_negatif,
+        "jumlah_pinjaman": jumlah_pinjaman,
+        "suku_bunga": suku_bunga
+    }
+
+    for kolom, nilai in numeric_features.items():
+
+        if kolom in input_data:
+
+            input_data[kolom] = nilai
+
+    # ==========================================
+    # GAGAL BAYAR
+    # ==========================================
+
+    if "gagal_bayar_tercatat" in input_data:
+
+        input_data["gagal_bayar_tercatat"] = (
+            1 if gagal_bayar == "Ya" else 0
+        )
+
+    # ==========================================
+    # FITUR RASIO
+    # ==========================================
+
+    if pendapatan > 0:
+
+        if "rasio_hutang_terhadap_pendapatan" in input_data:
+
+            input_data["rasio_hutang_terhadap_pendapatan"] = (
+                hutang / pendapatan
+            )
+
+        if "rasio_pinjaman_terhadap_pendapatan" in input_data:
+
+            input_data["rasio_pinjaman_terhadap_pendapatan"] = (
+                jumlah_pinjaman / pendapatan
+            )
+
+        if "rasio_pembayaran_terhadap_pendapatan" in input_data:
+
+            input_data["rasio_pembayaran_terhadap_pendapatan"] = (
+                (jumlah_pinjaman * (suku_bunga / 100))
+                / pendapatan
+            )
+
+    # ==========================================
+    # ONE HOT ENCODING
+    # ==========================================
+
+    nama = f"status_pekerjaan_{status_pekerjaan}"
+
+    if nama in input_data:
+        input_data[nama] = 1
+
+    nama = f"tipe_produk_{tipe_produk}"
+
+    if nama in input_data:
+        input_data[nama] = 1
+
+    nama = f"tujuan_pinjaman_{tujuan}"
+
+    if nama in input_data:
+        input_data[nama] = 1
+
+    # ==========================================
+    # DATAFRAME
+    # ==========================================
+
+    input_df = pd.DataFrame([input_data])
+
+    input_df = input_df.reindex(
+        columns=feature_names,
+        fill_value=0
+    )
+
+    # ==========================================
+    # PREDIKSI
+    # ==========================================
+
+    try:
+
+        prediction = model.predict(input_df)[0]
+
+        probability = model.predict_proba(input_df)[0]
+
+        st.session_state["prediction"] = prediction
+        st.session_state["prob_lancar"] = probability[1]
+        st.session_state["prob_tidak_lancar"] = probability[0]
+        st.session_state["input_df"] = input_df
+
+        st.success("✅ Prediksi berhasil dilakukan.")
+
+    except Exception as e:
+
+        st.error(f"Terjadi kesalahan saat prediksi: {e}")
