@@ -343,6 +343,73 @@ font-size:17px;
 line-height:1.8;
 
 }
+/* ==========================================
+CRISP-DM
+========================================== */
+
+.crisp-card{
+
+background:white;
+
+padding:22px;
+
+border-radius:18px;
+
+box-shadow:0px 6px 18px rgba(0,0,0,.08);
+
+height:230px;
+
+transition:0.3s;
+
+border-top:6px solid #1848A5;
+
+}
+
+.crisp-card:hover{
+
+transform:translateY(-5px);
+
+}
+
+.crisp-number{
+
+font-size:34px;
+
+font-weight:bold;
+
+color:#1848A5;
+
+text-align:center;
+
+margin-bottom:8px;
+
+}
+
+.crisp-title{
+
+font-size:20px;
+
+font-weight:bold;
+
+text-align:center;
+
+margin-bottom:12px;
+
+color:#1848A5;
+
+}
+
+.crisp-text{
+
+font-size:15px;
+
+text-align:justify;
+
+line-height:1.7;
+
+color:#444;
+
+}
 </style>
 """, unsafe_allow_html=True)
 # ==========================================================
@@ -733,6 +800,109 @@ karakteristik data pinjaman yang dimiliki.
 
 </div>
 
+""", unsafe_allow_html=True)
+
+st.divider()
+# ==========================================================
+# TAHAPAN PENELITIAN (CRISP-DM)
+# ==========================================================
+
+st.markdown("""
+<div class="card">
+
+<h2 style="
+text-align:center;
+color:#1848A5;
+font-size:32px;
+">
+
+🔄 Tahapan Penelitian (CRISP-DM)
+
+</h2>
+
+<p style="
+text-align:center;
+color:#666;
+font-size:17px;
+">
+
+Penelitian ini menggunakan metodologi CRISP-DM
+(Cross Industry Standard Process for Data Mining)
+yang terdiri dari enam tahapan utama.
+
+</p>
+
+</div>
+""", unsafe_allow_html=True)
+row1_col1, row1_col2, row1_col3 = st.columns(3)
+
+with row1_col1:
+    st.markdown("""
+<div class="crisp-card">
+<div class="crisp-number">①</div>
+<div class="crisp-title">Business Understanding</div>
+<div class="crisp-text">
+Memahami tujuan penelitian dan kebutuhan analisis untuk memprediksi status pinjaman nasabah.
+</div>
+</div>
+""", unsafe_allow_html=True)
+
+with row1_col2:
+    st.markdown("""
+<div class="crisp-card">
+<div class="crisp-number">②</div>
+<div class="crisp-title">Data Understanding</div>
+<div class="crisp-text">
+Melakukan eksplorasi dataset, memahami karakteristik data, serta mengidentifikasi kualitas data.
+</div>
+</div>
+""", unsafe_allow_html=True)
+
+with row1_col3:
+    st.markdown("""
+<div class="crisp-card">
+<div class="crisp-number">③</div>
+<div class="crisp-title">Data Preparation</div>
+<div class="crisp-text">
+Melakukan preprocessing data seperti pembersihan data, transformasi, encoding, dan seleksi fitur.
+</div>
+</div>
+""", unsafe_allow_html=True)
+st.write("")
+
+row2_col1, row2_col2, row2_col3 = st.columns(3)
+
+with row2_col1:
+    st.markdown("""
+<div class="crisp-card">
+<div class="crisp-number">④</div>
+<div class="crisp-title">Modeling</div>
+<div class="crisp-text">
+Membangun model klasifikasi menggunakan algoritma Random Forest untuk memprediksi status pinjaman.
+</div>
+</div>
+""", unsafe_allow_html=True)
+
+with row2_col2:
+    st.markdown("""
+<div class="crisp-card">
+<div class="crisp-number">⑤</div>
+<div class="crisp-title">Evaluation</div>
+<div class="crisp-text">
+Mengevaluasi performa model menggunakan Accuracy, Precision, Recall, F1-Score, dan Confusion Matrix.
+</div>
+</div>
+""", unsafe_allow_html=True)
+
+with row2_col3:
+    st.markdown("""
+<div class="crisp-card">
+<div class="crisp-number">⑥</div>
+<div class="crisp-title">Deployment</div>
+<div class="crisp-text">
+Mengimplementasikan model ke dalam dashboard interaktif berbasis Streamlit sehingga dapat digunakan untuk prediksi.
+</div>
+</div>
 """, unsafe_allow_html=True)
 
 st.divider()
