@@ -284,7 +284,67 @@ color:#444;
 }
 </style>
 """, unsafe_allow_html=True)
+/* ==========================================
+METODE RANDOM FOREST
+========================================== */
 
+.method-card{
+
+background:white;
+
+padding:30px;
+
+border-radius:20px;
+
+box-shadow:0px 6px 18px rgba(0,0,0,.08);
+
+margin-bottom:25px;
+
+}
+
+.method-title{
+
+font-size:32px;
+
+font-weight:bold;
+
+color:#1848A5;
+
+text-align:center;
+
+margin-bottom:18px;
+
+}
+
+.method-text{
+
+font-size:17px;
+
+line-height:1.9;
+
+text-align:justify;
+
+color:#444;
+
+}
+
+.advantages{
+
+background:#F6FAFF;
+
+padding:20px;
+
+border-left:6px solid #1848A5;
+
+border-radius:10px;
+
+margin-top:15px;
+
+font-size:17px;
+
+line-height:1.8;
+
+}
 # ==========================================================
 # SIDEBAR
 # ==========================================================
@@ -625,5 +685,63 @@ with col4:
     use_container_width=True
 
 )
+
+st.divider()
+# ==========================================================
+# METODE RANDOM FOREST
+# ==========================================================
+
+st.markdown("""
+
+<div class="method-card">
+
+<div class="method-title">
+
+🌲 Metode Random Forest
+
+</div>
+
+<div class="method-text">
+
+Random Forest merupakan metode machine learning berbasis
+ensemble yang membangun banyak pohon keputusan (decision tree)
+untuk menghasilkan prediksi yang lebih akurat dan stabil.
+
+Pada penelitian ini, metode Random Forest digunakan untuk
+mengklasifikasikan status pinjaman nasabah menjadi dua kelas,
+yaitu <b>Lancar (1)</b> dan <b>Tidak Lancar (0)</b>, berdasarkan
+karakteristik data pinjaman yang dimiliki.
+
+</div>
+
+<div class="advantages">
+
+<b>Alasan menggunakan Random Forest :</b>
+
+<br><br>
+
+✅ Memiliki tingkat akurasi yang tinggi.
+
+<br>
+
+✅ Mengurangi risiko overfitting.
+
+<br>
+
+✅ Mampu mengolah dataset berukuran besar.
+
+<br>
+
+✅ Dapat mengetahui tingkat kepentingan setiap fitur (Feature Importance).
+
+<br>
+
+✅ Cocok digunakan untuk permasalahan klasifikasi.
+
+</div>
+
+</div>
+
+""", unsafe_allow_html=True)
 
 st.divider()
