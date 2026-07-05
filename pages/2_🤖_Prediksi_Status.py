@@ -799,7 +799,7 @@ fig_pie = px.pie(
 
     color_discrete_map={
 
-        "Lancar":"#2E7D32",
+        "Lancar":"#000080 ",
 
         "Tidak Lancar":"#D32F2F"
 
