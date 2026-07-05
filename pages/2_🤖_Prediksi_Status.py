@@ -900,21 +900,6 @@ fig = px.bar(
 
 )
 
-fig.update_layout(
-
-    yaxis={'categoryorder':'total ascending'},
-
-    template="plotly_white"
-
-)
-
-st.plotly_chart(
-
-    fig,
-
-    use_container_width=True
-
-)
 # ==========================================================
 # BAGIAN 6
 # RINGKASAN DATA
