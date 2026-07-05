@@ -441,11 +441,16 @@ Dataset
 
 <div class="info-value">
 
-Kaggle
+klik Sumber Data
 
 </div>
 
 </div>
+st.link_button(
+    "🌐 Buka Dataset Kaggle",
+    "https://www.kaggle.com/datasets/ardava/dataset-klasifikasi-status-pinjaman",
+    use_container_width=True
+)
 """, unsafe_allow_html=True)
 
 with col7:
