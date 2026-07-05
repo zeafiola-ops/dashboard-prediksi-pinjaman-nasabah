@@ -68,7 +68,10 @@ report = pd.read_csv(
 importance = pd.read_csv(
     "data/feature_importance.csv"
 )
-
+# Dataset hasil prediksi
+data = pd.read_excel(
+    "data/hasil_prediksi_deployment_google_sheets.xlsx"
+)
 # ======================================================
 # HEADER
 # ======================================================
