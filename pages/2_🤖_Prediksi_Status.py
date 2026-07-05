@@ -384,7 +384,6 @@ if st.button("🔍 Prediksi Status Pinjaman", use_container_width=True):
     # Prediksi
     # ----------------------------------------
 try:
-st.write(feature_names)
 
 st.write(input_df.columns.tolist())
     prediction = model.predict(input_df)[0]
