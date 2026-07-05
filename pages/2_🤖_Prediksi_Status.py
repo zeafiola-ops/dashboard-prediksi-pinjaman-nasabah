@@ -655,7 +655,51 @@ if "prediction" in st.session_state:
 
     </div>
     """, unsafe_allow_html=True)
+# ======================================================
+# KPI HASIL PREDIKSI
+# ======================================================
 
+status = "🟢 Lancar" if prediction == 1 else "🔴 Tidak Lancar"
+
+keyakinan = max(prob_lancar, prob_tidak_lancar) * 100
+
+col1, col2, col3, col4 = st.columns(4)
+
+with col1:
+    st.markdown(f"""
+    <div class="kpi-card">
+        <div class="kpi-icon">📌</div>
+        <div class="kpi-title">Status Prediksi</div>
+        <div class="kpi-value">{status}</div>
+    </div>
+    """, unsafe_allow_html=True)
+
+with col2:
+    st.markdown(f"""
+    <div class="kpi-card">
+        <div class="kpi-icon">✅</div>
+        <div class="kpi-title">Probabilitas Lancar</div>
+        <div class="kpi-value">{prob_lancar*100:.2f}%</div>
+    </div>
+    """, unsafe_allow_html=True)
+
+with col3:
+    st.markdown(f"""
+    <div class="kpi-card">
+        <div class="kpi-icon">⚠️</div>
+        <div class="kpi-title">Probabilitas Tidak Lancar</div>
+        <div class="kpi-value">{prob_tidak_lancar*100:.2f}%</div>
+    </div>
+    """, unsafe_allow_html=True)
+
+with col4:
+    st.markdown(f"""
+    <div class="kpi-card">
+        <div class="kpi-icon">📊</div>
+        <div class="kpi-title">Keyakinan Model</div>
+        <div class="kpi-value">{keyakinan:.2f}%</div>
+    </div>
+    """, unsafe_allow_html=True)
     # ======================================================
     # PROGRESS BAR
     # ======================================================
