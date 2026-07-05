@@ -259,70 +259,10 @@ with col1:
         use_container_width=True
     )
 
-    st.info(
-        """
-        **Interpretasi**
+    st.info("""
+    **Interpretasi**
 
-        Nilai pada diagonal menunjukkan prediksi yang benar.
+    Nilai pada diagonal menunjukkan prediksi yang benar.
 
-        Nilai di luar diagonal menunjukkan kesalahan prediksi model.
-        """
-    )
-    with col2:
-
-    st.markdown("### ⭐ Feature Importance")
-
-    importance = importance.sort_values(
-        by="Importance",
-        ascending=True
-    )
-
-    fig_imp = px.bar(
-
-        importance,
-
-        x="Importance",
-
-        y="Fitur",
-
-        orientation="h",
-
-        color="Importance",
-
-        color_continuous_scale="Blues"
-
-    )
-
-    fig_imp.update_layout(
-
-        height=450,
-
-        margin=dict(
-            l=20,
-            r=20,
-            t=40,
-            b=20
-        ),
-
-        coloraxis_showscale=False
-
-    )
-
-    st.plotly_chart(
-
-        fig_imp,
-
-        use_container_width=True
-
-    )
-
-    st.info(
-        """
-        **Interpretasi**
-
-        Semakin besar nilai importance,
-        semakin besar pengaruh fitur tersebut
-        terhadap prediksi Random Forest.
-        """
-    )
-    st.divider()
+    Nilai di luar diagonal menunjukkan kesalahan prediksi model.
+    """)
