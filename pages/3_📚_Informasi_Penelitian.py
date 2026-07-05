@@ -317,7 +317,7 @@ Peneliti
 
 </div>
 <div class="info-value">
-Muhammad Rizki Maulidin
+M.Rizki Maulidin
 </div>
 </div>
 """, unsafe_allow_html=True)
