@@ -414,6 +414,25 @@ dengan tingkat akurasi yang tinggi sehingga
 layak digunakan sebagai model prediksi.
 """)
 st.divider()
+col1,col2,col3=st.columns(3)
+
+with col1:
+    st.metric(
+        "Jumlah Fitur",
+        len(importance)
+    )
+
+with col2:
+    st.metric(
+        "Jumlah Kelas",
+        len(report)-3
+    )
+
+with col3:
+    st.metric(
+        "Model",
+        "Random Forest"
+    )
 # ======================================================
 # FOOTER
 # ======================================================
@@ -431,3 +450,4 @@ Dikembangkan menggunakan Streamlit & Random Forest
 
 </div>
 """, unsafe_allow_html=True)
+
