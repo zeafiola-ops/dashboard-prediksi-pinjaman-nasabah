@@ -256,9 +256,6 @@ status pinjaman menggunakan model <b>Random Forest</b>.
 
 """, unsafe_allow_html=True)
 
-</div>
-
-""",unsafe_allow_html=True)
 # ==========================================================
 # CARD INFORMASI
 # ==========================================================
