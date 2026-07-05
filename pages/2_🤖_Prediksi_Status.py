@@ -670,59 +670,139 @@ Model Random Forest memprediksi bahwa calon nasabah memiliki **status pinjaman T
 
 Probabilitas prediksi sebesar **{prob_tidak_lancar*100:.2f}%** menunjukkan bahwa calon nasabah memiliki tingkat risiko gagal bayar yang lebih tinggi.
 # ==========================================================
+# BAGIAN 5
 # RINGKASAN DATA INPUT
 # ==========================================================
 
-st.markdown("""
-<div class="section-card">
+if "prediction" in st.session_state:
 
-<h3>📋 Ringkasan Data Input</h3>
+    st.divider()
 
-</div>
-""", unsafe_allow_html=True)
+    st.markdown("""
+    <h2 style="text-align:center;color:#174EA6;">
+    📋 Ringkasan Data Nasabah
+    </h2>
+    """, unsafe_allow_html=True)
 
-ringkasan = pd.DataFrame({
+    ringkasan = pd.DataFrame({
 
-    "Variabel":[
-        "Usia",
-        "Lama Bekerja",
-        "Pendapatan Tahunan",
-        "Skor Kredit",
-        "Lama Riwayat Kredit",
-        "Aset Tabungan",
-        "Total Hutang",
-        "Pernah Gagal Bayar",
-        "Jumlah Tunggakan",
-        "Catatan Negatif",
-        "Jumlah Pinjaman",
-        "Suku Bunga",
-        "Status Pekerjaan",
-        "Tipe Produk",
-        "Tujuan Pinjaman"
-    ],
+        "Variabel":[
+            "Usia",
+            "Lama Bekerja",
+            "Pendapatan Tahunan",
+            "Skor Kredit",
+            "Lama Riwayat Kredit",
+            "Aset Tabungan",
+            "Total Hutang",
+            "Pernah Gagal Bayar",
+            "Jumlah Tunggakan",
+            "Catatan Negatif",
+            "Jumlah Pinjaman",
+            "Suku Bunga",
+            "Status Pekerjaan",
+            "Tipe Produk",
+            "Tujuan Pinjaman"
+        ],
 
-    "Nilai":[
-        usia,
-        lama_bekerja,
-        pendapatan,
-        skor_kredit,
-        lama_riwayat,
-        aset_tabungan,
-        hutang,
-        gagal_bayar,
-        tunggakan,
-        catatan_negatif,
-        jumlah_pinjaman,
-        suku_bunga,
-        status_pekerjaan,
-        tipe_produk,
-        tujuan
-    ]
+        "Nilai":[
+            usia,
+            lama_bekerja,
+            pendapatan,
+            skor_kredit,
+            lama_riwayat,
+            aset_tabungan,
+            hutang,
+            gagal_bayar,
+            tunggakan,
+            catatan_negatif,
+            jumlah_pinjaman,
+            suku_bunga,
+            status_pekerjaan,
+            tipe_produk,
+            tujuan
+        ]
 
-})
+    })
 
-st.dataframe(
-    ringkasan,
-    use_container_width=True,
-    hide_index=True
-)
+    st.dataframe(
+        ringkasan,
+        use_container_width=True,
+        hide_index=True
+    )
+
+    st.divider()
+
+    # =====================================
+    # DOWNLOAD HASIL
+    # =====================================
+
+    status = "Lancar" if prediction == 1 else "Tidak Lancar"
+
+    hasil = pd.DataFrame({
+
+        "Status Prediksi":[status],
+
+        "Probabilitas Lancar (%)":[round(prob_lancar*100,2)],
+
+        "Probabilitas Tidak Lancar (%)":[round(prob_tidak_lancar*100,2)]
+
+    })
+
+    csv = hasil.to_csv(index=False).encode("utf-8")
+
+    st.download_button(
+
+        label="📥 Download Hasil Prediksi",
+
+        data=csv,
+
+        file_name="hasil_prediksi.csv",
+
+        mime="text/csv",
+
+        use_container_width=True
+
+    )
+
+    st.divider()
+
+    # =====================================
+    # FOOTER
+    # =====================================
+
+    st.markdown("""
+
+    <div style="
+
+    background:#F4F8FF;
+
+    padding:20px;
+
+    border-radius:15px;
+
+    text-align:center;
+
+    ">
+
+    <h4 style="color:#174EA6;">
+
+    Dashboard Prediksi Status Pinjaman Nasabah
+
+    </h4>
+
+    <p>
+
+    Sistem prediksi menggunakan metode
+    <b>Random Forest</b>.
+
+    </p>
+
+    <p>
+
+    © 2026 | Sistem Informasi - Business Intelligence
+
+    </p>
+
+    </div>
+
+    """, unsafe_allow_html=True)
