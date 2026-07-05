@@ -125,3 +125,71 @@ color:gray;
 </style>
 
 """, unsafe_allow_html=True)
+# ==========================================================
+# BAGIAN 2
+# SIDEBAR & HEADER
+# ==========================================================
+
+# ----------------------------
+# SIDEBAR
+# ----------------------------
+
+with st.sidebar:
+
+    st.image(str(LOGO_PATH), use_container_width=True)
+
+    st.markdown("""
+    <div style='text-align:center;'>
+
+    <h2 style='color:#174EA6;margin-bottom:0;'>
+    Dashboard Prediksi
+    </h2>
+
+    <p style='color:gray;font-size:15px;'>
+    Status Pinjaman Nasabah
+    </p>
+
+    </div>
+    """, unsafe_allow_html=True)
+
+    st.divider()
+
+    st.info("""
+📌 **Metode**
+
+Random Forest
+
+📂 **Jumlah Fitur**
+
+24
+
+🎯 **Target**
+
+Status Pinjaman
+
+🧠 **Kelas**
+
+2 (Lancar & Tidak Lancar)
+""")
+
+# ----------------------------
+# HEADER
+# ----------------------------
+
+st.markdown("""
+<div class="big-title">
+
+🧠 Prediksi Status Pinjaman Nasabah
+
+</div>
+
+<div class="sub-title">
+
+Masukkan data calon nasabah untuk mengetahui hasil prediksi
+status pinjaman menggunakan model <b>Random Forest</b>.
+
+</div>
+
+""", unsafe_allow_html=True)
+
+st.divider()
