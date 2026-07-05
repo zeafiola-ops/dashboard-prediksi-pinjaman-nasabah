@@ -315,85 +315,7 @@ status pinjaman menggunakan model <b>Random Forest</b>.
 </div>
 
 """, unsafe_allow_html=True)
-# ==========================================================
-# KPI HASIL PREDIKSI
-# ==========================================================
 
-st.markdown("""
-<h2 style='color:#1848A5;'>
-📊 Ringkasan Hasil Prediksi
-</h2>
-""", unsafe_allow_html=True)
-
-col1, col2, col3, col4 = st.columns(4)
-
-status = "🟢 Lancar" if prediction == 1 else "🔴 Tidak Lancar"
-
-confidence = max(prob_lancar, prob_tidak_lancar) * 100
-
-with col1:
-
-    st.markdown(f"""
-    <div class="card">
-
-    <h1>📌</h1>
-
-    <h4>Status Prediksi</h4>
-
-    <h2 style="color:#1848A5;">
-    {status}
-    </h2>
-
-    </div>
-    """, unsafe_allow_html=True)
-
-with col2:
-
-    st.markdown(f"""
-    <div class="card">
-
-    <h1>📈</h1>
-
-    <h4>Probabilitas Lancar</h4>
-
-    <h2 style="color:green;">
-    {prob_lancar*100:.2f}%
-    </h2>
-
-    </div>
-    """, unsafe_allow_html=True)
-
-with col3:
-
-    st.markdown(f"""
-    <div class="card">
-
-    <h1>⚠️</h1>
-
-    <h4>Probabilitas Tidak Lancar</h4>
-
-    <h2 style="color:red;">
-    {prob_tidak_lancar*100:.2f}%
-    </h2>
-
-    </div>
-    """, unsafe_allow_html=True)
-
-with col4:
-
-    st.markdown(f"""
-    <div class="card">
-
-    <h1>🧠</h1>
-
-    <h4>Tingkat Keyakinan</h4>
-
-    <h2 style="color:#1848A5;">
-    {confidence:.2f}%
-    </h2>
-
-    </div>
-    """, unsafe_allow_html=True)
 # ==========================================================
 # CARD INFORMASI
 # ==========================================================
@@ -735,38 +657,85 @@ if "prediction" in st.session_state:
     </div>
     """, unsafe_allow_html=True)
 
-    # ======================================================
-    # KPI
-    # ======================================================
+    # ==========================================================
+# KPI HASIL PREDIKSI
+# ==========================================================
 
-    col1, col2, col3 = st.columns(3)
+st.markdown("""
+<h2 style='color:#1848A5;'>
+📊 Ringkasan Hasil Prediksi
+</h2>
+""", unsafe_allow_html=True)
 
-    with col1:
+col1, col2, col3, col4 = st.columns(4)
 
-        if prediction == 1:
+status = "🟢 Lancar" if prediction == 1 else "🔴 Tidak Lancar"
 
-            st.success("### 🟢 LANCAR")
+confidence = max(prob_lancar, prob_tidak_lancar) * 100
 
-        else:
+with col1:
 
-            st.error("### 🔴 TIDAK LANCAR")
+    st.markdown(f"""
+    <div class="card">
 
-    with col2:
+    <h1>📌</h1>
 
-        st.metric(
-            "Probabilitas Lancar",
-            f"{prob_lancar*100:.2f}%"
-        )
+    <h4>Status Prediksi</h4>
 
-    with col3:
+    <h2 style="color:#1848A5;">
+    {status}
+    </h2>
 
-        st.metric(
-            "Probabilitas Tidak Lancar",
-            f"{prob_tidak_lancar*100:.2f}%"
-        )
+    </div>
+    """, unsafe_allow_html=True)
 
-    st.divider()
+with col2:
 
+    st.markdown(f"""
+    <div class="card">
+
+    <h1>📈</h1>
+
+    <h4>Probabilitas Lancar</h4>
+
+    <h2 style="color:green;">
+    {prob_lancar*100:.2f}%
+    </h2>
+
+    </div>
+    """, unsafe_allow_html=True)
+
+with col3:
+
+    st.markdown(f"""
+    <div class="card">
+
+    <h1>⚠️</h1>
+
+    <h4>Probabilitas Tidak Lancar</h4>
+
+    <h2 style="color:red;">
+    {prob_tidak_lancar*100:.2f}%
+    </h2>
+
+    </div>
+    """, unsafe_allow_html=True)
+
+with col4:
+
+    st.markdown(f"""
+    <div class="card">
+
+    <h1>🧠</h1>
+
+    <h4>Tingkat Keyakinan</h4>
+
+    <h2 style="color:#1848A5;">
+    {confidence:.2f}%
+    </h2>
+
+    </div>
+    """, unsafe_allow_html=True)
     # ======================================================
     # PROGRESS BAR
     # ======================================================
