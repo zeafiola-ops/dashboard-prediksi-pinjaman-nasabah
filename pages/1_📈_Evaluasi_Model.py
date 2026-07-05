@@ -232,7 +232,17 @@ st.markdown("<br>", unsafe_allow_html=True)
 
 st.markdown("## 📊 Visualisasi Evaluasi Model")
 
-st.markdown("### 🔷 Confusion Matrix")
+st.markdown("""
+<div class="section-card">
+
+<h3>🔷 Confusion Matrix</h3>
+
+<p>
+Visualisasi hasil prediksi model terhadap data aktual.
+</p>
+
+</div>
+""", unsafe_allow_html=True)
 
 fig_cm = px.imshow(
     cm,
@@ -247,7 +257,15 @@ fig_cm = px.imshow(
 )
 
 fig_cm.update_layout(
-    height=500
+
+    height=520,
+
+    template="plotly_white",
+
+    title_x=0.5,
+
+    font=dict(size=14)
+
 )
 
 st.plotly_chart(
@@ -263,7 +281,17 @@ Nilai pada diagonal menunjukkan jumlah prediksi yang benar.
 Nilai di luar diagonal menunjukkan kesalahan prediksi model.
 """)
 st.divider()
-st.markdown("### ⭐ Feature Importance")
+st.markdown("""
+<div class="section-card">
+
+<h3>🔷 Confusion Matrix</h3>
+
+<p>
+Visualisasi hasil prediksi model terhadap data aktual.
+</p>
+
+</div>
+""", unsafe_allow_html=True)
 
 importance = importance.sort_values(
     by="Importance",
@@ -280,8 +308,17 @@ fig_imp = px.bar(
 )
 
 fig_imp.update_layout(
-    height=600,
+
+    height=650,
+
+    template="plotly_white",
+
+    title_x=0.5,
+
+    font=dict(size=14),
+
     coloraxis_showscale=False
+
 )
 
 st.plotly_chart(
@@ -301,7 +338,18 @@ st.divider()
 # CLASSIFICATION REPORT
 # ======================================================
 
-st.markdown("## 📋 Classification Report")
+st.markdown("""
+<div class="section-card">
+
+<h3>📋 Classification Report</h3>
+
+<p>
+Ringkasan hasil evaluasi model berdasarkan
+Precision, Recall, F1-Score dan Support.
+</p>
+
+</div>
+""", unsafe_allow_html=True)
 
 st.write(
     """
@@ -333,7 +381,17 @@ st.divider()
 # KESIMPULAN
 # ======================================================
 
-st.markdown("## 📝 Kesimpulan Evaluasi")
+st.markdown("""
+<div class="section-card">
+
+<h3>📝 Kesimpulan Evaluasi</h3>
+
+<p>
+Interpretasi hasil evaluasi model Random Forest.
+</p>
+
+</div>
+""", unsafe_allow_html=True)
 
 st.success(f"""
 
