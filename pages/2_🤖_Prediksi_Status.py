@@ -57,36 +57,77 @@ def load_model():
 model, feature_names = load_model()
 
 # ==========================================================
-# CSS
+# CSS DASHBOARD
 # ==========================================================
 
 st.markdown("""
-
 <style>
 
-.block-container{
+/* =========================================================
+BACKGROUND
+========================================================= */
+
+.stApp{
+
+background:linear-gradient(180deg,#EEF5FF 0%,#DDEBFF 100%);
+
+}
+
+/* =========================================================
+CONTAINER
+========================================================= */
+
+.main .block-container{
 
 padding-top:2rem;
+
+padding-left:3rem;
+
+padding-right:3rem;
 
 padding-bottom:2rem;
 
 }
 
-.metric-card{
+/* =========================================================
+SIDEBAR
+========================================================= */
 
-background:white;
+section[data-testid="stSidebar"]{
 
-padding:20px;
-
-border-radius:20px;
-
-box-shadow:0px 5px 20px rgba(0,0,0,0.08);
-
-text-align:center;
+background:linear-gradient(180deg,#0F3FA9,#4D93FF);
 
 }
 
+section[data-testid="stSidebar"] *{
+
+color:white;
+
+}
+
+/* =========================================================
+CARD
+========================================================= */
+
 .section-card{
+
+background:white;
+
+padding:28px;
+
+border-radius:22px;
+
+box-shadow:0px 8px 25px rgba(0,0,0,.08);
+
+margin-bottom:25px;
+
+}
+
+/* =========================================================
+METRIC CARD
+========================================================= */
+
+.metric-card{
 
 background:white;
 
@@ -94,36 +135,137 @@ padding:25px;
 
 border-radius:20px;
 
-box-shadow:0px 5px 18px rgba(0,0,0,0.08);
+text-align:center;
 
-margin-bottom:25px;
+box-shadow:0px 6px 18px rgba(0,0,0,.08);
+
+border-left:7px solid #2E7DFF;
 
 }
 
+/* =========================================================
+FORM
+========================================================= */
+
+.stNumberInput{
+
+background:white;
+
+border-radius:12px;
+
+padding:8px;
+
+}
+
+.stSelectbox{
+
+background:white;
+
+border-radius:12px;
+
+padding:8px;
+
+}
+
+/* =========================================================
+BUTTON
+========================================================= */
+
+.stButton>button{
+
+width:100%;
+
+background:linear-gradient(90deg,#5FA8FF,#1F5EFF);
+
+color:white;
+
+font-size:18px;
+
+font-weight:bold;
+
+border:none;
+
+padding:14px;
+
+border-radius:15px;
+
+transition:.3s;
+
+}
+
+.stButton>button:hover{
+
+background:linear-gradient(90deg,#1F5EFF,#174EA6);
+
+transform:scale(1.01);
+
+}
+
+/* =========================================================
+TITLE
+========================================================= */
+
 .big-title{
 
-font-size:45px;
+font-size:48px;
+
+font-weight:700;
+
+text-align:center;
+
+color:#174EA6;
+
+}
+
+/* =========================================================
+SUB TITLE
+========================================================= */
+
+.sub-title{
+
+font-size:19px;
+
+text-align:center;
+
+color:#666;
+
+margin-bottom:15px;
+
+}
+
+/* =========================================================
+SECTION TITLE
+========================================================= */
+
+.section-title{
+
+font-size:32px;
 
 font-weight:bold;
 
 color:#174EA6;
 
-text-align:center;
+margin-bottom:10px;
 
 }
 
-.sub-title{
+/* =========================================================
+FOOTER
+========================================================= */
 
-font-size:18px;
+.footer{
 
 text-align:center;
 
+padding:20px;
+
 color:gray;
+
+font-size:15px;
 
 }
 
 </style>
-
 """, unsafe_allow_html=True)
 # ==========================================================
 # BAGIAN 2
@@ -136,7 +278,7 @@ color:gray;
 
 with st.sidebar:
 
-    st.image(str(LOGO_PATH), use_container_width=True)
+    st.image(str(Logo_npg), use_container_width=True)
 
     st.markdown("""
     <div style='text-align:center;'>
@@ -172,24 +314,23 @@ Status Pinjaman
 2 (Lancar & Tidak Lancar)
 """)
 
-# ----------------------------
-# HEADER
-# ----------------------------
-
 st.markdown("""
-<div class="big-title">
 
-🧠 Prediksi Status Pinjaman Nasabah
+<div class="section-card">
+
+<h2 style="color:#174EA6;">
+
+📋 Informasi Prediksi
+
+</h2>
+
+<p style="font-size:17px;">
+
+Masukkan seluruh informasi calon nasabah pada formulir di bawah ini.
+Model Random Forest akan menganalisis data yang dimasukkan untuk memprediksi status pinjaman menjadi <b>Lancar</b> atau <b>Tidak Lancar</b>.
+
+</p>
 
 </div>
 
-<div class="sub-title">
-
-Masukkan data calon nasabah untuk mengetahui hasil prediksi
-status pinjaman menggunakan model <b>Random Forest</b>.
-
-</div>
-
-""", unsafe_allow_html=True)
-
-st.divider()
+""",unsafe_allow_html=True)
