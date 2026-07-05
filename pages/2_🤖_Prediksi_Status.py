@@ -1,6 +1,5 @@
 # ==========================================================
 # DASHBOARD PREDIKSI STATUS PINJAMAN NASABAH
-# Halaman Prediksi
 # ==========================================================
 
 import streamlit as st
@@ -19,17 +18,13 @@ import plotly.graph_objects as go
 # ==========================================================
 
 st.set_page_config(
-
     page_title="Prediksi Status Pinjaman",
-
     page_icon="🧠",
-
     layout="wide"
-
 )
 
 # ==========================================================
-# PATH
+# PATH PROJECT
 # ==========================================================
 
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -57,45 +52,40 @@ def load_model():
 model, feature_names = load_model()
 
 # ==========================================================
-# CSS DASHBOARD
+# CSS
 # ==========================================================
 
 st.markdown("""
+
 <style>
 
-/* =========================================================
-BACKGROUND
-========================================================= */
+/* Background */
 
 .stApp{
 
-background:linear-gradient(180deg,#EEF5FF 0%,#DDEBFF 100%);
+background:linear-gradient(180deg,#EEF6FF 0%,#DCEBFF 100%);
 
 }
 
-/* =========================================================
-CONTAINER
-========================================================= */
+/* Container */
 
 .main .block-container{
 
 padding-top:2rem;
 
-padding-left:3rem;
+padding-left:2.8rem;
 
-padding-right:3rem;
+padding-right:2.8rem;
 
 padding-bottom:2rem;
 
 }
 
-/* =========================================================
-SIDEBAR
-========================================================= */
+/* Sidebar */
 
 section[data-testid="stSidebar"]{
 
-background:linear-gradient(180deg,#0F3FA9,#4D93FF);
+background:linear-gradient(180deg,#1545B3,#4E96FF);
 
 }
 
@@ -105,29 +95,9 @@ color:white;
 
 }
 
-/* =========================================================
-CARD
-========================================================= */
+/* Card */
 
-.section-card{
-
-background:white;
-
-padding:28px;
-
-border-radius:22px;
-
-box-shadow:0px 8px 25px rgba(0,0,0,.08);
-
-margin-bottom:25px;
-
-}
-
-/* =========================================================
-METRIC CARD
-========================================================= */
-
-.metric-card{
+.card{
 
 background:white;
 
@@ -135,47 +105,61 @@ padding:25px;
 
 border-radius:20px;
 
+box-shadow:0 5px 20px rgba(0,0,0,.08);
+
+margin-bottom:25px;
+
+}
+
+/* Title */
+
+.title{
+
+font-size:46px;
+
+font-weight:700;
+
 text-align:center;
 
-box-shadow:0px 6px 18px rgba(0,0,0,.08);
-
-border-left:7px solid #2E7DFF;
+color:#1848A5;
 
 }
 
-/* =========================================================
-FORM
-========================================================= */
+/* Subtitle */
 
-.stNumberInput{
+.subtitle{
 
-background:white;
+text-align:center;
 
-border-radius:12px;
+font-size:18px;
 
-padding:8px;
+color:#666666;
 
-}
-
-.stSelectbox{
-
-background:white;
-
-border-radius:12px;
-
-padding:8px;
+margin-bottom:15px;
 
 }
 
-/* =========================================================
-BUTTON
-========================================================= */
+/* Section */
+
+.section-title{
+
+font-size:28px;
+
+font-weight:bold;
+
+color:#1848A5;
+
+margin-bottom:10px;
+
+}
+
+/* Tombol */
 
 .stButton>button{
 
 width:100%;
 
-background:linear-gradient(90deg,#5FA8FF,#1F5EFF);
+background:linear-gradient(90deg,#5FA9FF,#245CFF);
 
 color:white;
 
@@ -183,154 +167,36 @@ font-size:18px;
 
 font-weight:bold;
 
-border:none;
-
-padding:14px;
-
 border-radius:15px;
 
-transition:.3s;
+padding:12px;
+
+border:none;
 
 }
 
 .stButton>button:hover{
 
-background:linear-gradient(90deg,#1F5EFF,#174EA6);
-
-transform:scale(1.01);
+background:linear-gradient(90deg,#245CFF,#1746B1);
 
 }
 
-/* =========================================================
-TITLE
-========================================================= */
+/* Metric */
 
-.big-title{
+[data-testid="metric-container"]{
 
-font-size:48px;
+background:white;
 
-font-weight:700;
+border-radius:18px;
 
-text-align:center;
+padding:15px;
 
-color:#174EA6;
+box-shadow:0px 5px 18px rgba(0,0,0,.08);
 
-}
-
-/* =========================================================
-SUB TITLE
-========================================================= */
-
-.sub-title{
-
-font-size:19px;
-
-text-align:center;
-
-color:#666;
-
-margin-bottom:15px;
-
-}
-
-/* =========================================================
-SECTION TITLE
-========================================================= */
-
-.section-title{
-
-font-size:32px;
-
-font-weight:bold;
-
-color:#174EA6;
-
-margin-bottom:10px;
-
-}
-
-/* =========================================================
-FOOTER
-========================================================= */
-
-.footer{
-
-text-align:center;
-
-padding:20px;
-
-color:gray;
-
-font-size:15px;
+border-left:6px solid #2E7DFF;
 
 }
 
 </style>
+
 """, unsafe_allow_html=True)
-# ==========================================================
-# BAGIAN 2
-# SIDEBAR & HEADER
-# ==========================================================
-
-# ----------------------------
-# SIDEBAR
-# ----------------------------
-
-with st.sidebar:
-
-   st.image(str(LOGO_PATH), use_container_width=True)
-
-    st.markdown("""
-    <div style='text-align:center;'>
-
-    <h2 style='color:#174EA6;margin-bottom:0;'>
-    Dashboard Prediksi
-    </h2>
-
-    <p style='color:gray;font-size:15px;'>
-    Status Pinjaman Nasabah
-    </p>
-
-    </div>
-    """, unsafe_allow_html=True)
-
-    st.divider()
-
-    st.info("""
-📌 **Metode**
-
-Random Forest
-
-📂 **Jumlah Fitur**
-
-24
-
-🎯 **Target**
-
-Status Pinjaman
-
-🧠 **Kelas**
-
-2 (Lancar & Tidak Lancar)
-""")
-
-st.markdown("""
-
-<div class="section-card">
-
-<h2 style="color:#174EA6;">
-
-📋 Informasi Prediksi
-
-</h2>
-
-<p style="font-size:17px;">
-
-Masukkan seluruh informasi calon nasabah pada formulir di bawah ini.
-Model Random Forest akan menganalisis data yang dimasukkan untuk memprediksi status pinjaman menjadi <b>Lancar</b> atau <b>Tidak Lancar</b>.
-
-</p>
-
-</div>
-
-""",unsafe_allow_html=True)
