@@ -762,43 +762,21 @@ if "prediction" in st.session_state:
 
     st.divider()
 
-    # =====================================
-    # FOOTER
-    # =====================================
+  # ======================================================
+# FOOTER
+# ======================================================
 
-    st.markdown("""
+st.markdown("""
+<hr>
 
-    <div style="
+<div style='text-align:center;color:gray;'>
 
-    background:#F4F8FF;
+Dashboard Prediksi Status Pinjaman Nasabah
 
-    padding:20px;
+© 2026 | Sistem Informasi - Business Intelligence
 
-    border-radius:15px;
+Dikembangkan menggunakan Streamlit & Random Forest
 
-    text-align:center;
-
-    ">
-
-    <h4 style="color:#174EA6;">
-
-    Dashboard Prediksi Status Pinjaman Nasabah
-
-    </h4>
-
-    <p>
-
-    Sistem prediksi menggunakan metode
-    <b>Random Forest</b>.
-
-    </p>
-
-    <p>
-
-    © 2026 | Sistem Informasi - Business Intelligence
-
-    </p>
-
-    </div>
-
+</div>
+""", unsafe_allow_html=True)
     """, unsafe_allow_html=True)
