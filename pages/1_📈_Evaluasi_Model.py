@@ -226,3 +226,103 @@ F1 Score
 """, unsafe_allow_html=True)
 
 st.markdown("<br>", unsafe_allow_html=True)
+# ======================================================
+# VISUALISASI EVALUASI MODEL
+# ======================================================
+
+st.markdown("## 📊 Visualisasi Evaluasi Model")
+
+col1, col2 = st.columns(2)
+with col1:
+
+    st.markdown("### 🔷 Confusion Matrix")
+
+    fig_cm = px.imshow(
+        cm,
+        text_auto=True,
+        color_continuous_scale="Blues",
+        aspect="auto",
+        labels=dict(
+            x="Prediksi",
+            y="Aktual",
+            color="Jumlah"
+        )
+    )
+
+    fig_cm.update_layout(
+        height=450,
+        margin=dict(l=20, r=20, t=40, b=20)
+    )
+
+    st.plotly_chart(
+        fig_cm,
+        use_container_width=True
+    )
+
+    st.info(
+        """
+        **Interpretasi**
+
+        Nilai pada diagonal menunjukkan prediksi yang benar.
+
+        Nilai di luar diagonal menunjukkan kesalahan prediksi model.
+        """
+    )
+    with col2:
+
+    st.markdown("### ⭐ Feature Importance")
+
+    importance = importance.sort_values(
+        by="Importance",
+        ascending=True
+    )
+
+    fig_imp = px.bar(
+
+        importance,
+
+        x="Importance",
+
+        y="Fitur",
+
+        orientation="h",
+
+        color="Importance",
+
+        color_continuous_scale="Blues"
+
+    )
+
+    fig_imp.update_layout(
+
+        height=450,
+
+        margin=dict(
+            l=20,
+            r=20,
+            t=40,
+            b=20
+        ),
+
+        coloraxis_showscale=False
+
+    )
+
+    st.plotly_chart(
+
+        fig_imp,
+
+        use_container_width=True
+
+    )
+
+    st.info(
+        """
+        **Interpretasi**
+
+        Semakin besar nilai importance,
+        semakin besar pengaruh fitur tersebut
+        terhadap prediksi Random Forest.
+        """
+    )
+    st.divider()
