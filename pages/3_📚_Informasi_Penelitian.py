@@ -300,3 +300,178 @@ Informasi umum mengenai penelitian yang dilakukan.
 
 </div>
 """, unsafe_allow_html=True)
+col1,col2,col3,col4 = st.columns(4)
+
+with col1:
+
+    st.markdown("""
+<div class="info-card">
+
+<div class="info-icon">
+👤
+</div>
+
+<div class="info-title">
+
+Peneliti
+
+</div>
+
+<div class="info-value">
+
+Muhammad Rizki Maulidin
+
+</div>
+
+</div>
+""", unsafe_allow_html=True)
+
+with col2:
+
+    st.markdown("""
+<div class="info-card">
+
+<div class="info-icon">
+🆔
+</div>
+
+<div class="info-title">
+
+NPM
+
+</div>
+
+<div class="info-value">
+
+2211050009
+
+</div>
+
+</div>
+""", unsafe_allow_html=True)
+
+with col3:
+
+    st.markdown("""
+<div class="info-card">
+
+<div class="info-icon">
+🎓
+</div>
+
+<div class="info-title">
+
+Program Studi
+
+</div>
+
+<div class="info-value">
+
+Sistem Informasi
+
+</div>
+
+</div>
+""", unsafe_allow_html=True)
+
+with col4:
+
+    st.markdown("""
+<div class="info-card">
+
+<div class="info-icon">
+🏫
+</div>
+
+<div class="info-title">
+
+Universitas
+
+</div>
+
+<div class="info-value">
+
+IIB Darmajaya
+
+</div>
+
+</div>
+""", unsafe_allow_html=True)
+
+st.write("")
+
+col5,col6,col7 = st.columns(3)
+
+with col5:
+
+    st.markdown("""
+<div class="info-card">
+
+<div class="info-icon">
+📊
+</div>
+
+<div class="info-title">
+
+Metode
+
+</div>
+
+<div class="info-value">
+
+Random Forest
+
+</div>
+
+</div>
+""", unsafe_allow_html=True)
+
+with col6:
+
+    st.markdown("""
+<div class="info-card">
+
+<div class="info-icon">
+📂
+</div>
+
+<div class="info-title">
+
+Dataset
+
+</div>
+
+<div class="info-value">
+
+Kaggle
+
+</div>
+
+</div>
+""", unsafe_allow_html=True)
+
+with col7:
+
+    st.markdown("""
+<div class="info-card">
+
+<div class="info-icon">
+📅
+</div>
+
+<div class="info-title">
+
+Tahun
+
+</div>
+
+<div class="info-value">
+
+2026
+
+</div>
+
+</div>
+""", unsafe_allow_html=True)
+
+st.divider()
