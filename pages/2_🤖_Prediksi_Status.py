@@ -866,6 +866,55 @@ st.plotly_chart(
     fig,
     use_container_width=True
 )
+st.divider()
+
+st.subheader("⭐ Feature Importance")
+
+feature_df = pd.read_csv(
+
+    BASE_DIR / "data" / "feature_importance.csv"
+
+)
+
+feature_df = feature_df.sort_values(
+
+    "Importance",
+
+    ascending=False
+
+).head(10)
+
+fig = px.bar(
+
+    feature_df,
+
+    x="Importance",
+
+    y="Feature",
+
+    orientation="h",
+
+    color="Importance",
+
+    title="10 Fitur Paling Berpengaruh"
+
+)
+
+fig.update_layout(
+
+    yaxis={'categoryorder':'total ascending'},
+
+    template="plotly_white"
+
+)
+
+st.plotly_chart(
+
+    fig,
+
+    use_container_width=True
+
+)
 # ==========================================================
 # BAGIAN 6
 # RINGKASAN DATA
