@@ -503,26 +503,32 @@ with c3:
         "Metode",
         "Random Forest"
     )
-    # =============================================
-    # BAR CHART
-    # =============================================
+with c3:
 
-    df_prob = pd.DataFrame({
+    st.metric(
+        "Metode",
+        "Random Forest"
+    )
 
-        "Status":[
-            "Lancar",
-            "Tidak Lancar"
-        ],
+# =============================================
+# BAR CHART
+# =============================================
 
-        "Probabilitas":[
-            prob_lancar,
-            prob_tidak_lancar
-        ]
+df_prob = pd.DataFrame({
 
-    })
+    "Status":[
+        "Lancar",
+        "Tidak Lancar"
+    ],
 
-    fig = px.bar(
+    "Probabilitas":[
+        prob_lancar,
+        prob_tidak_lancar
+    ]
 
+})
+
+fig = px.bar(...)
         df_prob,
 
         x="Status",
@@ -552,13 +558,14 @@ with c3:
         use_container_width=True
     )
 
-    # =============================================
-    # GAUGE CHART
-    # =============================================
+# =============================================
+# GAUGE CHART
+# =============================================
+nilai = prob_lancar if prediction == 1 else prob_tidak_lancar
 
-    nilai = prob_lancar if prediction == 1 else prob_tidak_lancar
+fig2 = go.Figure(
 
-    fig2 = go.Figure(
+st.plotly_chart(fig2,use_container_width=True)
 
         go.Indicator(
 
@@ -579,8 +586,7 @@ with c3:
             }
 
         )
-
-    )
+)
 
     fig2.update_layout(height=400)
 
@@ -631,22 +637,22 @@ st.dataframe(
     use_container_width=True,
     hide_index=True
 )
-    # =============================================
-    # INTERPRETASI
-    # =============================================
 
-    st.markdown("""
-    <div class="section-card">
+# =============================================
+# INTERPRETASI
+# =============================================
+st.markdown("""
 
-    <h3>📝 Interpretasi Hasil</h3>
+<div class="section-card">
 
-    </div>
+<h3>📝 Interpretasi Hasil</h3>
 
-    """, unsafe_allow_html=True)
+</div>
 
+""", unsafe_allow_html=True)
     if prediction == 1:
 
-        st.success(f"""
+st.success(f"""
 
 Model Random Forest memprediksi bahwa calon
 nasabah memiliki **status pinjaman Lancar**
