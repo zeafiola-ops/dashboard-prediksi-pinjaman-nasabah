@@ -280,16 +280,6 @@ st.divider()
 st.markdown("""
 <div class="card">
 
-<h2 style="
-text-align:center;
-color:#1848A5;
-font-size:32px;
-">
-
-📚 Informasi Penelitian
-
-</h2>
-
 <hr>
 
 <table style="width:100%;font-size:18px;line-height:2.2;">
