@@ -519,6 +519,10 @@ prediksi = st.button(
 
 if prediksi:
 
+    with st.spinner("🔄 Sedang melakukan prediksi..."):
+
+        # seluruh kode prediksi tetap di sini
+
     # ==========================================
     # Membuat dictionary seluruh feature = 0
     # ==========================================
