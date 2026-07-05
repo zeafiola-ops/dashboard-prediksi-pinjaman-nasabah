@@ -396,10 +396,6 @@ try:
 
     st.session_state["prob_tidak_lancar"] = prob_tidak_lancar
 
-except Exception as e:
-
-    st.error(f"Terjadi kesalahan saat prediksi: {e}")
-
 
 except Exception as e:
 
