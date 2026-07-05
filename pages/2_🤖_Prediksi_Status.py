@@ -750,3 +750,278 @@ if "prediction" in st.session_state:
         fig,
         use_container_width=True
     )
+# ==========================================================
+# BAGIAN 6
+# RINGKASAN DATA
+# ==========================================================
+
+if "prediction" in st.session_state:
+
+    st.divider()
+
+    st.markdown("""
+    <div class="card">
+
+    <h2 style="color:#1848A5;">
+    📋 Ringkasan Data Nasabah
+    </h2>
+
+    </div>
+    """, unsafe_allow_html=True)
+
+    ringkasan = pd.DataFrame({
+
+        "Variabel":[
+
+            "Usia",
+
+            "Lama Bekerja",
+
+            "Pendapatan Tahunan",
+
+            "Skor Kredit",
+
+            "Lama Riwayat Kredit",
+
+            "Aset Tabungan",
+
+            "Total Hutang",
+
+            "Pernah Gagal Bayar",
+
+            "Jumlah Tunggakan",
+
+            "Catatan Negatif",
+
+            "Jumlah Pinjaman",
+
+            "Suku Bunga",
+
+            "Status Pekerjaan",
+
+            "Tipe Produk",
+
+            "Tujuan Pinjaman"
+
+        ],
+
+        "Nilai":[
+
+            usia,
+
+            lama_bekerja,
+
+            f"Rp {pendapatan:,.0f}",
+
+            skor_kredit,
+
+            lama_riwayat,
+
+            f"Rp {aset_tabungan:,.0f}",
+
+            f"Rp {hutang:,.0f}",
+
+            gagal_bayar,
+
+            tunggakan,
+
+            catatan_negatif,
+
+            f"Rp {jumlah_pinjaman:,.0f}",
+
+            f"{suku_bunga:.2f} %",
+
+            status_pekerjaan,
+
+            tipe_produk,
+
+            tujuan
+
+        ]
+
+    })
+
+    st.dataframe(
+        ringkasan,
+        use_container_width=True,
+        hide_index=True
+    )
+
+    st.divider()
+
+# ==========================================================
+# INTERPRETASI
+# ==========================================================
+
+    st.markdown("""
+    <div class="card">
+
+    <h2 style="color:#1848A5;">
+    💡 Interpretasi Hasil
+    </h2>
+
+    </div>
+    """, unsafe_allow_html=True)
+
+    if prediction == 1:
+
+        st.success("""
+
+### ✅ Status Pinjaman Diprediksi **LANCAR**
+
+Model Random Forest memperkirakan bahwa calon nasabah
+memiliki kemungkinan besar untuk memenuhi kewajiban pembayaran pinjaman.
+
+Semakin tinggi probabilitas **Lancar**, semakin kecil
+tingkat risiko kredit.
+
+""")
+
+    else:
+
+        st.error("""
+
+### ❌ Status Pinjaman Diprediksi **TIDAK LANCAR**
+
+Model Random Forest memperkirakan bahwa calon nasabah
+memiliki risiko lebih tinggi mengalami gagal bayar.
+
+Semakin tinggi probabilitas **Tidak Lancar**, semakin tinggi
+risiko kredit.
+
+""")
+
+    st.divider()
+
+# ==========================================================
+# INFORMASI MODEL
+# ==========================================================
+
+    st.markdown("""
+    <div class="card">
+
+    <h2 style="color:#1848A5;">
+    📌 Informasi Model
+    </h2>
+
+    </div>
+    """, unsafe_allow_html=True)
+
+    c1,c2,c3 = st.columns(3)
+
+    with c1:
+
+        st.metric(
+            "Metode",
+            "Random Forest"
+        )
+
+    with c2:
+
+        st.metric(
+            "Jumlah Fitur",
+            len(feature_names)
+        )
+
+    with c3:
+
+        st.metric(
+            "Jumlah Kelas",
+            "2"
+        )
+
+    st.divider()
+
+# ==========================================================
+# DOWNLOAD HASIL
+# ==========================================================
+
+    waktu = datetime.now().strftime("%d-%m-%Y %H:%M:%S")
+
+    hasil = pd.DataFrame({
+
+        "Status Prediksi":[
+
+            "Lancar" if prediction==1 else "Tidak Lancar"
+
+        ],
+
+        "Probabilitas Lancar":[
+
+            round(prob_lancar*100,2)
+
+        ],
+
+        "Probabilitas Tidak Lancar":[
+
+            round(prob_tidak_lancar*100,2)
+
+        ],
+
+        "Waktu Prediksi":[
+
+            waktu
+
+        ]
+
+    })
+
+    csv = hasil.to_csv(index=False).encode("utf-8")
+
+    st.download_button(
+
+        "📥 Download Hasil Prediksi",
+
+        csv,
+
+        "hasil_prediksi.csv",
+
+        "text/csv",
+
+        use_container_width=True
+
+    )
+
+    st.info(f"🕒 Prediksi dilakukan pada : **{waktu}**")
+
+    st.divider()
+
+# ==========================================================
+# FOOTER
+# ==========================================================
+
+st.markdown("""
+
+<div style="
+
+text-align:center;
+
+padding:20px;
+
+color:gray;
+
+font-size:15px;
+
+">
+
+Dashboard Prediksi Status Pinjaman Nasabah
+
+<br>
+
+Metode Random Forest
+
+<br>
+
+Program Studi Sistem Informasi
+
+<br>
+
+Business Intelligence
+
+<br><br>
+
+© 2026
+
+</div>
+
+""", unsafe_allow_html=True)
