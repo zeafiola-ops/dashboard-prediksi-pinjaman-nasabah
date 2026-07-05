@@ -400,11 +400,6 @@ try:
 except Exception as e:
 
     st.error(e)
-
-    # Simpan ke session_state
-    st.session_state["prediction"] = prediction
-    st.session_state["prob_lancar"] = prob_lancar
-    st.session_state["prob_tidak_lancar"] = prob_tidak_lancar
 # ==========================================================
 # BAGIAN 4 - HASIL PREDIKSI
 # ==========================================================
