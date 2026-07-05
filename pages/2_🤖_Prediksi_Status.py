@@ -769,6 +769,58 @@ st.plotly_chart(
 )
 st.divider()
 
+st.subheader("🥧 Distribusi Probabilitas Prediksi")
+
+pie_df = pd.DataFrame({
+
+    "Status":[
+        "Lancar",
+        "Tidak Lancar"
+    ],
+
+    "Probabilitas":[
+        prob_lancar,
+        prob_tidak_lancar
+    ]
+
+})
+
+fig_pie = px.pie(
+
+    pie_df,
+
+    values="Probabilitas",
+
+    names="Status",
+
+    hole=0.45,
+
+    color="Status",
+
+    color_discrete_map={
+
+        "Lancar":"#2E7D32",
+
+        "Tidak Lancar":"#D32F2F"
+
+    }
+
+)
+
+fig_pie.update_traces(
+
+    textinfo="percent+label"
+
+)
+
+st.plotly_chart(
+
+    fig_pie,
+
+    use_container_width=True
+
+)
+
     
 # ======================================================
 # BAR CHART
