@@ -1,0 +1,25 @@
+Fitur,Importance
+skor_kredit,0.21722553791088886
+rasio_hutang_terhadap_pendapatan,0.17330779980670613
+suku_bunga,0.06675617284098127
+lama_riwayat_kredit_tahun,0.06299750874190842
+tunggakan_2thn_terakhir,0.06114056786049973
+rasio_pinjaman_terhadap_pendapatan,0.045124700833765866
+usia,0.044917035993839574
+rasio_pembayaran_terhadap_pendapatan,0.042471338193441406
+gagal_bayar_tercatat,0.04093106561901481
+lama_bekerja_tahun,0.03841089395886957
+hutang_saat_ini,0.03367031732019642
+aset_tabungan,0.030471837498484228
+pendapatan_tahunan,0.029133685458339748
+jumlah_pinjaman,0.028197707008632417
+tujuan_pinjaman_Pendidikan,0.020382483197179686
+catatan_negatif,0.016672497732585157
+tujuan_pinjaman_Konsolidasi Hutang,0.015391410249843003
+tujuan_pinjaman_Pribadi,0.00979596150295492
+tipe_produk_Pinjaman Pribadi,0.008146409511283616
+tipe_produk_Kredit Berjalan,0.004755905095344338
+status_pekerjaan_Mahasiswa,0.002692314169449577
+status_pekerjaan_Wiraswasta,0.0025732561124786123
+tujuan_pinjaman_Medis,0.0024400468979307527
+tujuan_pinjaman_Renovasi Rumah,0.0023935464853820543
