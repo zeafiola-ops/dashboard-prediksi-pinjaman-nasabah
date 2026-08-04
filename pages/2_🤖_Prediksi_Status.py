@@ -29,7 +29,7 @@ st.set_page_config(
 
 BASE_DIR = Path(__file__).resolve().parent.parent
 
-MODEL_PATH = BASE_DIR / "model" / "random_forest_model (1).pkl"
+MODEL_PATH = BASE_DIR / "model" / "random_forest_model (3).pkl"
 
 FEATURE_PATH = BASE_DIR / "data" / "feature_names.pkl"
 
