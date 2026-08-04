@@ -22,9 +22,9 @@ st.set_page_config(
 # ==========================================
 BASE_DIR = Path(__file__).parent
 
-DATA_PATH = BASE_DIR / "data" / "hasil_prediksi_deployment_google_sheets.xlsx"
+DATA_PATH = BASE_DIR / "data" / "hasil_prediksi_deployment_google_sheets (3).xlsx"
 FEATURE_PATH = BASE_DIR / "data" / "feature_names.pkl"
-MODEL_PATH = BASE_DIR / "model" / "random_forest_model.pkl"
+MODEL_PATH = BASE_DIR / "model" / "random_forest_model (3).pkl"
 LOGO_PATH = BASE_DIR / "assets" / "logo.png"
 
 # ==========================================
